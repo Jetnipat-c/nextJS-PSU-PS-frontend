@@ -5,7 +5,10 @@ function HomePage() {
   const [password,setPassword] = useState('');
   
   const login = async () => {
-    
+    const result = await axios.post('http://localhost:3001/userloginpsu/login',
+    { username: username, password: password },)
+    console.log(result.data)
+    sessionStorage.setItem('login',JSON.stringify({user: result.data}))
   }
   return (
   <div>
@@ -13,7 +16,7 @@ function HomePage() {
     <form>
       <h3>username : <input type="text" onChange={(e)=>setUsername(e.target.value)}></input> </h3>
       <h3>password : <input type="text" onChange={(e)=>setPassword(e.target.value)}></input> </h3>
-      <button onClick="">Login</button>
+      <button type="submit" onClick={login}>Login</button>
     </form>
   </div>
   )
