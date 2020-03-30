@@ -1,22 +1,27 @@
-import { useState } from "react";
+import { useState,useEffect  } from "react";
 import axios from "axios";
 function HomePage() {
   const [user,setUser] = useState('');
   const [pass,setPass] = useState('');
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState();
+
+  useEffect(()=>{
+    getprofile();
+  },[])
+
   const login = async () => {
     const result = await axios.post('http://localhost:3001/userloginpsu/login',
     { username: user, password: pass },)
-    console.log("xxxxx")
     console.log(result.data)
     sessionStorage.setItem('login',JSON.stringify({user: result.data}))
+    
   }
 
-  const getprofile = async (e) => {
-    const profile = sessionStorage.getItem('login',JSON.stringify({user}))
-    console.log('profile',profile)
-    //setProfile = profile
-    e.preventDefault()
+  const getprofile = async () => {
+    const profiles = sessionStorage.getItem('login',JSON.stringify(user))
+    console.log('profiles',profiles)
+    setProfile(profiles)
+    //console.log('profile',profile)
     //console.log(sessionStorage.getItem('login',JSON.stringify({user})))
   }
   return (
