@@ -1,9 +1,9 @@
-
+import LoginPage from '../src/components/Login'
 function HomePage() {
 
   return (
   <div>
-    homepage
+    <LoginPage></LoginPage>
   </div>
   )
 }
