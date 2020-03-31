@@ -34,6 +34,8 @@ export default class MyDocument extends Document {
       <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       <link rel="icon" href="/static/images/psu_icon.png"></link>
+      <link rel="stylesheet" href="/static/styles/fonts.css"></link>
+      <link rel='stylesheet'   href='https://cdnjs.cloudflare.com/ajax/libs/antd/3.22.0/antd.min.css' />
       </Head>
       <body>
         <Main/>
