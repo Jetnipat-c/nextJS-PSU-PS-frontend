@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-
+import { Form, Input, Button, Checkbox } from 'antd'
+import { UserOutlined, LockOutlined } from '@ant-design/icons'
 const StyledWrapper = styled.div`
   .main {
     display: flex;
@@ -32,12 +33,17 @@ const StyledWrapper = styled.div`
   button {
     margin: 10px;
   }
+  
 `
 
 function LoginPage () {
   const [user, setUser] = useState('')
   const [pass, setPass] = useState('')
   const [profile, setProfile] = useState()
+
+  const onFinish = values => {
+    console.log('Received values of form: ', values)
+  }
 
   useEffect(() => {
     getprofile()
@@ -64,13 +70,61 @@ function LoginPage () {
       <div className='main'>
         <div className='box_login'>
           <h1>Login PSU</h1>
-          <h3>
-            username :{' '}
-            <input type='text' onChange={e => setUser(e.target.value)}></input>{' '}
+          <Form
+            name='normal_login'
+            className='login-form'
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+          >
+            <Form.Item
+              name='username'
+              rules={[
+                { required: true, message: 'Please input your Username!' }
+              ]}
+            >
+              <Input
+                prefix={<UserOutlined className='site-form-item-icon' />}
+                placeholder='Username'
+              />
+            </Form.Item>
+            <Form.Item
+              name='password'
+              rules={[
+                { required: true, message: 'Please input your Password!' }
+              ]}
+            >
+              <Input
+                prefix={<LockOutlined className='site-form-item-icon' />}
+                type='password'
+                placeholder='Password'
+              />
+            </Form.Item>
+            <Form.Item>
+              <Form.Item name='remember' valuePropName='checked' noStyle>
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
+            </Form.Item>
+
+            <Form.Item>
+              <Button
+                type='primary'
+                htmlType='submit'
+                className='login-form-button'
+              >
+                Log in
+              </Button>
+            </Form.Item>
+          </Form>
+
+          {/* <h3>
+            username 
+            <Input size="large" placeholder="large size" prefix={<UserOutlined />} onChange={e => setUser(e.target.value)} />
+            <input type='text' onChange={e => setUser(e.target.value)}></input
           </h3>
           <h3>
-            password :{' '}
-            <input type='text' onChange={e => setPass(e.target.value)}></input>{' '}
+            password 
+            <Input.Password size="large" placeholder="large Password" onChange={e => setPass(e.target.value)} />
+            <input type='text' onChange={e => setPass(e.target.value)}></input
           </h3>
           <div className='box_btn'>
             <button type='submit' onClick={login}>
@@ -80,7 +134,7 @@ function LoginPage () {
               Get profile
             </button>
             {profile}
-          </div>
+          </div> */}
         </div>
       </div>
     </StyledWrapper>
