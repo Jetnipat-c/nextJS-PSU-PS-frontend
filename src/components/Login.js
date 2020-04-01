@@ -84,7 +84,8 @@ function LoginPage () {
             >
               <Input
                 prefix={<UserOutlined className='site-form-item-icon' />}
-                placeholder='Username'
+                placeholder='Username' 
+                onChange={e => setUser(e.target.value)} 
               />
             </Form.Item>
             <Form.Item
@@ -97,6 +98,7 @@ function LoginPage () {
                 prefix={<LockOutlined className='site-form-item-icon' />}
                 type='password'
                 placeholder='Password'
+                onChange={e => setPass(e.target.value)} 
               />
             </Form.Item>
             <Form.Item>
@@ -110,6 +112,7 @@ function LoginPage () {
                 type='primary'
                 htmlType='submit'
                 className='login-form-button'
+                onClick={login}
               >
                 Log in
               </Button>
