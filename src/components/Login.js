@@ -15,29 +15,17 @@ const StyledWrapper = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .container {
-    background-color: hsla(120, 33%, 99%, 0.2);
-  }
-  .boxlogin {
-    margin: 50px;
-    width: 300px;
-  }
   .box_login {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background-color: hsla(120, 33%, 99%, 0.952);
   }
   .box_btn {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .Login-component {
-    background-image: url(../static/images/bg_login.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 `
 
@@ -86,16 +74,17 @@ function LoginPage () {
                 onChange={e => setPass(e.target.value)}
               ></input>{' '}
             </h3>
-          </div>
-          <div className='box_btn'>
-          <button type='submit' onClick={login}>
+            <button type='submit' onClick={login}>
             Login
           </button>
           <button type='submit' onClick={getprofile}>
             Get profile
           </button>
           {profile}
-        </div>
+          </div>
+          
+          
+        
         </div>
       </div>
     </StyledWrapper>
