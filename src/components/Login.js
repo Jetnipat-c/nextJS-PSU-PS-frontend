@@ -20,12 +20,17 @@ const StyledWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: hsla(120, 33%, 99%, 0.952);
+    min-width: 320px;
+    min-height: 200px;
+    background-color: rgba(255, 255, 255, 0.9);
   }
   .box_btn {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  button {
+    margin: 10px;
   }
 `
 
@@ -57,34 +62,25 @@ function LoginPage () {
   return (
     <StyledWrapper>
       <div className='main'>
-        <div className='container'>
-          <div className='box_login'>
-            <h1>Login PSU!</h1>
-            <h3>
-              username :{' '}
-              <input
-                type='text'
-                onChange={e => setUser(e.target.value)}
-              ></input>{' '}
-            </h3>
-            <h3>
-              password :{' '}
-              <input
-                type='text'
-                onChange={e => setPass(e.target.value)}
-              ></input>{' '}
-            </h3>
+        <div className='box_login'>
+          <h1>Login PSU</h1>
+          <h3>
+            username :{' '}
+            <input type='text' onChange={e => setUser(e.target.value)}></input>{' '}
+          </h3>
+          <h3>
+            password :{' '}
+            <input type='text' onChange={e => setPass(e.target.value)}></input>{' '}
+          </h3>
+          <div className='box_btn'>
             <button type='submit' onClick={login}>
-            Login
-          </button>
-          <button type='submit' onClick={getprofile}>
-            Get profile
-          </button>
-          {profile}
+              Login
+            </button>
+            <button type='submit' onClick={getprofile}>
+              Get profile
+            </button>
+            {profile}
           </div>
-          
-          
-        
         </div>
       </div>
     </StyledWrapper>
