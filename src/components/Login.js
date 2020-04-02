@@ -21,7 +21,7 @@ const StyledWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    min-width: 320px;
+    min-width: 300px;
     min-height: 200px;
     background-color: rgba(255, 255, 255, 0.9);
   }
@@ -32,6 +32,11 @@ const StyledWrapper = styled.div`
   }
   button {
     margin: 10px;
+  }
+  h1 {
+    margin-top: 10px;
+      font-family: 'Roboto';
+      font-weight: 600;
   }
   
 `
@@ -116,6 +121,14 @@ function LoginPage () {
               >
                 Log in
               </Button>
+              {/* <Button
+                type='primary'
+                htmlType='submit'
+                onClick={getprofile}
+              >
+                Get profile
+              </Button>
+              {profile} */}
             </Form.Item>
           </Form>
 
