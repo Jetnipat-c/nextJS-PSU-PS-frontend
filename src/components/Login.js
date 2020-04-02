@@ -37,6 +37,7 @@ const StyledWrapper = styled.div`
     margin-top: 10px;
       font-family: 'Roboto';
       font-weight: 600;
+      color: rgb(90, 90, 90);
   }
   
 `
