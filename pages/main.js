@@ -15,13 +15,19 @@ const StyledWrapper = styled.div`
     margin: 16px 24px 16px 0;
     float: left;
   }
-  .topic{
+  .topic {
     text-align: left;
-    #text{
-        padding:10px 10px 0 0;
+    #text {
+      padding: 10px 10px 0 0;
     }
+  }
+  .titlepage{
+    text-align: center;
+    min-width:150px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 24px;
 }
-
 `
 const { Header, Content, Footer } = Layout
 
@@ -62,15 +68,20 @@ function MainPage () {
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <a href='/Main'>Main</a>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>User : </Breadcrumb.Item>
           </Breadcrumb>
           <div className='site-layout-content'>
-            <div className="topic">
-                    <span id='text'>เอกสารที่ มอ. 696 /</span>
-                    <Input style={{ width: 150 }} placeholder="27/11/2541" />
-                </div>
+          <div className="titlepage">
+                    แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
+            </div>
+            <div className='topic'>
+              <span id='text'>เอกสารที่ มอ. 696 /</span>
+              <Input style={{ width: 150 }} placeholder='27/11/2541' />
+            </div>
+
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
