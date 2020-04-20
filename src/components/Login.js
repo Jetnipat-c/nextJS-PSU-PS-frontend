@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { Form, Input, Button, Checkbox } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
+import Router from 'next/router'
 const StyledWrapper = styled.div`
   .main {
     display: flex;
@@ -56,12 +57,13 @@ function LoginPage () {
   }, [])
 
   const login = async () => {
-    const result = await axios.post(
-      'http://localhost:3001/userloginpsu/login',
-      { username: user, password: pass }
-    )
-    console.log(result.data)
-    sessionStorage.setItem('login', JSON.stringify({ user: result.data }))
+    // const result = await axios.post(
+    //   'http://localhost:3001/userloginpsu/login',
+    //   { username: user, password: pass }
+    // )
+    // console.log(result.data)
+    // sessionStorage.setItem('login', JSON.stringify({ user: result.data }))
+    Router.push('/Main')
   }
 
   const getprofile = async () => {
