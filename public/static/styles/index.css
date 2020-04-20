@@ -4,8 +4,9 @@ body, html {
   }
 
   .dsfsdf{
-    min-width: 400px;
-    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: aquamarine;
   }
 
   h1 {

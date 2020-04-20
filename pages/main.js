@@ -1,7 +1,9 @@
 import styled from 'styled-components'
-import { Layout, Menu, Breadcrumb } from 'antd'
+import { Layout, Menu, Breadcrumb, Form, Input, Button, Radio } from 'antd'
 const StyledWrapper = styled.div`
-.site-layout-content {
+  .site-layout-content {
+    // display: flex;
+    // justify-content: flex-end;
     background: #fff;
     padding: 24px;
     min-height: 280px;
@@ -12,9 +14,41 @@ const StyledWrapper = styled.div`
     background: rgba(255, 255, 255, 0.2);
     margin: 16px 24px 16px 0;
     float: left;
-  }`
+  }
+  .topic{
+    text-align: left;
+    #text{
+        padding:10px 10px 0 0;
+    }
+}
+
+`
 const { Header, Content, Footer } = Layout
+
 function MainPage () {
+  const FormLayoutDemo = () => {
+    const [form] = Form.useForm()
+    const [formLayout, setFormLayout] = useState('horizontal')
+
+    const onFormLayoutChange = ({ layout }) => {
+      setFormLayout(layout)
+    }
+
+    const formItemLayout =
+      formLayout === 'horizontal'
+        ? {
+            labelCol: { span: 4 },
+            wrapperCol: { span: 14 }
+          }
+        : null
+
+    const buttonItemLayout =
+      formLayout === 'horizontal'
+        ? {
+            wrapperCol: { span: 14, offset: 4 }
+          }
+        : null
+  }
   return (
     <StyledWrapper>
       <Layout className='layout'>
@@ -32,7 +66,12 @@ function MainPage () {
             <Breadcrumb.Item>List</Breadcrumb.Item>
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
-          <div className='site-layout-content'>Content</div>
+          <div className='site-layout-content'>
+            <div className="topic">
+                    <span id='text'>เอกสารที่ มอ. 696 /</span>
+                    <Input style={{ width: 150 }} placeholder="27/11/2541" />
+                </div>
+          </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
           Ant Design ©2018 Created by Ant UED
