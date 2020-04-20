@@ -1,5 +1,15 @@
 import styled from 'styled-components'
-import { Layout, Menu, Breadcrumb, Form, Input, Button, Radio } from 'antd'
+import {
+  Layout,
+  Menu,
+  Breadcrumb,
+  Form,
+  Input,
+  Button,
+  Radio,
+  Row,
+  Col
+} from 'antd'
 const StyledWrapper = styled.div`
   .site-layout-content {
     // display: flex;
@@ -21,13 +31,13 @@ const StyledWrapper = styled.div`
       padding: 10px 10px 0 0;
     }
   }
-  .titlepage{
+  .titlepage {
     text-align: center;
-    min-width:150px;
+    min-width: 150px;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 24px;
-}
+  }
 `
 const { Header, Content, Footer } = Layout
 
@@ -74,14 +84,26 @@ function MainPage () {
             <Breadcrumb.Item>User : </Breadcrumb.Item>
           </Breadcrumb>
           <div className='site-layout-content'>
-          <div className="titlepage">
-                    แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
+            <div className='titlepage'>
+              แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
+              กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
             </div>
-            <div className='topic'>
-              <span id='text'>เอกสารที่ มอ. 696 /</span>
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={6}>
               <Input style={{ width: 150 }} placeholder='27/11/2541' />
-            </div>
-
+              </Col>
+              <Col span={6} pull={18}>
+              เอกสารที่ มอ. 696 /
+              </Col>
+            </Row>
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={6}>
+              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+              </Col>
+              <Col span={6} pull={18}>
+              ลงวันที่
+              </Col>
+            </Row>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
