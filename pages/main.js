@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 import * as axios from 'axios'
 import { useForm } from 'react-hook-form'
+import Router from 'next/router'
 import {
   Layout,
   Menu,
@@ -12,7 +13,7 @@ import {
 } from 'antd'
 import { SmileOutlined } from '@ant-design/icons';
 import Form001 from '../src/components/Form001'
-import { Route } from 'react-router-dom'
+
 const { Header, Content, Footer } = Layout
 const StyledWrapper = styled.div`
   .site-layout-content {
@@ -62,7 +63,7 @@ function MainPage () {
           </Breadcrumb>
           <div className='site-layout-content'>
           <div className="box" >
-          <SmileOutlined  onClick={()=> Router.push('/')} style={{ fontSize: '100px', color: '#08c' }}/>
+          <SmileOutlined  onClick={()=> Router.push('/Form001')} style={{ fontSize: '100px', color: '#08c' }}/>
           <h3>เพิ่มคำสั่งซื้อพัสดุแบบปกติ  001</h3>
                     <h4>- เพิ่มคำสั่งซื้อรายการพัสดุไม่เกิน 2 รายการ</h4>
                     <h4>- เพิ่มคำสั่งซื้อรายการพัสดุมากกว่า 2 รายการ</h4>
