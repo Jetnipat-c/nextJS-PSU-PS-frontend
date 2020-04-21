@@ -57,12 +57,12 @@ function LoginPage () {
   }, [])
 
   const login = async () => {
-    // const result = await axios.post(
-    //   'http://localhost:3001/userloginpsu/login',
-    //   { username: user, password: pass }
-    // )
-    // console.log(result.data)
-    // sessionStorage.setItem('login', JSON.stringify({ user: result.data }))
+    const result = await axios.post(
+      'http://localhost:3001/auth/login',
+      { username: user, password: pass }
+    )
+    console.log('result data',result.data)
+    sessionStorage.setItem('login', JSON.stringify({ user: result.data }))
     Router.push('/Main')
   }
 
