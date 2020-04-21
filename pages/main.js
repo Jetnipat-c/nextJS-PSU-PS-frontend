@@ -120,7 +120,7 @@ function MainPage () {
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
                 {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
-                <input name="firstname" ref={register} ></input>
+                <input name="location" ref={register} ></input>
               </Col>
               <Col span={6} pull={18}>
                 เอกสารที่ มอ. 696 /
@@ -129,7 +129,7 @@ function MainPage () {
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
                 {/* <Input  name="lastname" ref={register} style={{ maxWidth: 500  }} placeholder='' /> */}
-                <input name="lastname" ref={register} ></input>
+                <input name="date" ref={register} ></input>
               </Col>
               <Col span={6} pull={18}>
                 ลงวันที่
@@ -409,7 +409,7 @@ function MainPage () {
               </Col>
             </Row> */}
 
-        <Button onClick={Singin} type="primary">บันทึก</Button>
+        {/* <Button onClick={Singin} type="primary">บันทึก</Button> */}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
