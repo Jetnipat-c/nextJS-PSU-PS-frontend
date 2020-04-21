@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
+import * as axios from 'axios'
+import { useForm } from 'react-hook-form'
 import {
   Layout,
   Menu,
@@ -44,7 +46,13 @@ const StyledWrapper = styled.div`
 const { Header, Content, Footer } = Layout
 
 function MainPage () {
-  const [user, setUser] = useState('')
+  const { register, handleSubmit, errors } = useForm(); // initialise the hook
+  const onSubmit = data => {
+    console.log(data);
+  };
+  const [location, setLocation] = useState('')
+  const [date, setDate] = useState('')
+
   const FormLayoutDemo = () => {
     const [form] = Form.useForm()
     const [formLayout, setFormLayout] = useState('horizontal')
@@ -71,7 +79,19 @@ function MainPage () {
 
   const Singin = () =>{
     console.log('Free pizza!')
+    // axios.post('/user', {
+    //   firstName: 'Fred',
+    //   lastName: 'Flintstone'
+    // })
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
   }
+
+  
   return (
     <StyledWrapper>
       <Layout className='layout'>
@@ -95,9 +115,11 @@ function MainPage () {
               แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
               กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
             </div>
+
+            <form onSubmit={handleSubmit(onSubmit)}>
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500 }} placeholder='' />
+                <Input style={{ maxWidth: 500 }} placeholder=''  />
               </Col>
               <Col span={6} pull={18}>
                 เอกสารที่ มอ. 696 /
@@ -111,7 +133,19 @@ function MainPage () {
                 ลงวันที่
               </Col>
             </Row>
-
+            </form>
+            
+            <form onSubmit={handleSubmit(onSubmit)}>
+      <input name="firstname" ref={register} /> {/* register an input */}
+ 
+      <input name="lastname" ref={register({ required: true })} />
+      {errors.lastname && 'Last name is required.'}
+ 
+      <input name="age" ref={register({ pattern: /\d+/ })} />
+      {errors.age && 'Please enter number for age.'}
+ 
+      <input type="submit" />
+    </form>
             {/* <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
                 <Input style={{ maxWidth: 500  }} placeholder='' />
