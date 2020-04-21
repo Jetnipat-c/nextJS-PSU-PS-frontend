@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useState, useEffect } from 'react'
 import {
   Layout,
   Menu,
@@ -43,6 +44,7 @@ const StyledWrapper = styled.div`
 const { Header, Content, Footer } = Layout
 
 function MainPage () {
+  const [user, setUser] = useState('')
   const FormLayoutDemo = () => {
     const [form] = Form.useForm()
     const [formLayout, setFormLayout] = useState('horizontal')
@@ -65,6 +67,10 @@ function MainPage () {
             wrapperCol: { span: 14, offset: 4 }
           }
         : null
+  }
+
+  const Singin = () =>{
+    console.log('Free pizza!')
   }
   return (
     <StyledWrapper>
@@ -106,7 +112,7 @@ function MainPage () {
               </Col>
             </Row>
 
-            <Row gutter={[0, 24]}>
+            {/* <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
                 <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
@@ -374,7 +380,9 @@ function MainPage () {
               <Col span={6} pull={18}>
                 เบอร์ติดต่อ
               </Col>
-            </Row>
+            </Row> */}
+
+        <Button onClick={Singin} type="primary">บันทึก</Button>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
