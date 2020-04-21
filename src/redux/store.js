@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import reducers from './reducers'
+import { reducers } from './reducers'
 
-export const intializeStore = (state) =>{
+export const initializeStore = (state) =>{
     return createStore(reducers,state)
 }
