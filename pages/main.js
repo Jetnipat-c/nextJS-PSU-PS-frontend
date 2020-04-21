@@ -8,7 +8,8 @@ import {
   Button,
   Radio,
   Row,
-  Col
+  Col,
+  Checkbox
 } from 'antd'
 const StyledWrapper = styled.div`
   .site-layout-content {
@@ -33,7 +34,7 @@ const StyledWrapper = styled.div`
   }
   .titlepage {
     text-align: center;
-    min-width: 150px;
+    min-maxWidth: 500 px;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 24px;
@@ -90,88 +91,102 @@ function MainPage () {
             </div>
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='27/11/2541' />
+                <Input style={{ maxWidth: 500 }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              เอกสารที่ มอ. 696 /
+                เอกสารที่ มอ. 696 /
               </Col>
             </Row>
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              ลงวันที่
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
-              </Col>
-              <Col span={6} pull={18}>
-              ลงวันที่
-              </Col>
-            </Row>
-
-          <h2>1) รายละเอียด</h2>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
-              </Col>
-              <Col span={6} pull={18}>
-              ด้วยมหาวิทยาลัยการคอมพิวเตอร์ มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ
+                ลงวันที่
               </Col>
             </Row>
 
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              ชื่อโครงการ (ถ้ามี)
+                ลงวันที่
+              </Col>
+            </Row>
+
+            <h2>1) รายละเอียด</h2>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                ด้วยมหาวิทยาลัยการคอมพิวเตอร์
+                มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ
               </Col>
             </Row>
 
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              วันที่ต้องใช้พัสดุ
-              </Col>
-            </Row>
-
-          <h2>2) รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน</h2>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-              <Input style={{ width: 150 , marginRight:10}} placeholder='21/03/2563' />
-              แผ่น
-              </Col>
-              <Col span={6} pull={18}>
-              2.1 รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน (ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม) จำนวน
+                ชื่อโครงการ (ถ้ามี)
               </Col>
             </Row>
 
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 , marginRight:10}} placeholder='21/03/2563' />
-              แผ่น
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              2.2 บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง จำนวน
+                วันที่ต้องใช้พัสดุ
+              </Col>
+            </Row>
+
+            <h2>2) รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน</h2>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input
+                  style={{ maxWidth: 500 , marginRight: 10 }}
+                  placeholder=''
+                />
+                แผ่น
+              </Col>
+              <Col span={6} pull={18}>
+                2.1 รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน
+                (ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม) จำนวน
               </Col>
             </Row>
 
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 , marginRight:10 }} placeholder='21/03/2563' />
-              แผ่น
+                <Input
+                  style={{ maxWidth: 500 , marginRight: 10 }}
+                  placeholder=''
+                />
+                แผ่น
               </Col>
               <Col span={6} pull={18}>
-              2.3 บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง จำนวน
+                2.2
+                บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
+                จำนวน
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input
+                  style={{ maxWidth: 500 , marginRight: 10 }}
+                  placeholder=''
+                />
+                แผ่น
+              </Col>
+              <Col span={6} pull={18}>
+                2.3 บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
+                จำนวน
               </Col>
             </Row>
 
@@ -179,59 +194,187 @@ function MainPage () {
             <h3>คณะกรรมการพิจารณาผล</h3>
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              ประธานกรรมการ
+                ประธานกรรมการ
               </Col>
             </Row>
 
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              กรรมการ
+                กรรมการ
               </Col>
             </Row>
 
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              กรรมการ
+                กรรมการ
               </Col>
             </Row>
 
             <h3>คณะกรรมการตรวจรับพัสดุ</h3>
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              ประธานกรรมการ
+                ประธานกรรมการ
               </Col>
             </Row>
 
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              กรรมการ
+                กรรมการ
               </Col>
             </Row>
 
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-              <Input style={{ width: 150 }} placeholder='21/03/2563' />
+                <Input style={{ maxWidth: 500  }} placeholder='' />
               </Col>
               <Col span={6} pull={18}>
-              กรรมการ
+                กรรมการ
               </Col>
             </Row>
-          <h2>4) แหล่งเงิน</h2>
+
+            <h2>4) แหล่งเงิน</h2>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                <Checkbox value='A'>เงินอุดหนุนจากรัฐบาล ปี</Checkbox>
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                <Checkbox value='B'>เงินรายได้ ปี</Checkbox>
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                <Checkbox value='C'>เงินรายได้สะสม ปี</Checkbox>
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                ทิศทาง
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                นโยบาย
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                ผลงาน
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                งาน
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                หมวดรายจ่าย
+              </Col>
+            </Row>
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                หมวดย่อย
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                ชื่อรายการ
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  , marginRight: 10 }} placeholder='' />
+                ตามที่แนบมาพร้อมนี้
+              </Col>
+              <Col span={6} pull={18}>
+                <Checkbox value='A'>เงินอื่นๆโปรดระบุ</Checkbox>
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  , marginRight: 10 }} placeholder='' />
+                ผู้ขอ
+              </Col>
+              <Col span={6} pull={18}>
+                (ลงชื่อ)
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  , marginRight: 10 }} placeholder='' />
+                
+              </Col>
+              <Col span={6} pull={18}>
+              </Col>
+            </Row>
+
+            <Row gutter={[0, 24]}>
+              <Col span={18} push={10}>
+                <Input style={{ maxWidth: 500  , marginRight: 10 }} placeholder='' />
+              </Col>
+              <Col span={6} pull={18}>
+                เบอร์ติดต่อ
+              </Col>
+            </Row>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
