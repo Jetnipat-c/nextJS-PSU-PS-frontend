@@ -119,7 +119,8 @@ function MainPage () {
             <form onSubmit={handleSubmit(onSubmit)}>
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500 }} placeholder=''  />
+                {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
+                <input name="firstname" ref={register} ></input>
               </Col>
               <Col span={6} pull={18}>
                 เอกสารที่ มอ. 696 /
@@ -127,25 +128,17 @@ function MainPage () {
             </Row>
             <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
+                {/* <Input  name="lastname" ref={register} style={{ maxWidth: 500  }} placeholder='' /> */}
+                <input name="lastname" ref={register} ></input>
               </Col>
               <Col span={6} pull={18}>
                 ลงวันที่
               </Col>
             </Row>
+            <input type="submit" />
             </form>
             
-            <form onSubmit={handleSubmit(onSubmit)}>
-      <input name="firstname" ref={register} /> {/* register an input */}
- 
-      <input name="lastname" ref={register({ required: true })} />
-      {errors.lastname && 'Last name is required.'}
- 
-      <input name="age" ref={register({ pattern: /\d+/ })} />
-      {errors.age && 'Please enter number for age.'}
- 
-      <input type="submit" />
-    </form>
+          
             {/* <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
                 <Input style={{ maxWidth: 500  }} placeholder='' />
