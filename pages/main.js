@@ -5,17 +5,23 @@ import { useForm } from 'react-hook-form'
 import {
   Layout,
   Menu,
+  Icon,
   Breadcrumb,
   Space,
-  Card
+  Card,
 } from 'antd'
+import { SmileOutlined } from '@ant-design/icons';
 import Form001 from '../src/components/Form001'
+import { Route } from 'react-router-dom'
 const { Header, Content, Footer } = Layout
 const StyledWrapper = styled.div`
   .site-layout-content {
     background: #fff;
     padding: 24px;
     min-height: 280px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
   #components-layout-demo-top .logo {
     width: 120px;
@@ -24,6 +30,16 @@ const StyledWrapper = styled.div`
     margin: 16px 24px 16px 0;
     float: left;
   }
+  .box{
+    display:flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    //height:620px;
+    min-height: 1em;
+    justify-content: space-between;
+    background-color:white;
+}
 `
 
 function MainPage () {
@@ -45,14 +61,23 @@ function MainPage () {
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
           <div className='site-layout-content'>
-            Content
-            <Space direction='horizontal'>
-              <Card title='Card' style={{ width: 300 }}>
-                <p>Card content</p>
-                <p>Card content</p>
-              </Card>
-             
-            </Space>
+          <div className="box" >
+          <SmileOutlined  onClick={()=> Router.push('/')} style={{ fontSize: '100px', color: '#08c' }}/>
+          <h3>เพิ่มคำสั่งซื้อพัสดุแบบปกติ  001</h3>
+                    <h4>- เพิ่มคำสั่งซื้อรายการพัสดุไม่เกิน 2 รายการ</h4>
+                    <h4>- เพิ่มคำสั่งซื้อรายการพัสดุมากกว่า 2 รายการ</h4>
+          </div>
+          <div className="box" >
+          <SmileOutlined  onClick={()=> Router.push('/')} style={{ fontSize: '100px', color: '#08c' }}/>
+          <h3>เพิ่มคำสั่งซื้อพัสดุแบบเร่งด่วน  002</h3>
+                    <h4>- เพิ่มคำสั่งซื้อรายการพัสดุไม่เกิน 2 รายการ</h4>
+                    <h4>- เพิ่มคำสั่งซื้อรายการพัสดุมากกว่า 2 รายการ</h4>
+          </div>
+          <div className="box" >
+          <SmileOutlined  onClick={()=> Router.push('/')} style={{ fontSize: '100px', color: '#08c' }}/>
+          <h3>จัดการข้อมูลส่วนตัว</h3>
+                    <h4>- แก้ไขข้อมูลประวัติส่วนตัว</h4>
+          </div>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
