@@ -131,7 +131,7 @@ function Form001Page () {
               <Row gutter={[0, 24]}>
                 <Col span={18} push={10}>
                   {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
-                  <input name='location' ref={register}></input>
+                  <input name='loca' ref={register}></input>
                 </Col>
                 <Col span={6} pull={18}>
                   เอกสารที่ มอ. 696 /
