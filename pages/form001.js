@@ -56,10 +56,15 @@ function Form001Page () {
   }, [])
   const { register, handleSubmit, errors } = useForm() // initialise the hook
   const onSubmit = data => {
-    console.log(data)
+    console.log('data',data)
+    axios.post(`http://localhost:3001/form001/insert`, data )
+      .then(res => {
+        console.log('res',res);
+        console.log('res.data',res.data);
+      })
   }
-  const [location, setLocation] = useState('')
-  const [date, setDate] = useState('')
+  
+  
 
   const FormLayoutDemo = () => {
     const [form] = Form.useForm()
