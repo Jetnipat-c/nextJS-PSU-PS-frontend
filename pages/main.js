@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import OptionPage from '../src/components/Option'
@@ -24,19 +24,19 @@ const StyledWrapper = styled.div`
 `
 const MainPage = () => {
   const [user, setUser] = useState('')
-  const [selectedMenuItem, setSelectedMenuItem]= useState('1');
-  const componentsSwtich = (key) => {
+  const [selectedMenuItem, setSelectedMenuItem] = useState('1')
+  const componentsSwtich = key => {
     switch (key) {
       case '1':
-        return (<OptionPage></OptionPage>);
+        return (<OptionPage/>)
       case '2':
-        return (<h1>item2</h1>);
+        return <h1>item2</h1>
       case '3':
-        return (<h3>item3</h3>);
+        return <h3>item3</h3>
       default:
-        break;
-     }
-    };
+        break
+    }
+  }
   const getuser = () => {
     setUser(sessionStorage.getItem('username'))
   }
@@ -49,12 +49,13 @@ const MainPage = () => {
       <Layout className='layout'>
         <Header>
           <div className='logo' />
-          <Menu theme='dark' selectedKeys={selectedMenuItem} mode="horizontal" onClick={(e) => 
-        setSelectedMenuItem(e.key)} >
-            <Menu.Item key='1'>
-              MainPage
-              
-            </Menu.Item>
+          <Menu
+            theme='dark'
+            selectedKeys={selectedMenuItem}
+            mode='horizontal'
+            onClick={e => setSelectedMenuItem(e.key)}
+          >
+            <Menu.Item key='1'>MainPage</Menu.Item>
             <Menu.Item key='2'>Profile</Menu.Item>
             <Menu.Item key='3'>nav 3</Menu.Item>
           </Menu>
@@ -62,10 +63,11 @@ const MainPage = () => {
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>MainPage</Breadcrumb.Item>
             <Breadcrumb.Item>{user}</Breadcrumb.Item>
           </Breadcrumb>
-          <div className='site-layout-content'>
-          {componentsSwtich(selectedMenuItem)}
+          <div>
+              {componentsSwtich(selectedMenuItem)}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
