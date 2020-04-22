@@ -46,7 +46,7 @@ const StyledWrapper = styled.div`
 `
 const { Header, Content, Footer } = Layout
 
-function MainPage () {
+function Form001Page () {
   const { register, handleSubmit, errors } = useForm(); // initialise the hook
   const onSubmit = data => {
     console.log(data);
@@ -421,4 +421,4 @@ function MainPage () {
     </StyledWrapper>
   )
 }
-export default MainPage
+export default Form001Page

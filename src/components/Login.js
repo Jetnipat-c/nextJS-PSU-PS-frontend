@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import React from "react"
 import axios from 'axios'
 import styled from 'styled-components'
 import { Form, Input, Button, Checkbox } from 'antd'
@@ -64,7 +65,8 @@ function LoginPage () {
     console.log('result data',result.data)
     console.log('username',user)
     sessionStorage.setItem('login', JSON.stringify({ user: result.data }))
-    Router.push('/Main')
+    sessionStorage.setItem('username', user)
+    Router.push('/main')
   }
 
   const getprofile = async () => {
