@@ -38,7 +38,7 @@ const StyledWrapper = styled.div`
   }
   .titlepage {
     text-align: center;
-    min-maxWidth: 500 px;
+    min-maxwidth: 500 px;
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 24px;
@@ -47,10 +47,17 @@ const StyledWrapper = styled.div`
 const { Header, Content, Footer } = Layout
 
 function Form001Page () {
-  const { register, handleSubmit, errors } = useForm(); // initialise the hook
+  const [user, setUser] = useState('')
+  const getuser = () => {
+    setUser(sessionStorage.getItem('username'))
+  }
+  useEffect(() => {
+    getuser()
+  }, [])
+  const { register, handleSubmit, errors } = useForm() // initialise the hook
   const onSubmit = data => {
-    console.log(data);
-  };
+    console.log(data)
+  }
   const [location, setLocation] = useState('')
   const [date, setDate] = useState('')
 
@@ -78,7 +85,7 @@ function Form001Page () {
         : null
   }
 
-  const Singin = () =>{
+  const Singin = () => {
     console.log('Free pizza!')
     // axios.post('/user', {
     //   firstName: 'Fred',
@@ -92,24 +99,22 @@ function Form001Page () {
     // });
   }
 
-  
   return (
     <StyledWrapper>
       <Layout className='layout'>
         <Header>
           <div className='logo' />
           <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']}>
-            <Menu.Item key='1'>nav 1</Menu.Item>
-            <Menu.Item key='2'>nav 2</Menu.Item>
-            <Menu.Item key='3'>nav 3</Menu.Item>
+            <Menu.Item key='1'>MainPage</Menu.Item>
+            <Menu.Item key='2'>Profile</Menu.Item>
+            <Menu.Item key='3'>Logout</Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>
-              <a href='/Main'>Main</a>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>User : </Breadcrumb.Item>
+            <Breadcrumb.Item>Main</Breadcrumb.Item>
+            <Breadcrumb.Item>Form001</Breadcrumb.Item>
+            <Breadcrumb.Item>{user}</Breadcrumb.Item>
           </Breadcrumb>
           <div className='site-layout-content'>
             <div className='titlepage'>
@@ -118,28 +123,27 @@ function Form001Page () {
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
-                <input name="location" ref={register} ></input>
-              </Col>
-              <Col span={6} pull={18}>
-                เอกสารที่ มอ. 696 /
-              </Col>
-            </Row>
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                {/* <Input  name="lastname" ref={register} style={{ maxWidth: 500  }} placeholder='' /> */}
-                <input name="date" ref={register} ></input>
-              </Col>
-              <Col span={6} pull={18}>
-                ลงวันที่
-              </Col>
-            </Row>
-            <input type="submit" />
+              <Row gutter={[0, 24]}>
+                <Col span={18} push={10}>
+                  {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
+                  <input name='location' ref={register}></input>
+                </Col>
+                <Col span={6} pull={18}>
+                  เอกสารที่ มอ. 696 /
+                </Col>
+              </Row>
+              <Row gutter={[0, 24]}>
+                <Col span={18} push={10}>
+                  {/* <Input  name="lastname" ref={register} style={{ maxWidth: 500  }} placeholder='' /> */}
+                  <input name='date' ref={register}></input>
+                </Col>
+                <Col span={6} pull={18}>
+                  ลงวันที่
+                </Col>
+              </Row>
+              <input type='submit' />
             </form>
-            
-          
+
             {/* <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
                 <Input style={{ maxWidth: 500  }} placeholder='' />
@@ -410,9 +414,13 @@ function Form001Page () {
               </Col>
             </Row> */}
 
-        {/* <Button onClick={Singin} type="primary">บันทึก</Button> */}
+            {/* <Button onClick={Singin} type="primary">บันทึก</Button> */}
           </div>
-          <Pagination  style={{ textAlign: 'center', marginTop:10}} defaultCurrent={1} total={50} />
+          <Pagination
+            style={{ textAlign: 'center', marginTop: 10 }}
+            defaultCurrent={1}
+            total={50}
+          />
         </Content>
         <Footer style={{ textAlign: 'center' }}>
           Ant Design ©2018 Created by Ant UED
