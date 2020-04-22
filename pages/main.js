@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import OptionPage from '../src/components/Option'
+import ProfilePage from '../src/components/Profile'
 const { Header, Content, Footer } = Layout
 const StyledWrapper = styled.div`
   .site-layout-content {
@@ -30,7 +31,7 @@ const MainPage = () => {
       case '1':
         return (<OptionPage/>)
       case '2':
-        return <h1>item2</h1>
+        return (<ProfilePage/>)
       case '3':
         return <h3>item3</h3>
       default:
@@ -61,11 +62,6 @@ const MainPage = () => {
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>MainPage</Breadcrumb.Item>
-            <Breadcrumb.Item>{user}</Breadcrumb.Item>
-          </Breadcrumb>
           <div>
               {componentsSwtich(selectedMenuItem)}
           </div>

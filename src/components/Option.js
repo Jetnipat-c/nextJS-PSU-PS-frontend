@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import React from "react"
 import Router from 'next/router'
+import { useState, useEffect } from 'react'
+import { Layout, Menu, Breadcrumb } from 'antd'
 import { SmileOutlined } from '@ant-design/icons'
 const StyledWrapper = styled.div`
   .site-layout-content {
@@ -31,8 +33,20 @@ const StyledWrapper = styled.div`
 `
 
 function OptionPage () {
+    const [user, setUser] = useState('')
+    const getuser = () => {
+        setUser(sessionStorage.getItem('username'))
+      }
+      useEffect(() => {
+        getuser()
+      }, [])
   return (
     <StyledWrapper>
+        <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>MainPage</Breadcrumb.Item>
+            <Breadcrumb.Item>{user}</Breadcrumb.Item>
+          </Breadcrumb>
       <div className='site-layout-content'>
         <div className='box'>
           <SmileOutlined
