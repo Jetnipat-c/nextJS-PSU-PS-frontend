@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-import React from "react";
-import {Layout,Menu,Breadcrumb,} from 'antd'
+import React from 'react'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { Layout, Menu, Breadcrumb } from 'antd'
 import OptionPage from '../src/components/Option'
 const { Header, Content, Footer } = Layout
 const StyledWrapper = styled.div`
@@ -8,7 +10,7 @@ const StyledWrapper = styled.div`
     background: #fff;
     padding: 24px;
     min-height: 280px;
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
@@ -20,27 +22,50 @@ const StyledWrapper = styled.div`
     float: left;
   }
 `
-function MainPage () {
-  
+const MainPage = () => {
+  const [user, setUser] = useState('')
+  const [selectedMenuItem, setSelectedMenuItem]= useState('1');
+  const componentsSwtich = (key) => {
+    switch (key) {
+      case '1':
+        return (<OptionPage></OptionPage>);
+      case '2':
+        return (<h1>item2</h1>);
+      case '3':
+        return (<h3>item3</h3>);
+      default:
+        break;
+     }
+    };
+  const getuser = () => {
+    setUser(sessionStorage.getItem('username'))
+  }
+  useEffect(() => {
+    getuser()
+  }, [])
+
   return (
     <StyledWrapper>
       <Layout className='layout'>
         <Header>
           <div className='logo' />
-          <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['2']}>
-            <Menu.Item key='1'>nav 1</Menu.Item>
-            <Menu.Item key='2'>nav 2</Menu.Item>
+          <Menu theme='dark' selectedKeys={selectedMenuItem} mode="horizontal" onClick={(e) => 
+        setSelectedMenuItem(e.key)} >
+            <Menu.Item key='1'>
+              MainPage
+              
+            </Menu.Item>
+            <Menu.Item key='2'>Profile</Menu.Item>
             <Menu.Item key='3'>nav 3</Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Item>{user}</Breadcrumb.Item>
           </Breadcrumb>
           <div className='site-layout-content'>
-            <OptionPage></OptionPage>
+          {componentsSwtich(selectedMenuItem)}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
