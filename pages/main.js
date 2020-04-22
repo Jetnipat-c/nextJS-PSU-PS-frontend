@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Router from 'next/router'
 import { useState, useEffect } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import OptionPage from '../src/components/Option'
@@ -26,6 +26,11 @@ const StyledWrapper = styled.div`
 const MainPage = () => {
   const [user, setUser] = useState('')
   const [selectedMenuItem, setSelectedMenuItem] = useState('1')
+  const logout = () =>{
+    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('token')
+    Router.push('/')
+}
   const componentsSwtich = key => {
     switch (key) {
       case '1':
@@ -33,7 +38,7 @@ const MainPage = () => {
       case '2':
         return (<ProfilePage/>)
       case '3':
-        return <h3>item3</h3>
+        return (logout())
       default:
         break
     }
@@ -58,7 +63,7 @@ const MainPage = () => {
           >
             <Menu.Item key='1'>MainPage</Menu.Item>
             <Menu.Item key='2'>Profile</Menu.Item>
-            <Menu.Item key='3'>nav 3</Menu.Item>
+            <Menu.Item key='3'>Logout</Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import React from "react"
 import Router from 'next/router'
 import { useState, useEffect } from 'react'
-import { Layout, Menu, Breadcrumb } from 'antd'
+import { Breadcrumb } from 'antd'
 import { SmileOutlined } from '@ant-design/icons'
 const StyledWrapper = styled.div`
   .site-layout-content {
