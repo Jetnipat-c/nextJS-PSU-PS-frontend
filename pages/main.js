@@ -26,6 +26,8 @@ const StyledWrapper = styled.div`
 const MainPage = () => {
   const [user, setUser] = useState('')
   const [selectedMenuItem, setSelectedMenuItem] = useState('1')
+  const [token,setToken] = useState(null)
+
   const logout = () =>{
     sessionStorage.removeItem('username')
     sessionStorage.removeItem('token')
@@ -48,6 +50,8 @@ const MainPage = () => {
   }
   useEffect(() => {
     getuser()
+    setToken(sessionStorage.getItem('token'))
+    console.log('token',token)
   }, [])
 
   return (

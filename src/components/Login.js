@@ -64,7 +64,7 @@ function LoginPage () {
     )
     console.log('result data',result.data)
     console.log('username',user)
-    sessionStorage.setItem('token', JSON.stringify({ user: result.data }))
+    sessionStorage.setItem('token', JSON.stringify(  result.data.access_token ))
     sessionStorage.setItem('username', user)
     Router.push('/main')
   }

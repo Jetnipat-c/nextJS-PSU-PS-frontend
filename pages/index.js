@@ -1,6 +1,5 @@
 import LoginPage from '../src/components/Login'
 import styled from 'styled-components'
-
 const StyledWrapper = styled.div`
 
 `

@@ -54,6 +54,7 @@ function Form001Page () {
   useEffect(() => {
     getuser()
   }, [])
+  
   const { register, handleSubmit, errors } = useForm() // initialise the hook
   const onSubmit = data => {
     console.log('data',data)
@@ -64,45 +65,7 @@ function Form001Page () {
       })
   }
   
-  
 
-  const FormLayoutDemo = () => {
-    const [form] = Form.useForm()
-    const [formLayout, setFormLayout] = useState('horizontal')
-
-    const onFormLayoutChange = ({ layout }) => {
-      setFormLayout(layout)
-    }
-
-    const formItemLayout =
-      formLayout === 'horizontal'
-        ? {
-            labelCol: { span: 4 },
-            wrapperCol: { span: 14 }
-          }
-        : null
-
-    const buttonItemLayout =
-      formLayout === 'horizontal'
-        ? {
-            wrapperCol: { span: 14, offset: 4 }
-          }
-        : null
-  }
-
-  const Singin = () => {
-    console.log('Free pizza!')
-    // axios.post('/user', {
-    //   firstName: 'Fred',
-    //   lastName: 'Flintstone'
-    // })
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-  }
 
   return (
     <StyledWrapper>
