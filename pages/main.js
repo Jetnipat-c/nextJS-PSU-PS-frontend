@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import OptionPage from '../src/components/Option'
 import ProfilePage from '../src/components/Profile'
+import WithAuth from "../src/hoc/withAuth"
 const { Header, Content, Footer } = Layout
 const StyledWrapper = styled.div`
   .site-layout-content {
@@ -24,15 +25,28 @@ const StyledWrapper = styled.div`
   }
 `
 const MainPage = () => {
-  const [user, setUser] = useState('')
   const [selectedMenuItem, setSelectedMenuItem] = useState('1')
-  const [token,setToken] = useState(null)
+  const [token, setToken] = useState(null)
 
+  const CheckToken = async () => {
+    setToken(sessionStorage.getItem('token'))
+  }
+
+  useEffect(() => {
+    CheckToken()
+  }, [])
+
+
+  
   const logout = () =>{
     sessionStorage.removeItem('username')
     sessionStorage.removeItem('token')
     Router.push('/')
-}
+}  
+
+
+
+
   const componentsSwtich = key => {
     switch (key) {
       case '1':
@@ -45,14 +59,6 @@ const MainPage = () => {
         break
     }
   }
-  const getuser = () => {
-    setUser(sessionStorage.getItem('username'))
-  }
-  useEffect(() => {
-    getuser()
-    setToken(sessionStorage.getItem('token'))
-    console.log('token',token)
-  }, [])
 
   return (
     <StyledWrapper>
@@ -70,11 +76,13 @@ const MainPage = () => {
             <Menu.Item key='3'>Logout</Menu.Item>
           </Menu>
         </Header>
+        
         <Content style={{ padding: '0 50px' }}>
           <div>
               {componentsSwtich(selectedMenuItem)}
           </div>
         </Content>
+
         <Footer style={{ textAlign: 'center' }}>
           Ant Design ©2018 Created by Ant UED
         </Footer>

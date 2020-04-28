@@ -62,11 +62,11 @@ function LoginPage () {
       'http://localhost:3001/auth/login',
       { username: user, password: pass }
     )
-    console.log('result data',result.data)
-    console.log('username',user)
-    sessionStorage.setItem('token', JSON.stringify(  result.data.access_token ))
+    // console.log('result data',result.data)
+    // console.log('username',user)
+    sessionStorage.setItem('token', (  result.data.access_token ))
     sessionStorage.setItem('username', user)
-    Router.push('/main')
+    Router.push('/Mainpage_test')
   }
 
   const getprofile = async () => {
