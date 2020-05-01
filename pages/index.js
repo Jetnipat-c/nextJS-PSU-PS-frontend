@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Router from 'next/router'
 import { useState, useEffect } from 'react'
 import WithAuth from '../src/hoc/withAuth'
+import MainPage from './main'
 const StyledWrapper = styled.div`
 
 `
@@ -27,7 +28,7 @@ function HomePage() {
   else{
     return (
       <>
-        {Router.push('/Main')}
+        <MainPage></MainPage>
       </>
     )
   }
