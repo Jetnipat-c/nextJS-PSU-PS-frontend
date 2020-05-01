@@ -10,6 +10,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    //    background : DarkGray ;
     width: 100;
     height: 100vh;
     background-image: url(../static/images/bg.jpg);
@@ -65,7 +66,7 @@ function LoginPage () {
     // console.log('username',user)
     sessionStorage.setItem('token', (  result.data.access_token ))
     sessionStorage.setItem('username', user)
-    Router.push('/Mainpage_test')
+    Router.push('/main')
   }
 
   const getprofile = async () => {
@@ -126,11 +127,36 @@ function LoginPage () {
               >
                 Log in
               </Button>
-          
+              {/* <Button
+                type='primary'
+                htmlType='submit'
+                onClick={getprofile}
+              >
+                Get profile
+              </Button>
+              {profile} */}
             </Form.Item>
           </Form>
 
-    
+          {/* <h3>
+            username 
+            <Input size="large" placeholder="large size" prefix={<UserOutlined />} onChange={e => setUser(e.target.value)} />
+            <input type='text' onChange={e => setUser(e.target.value)}></input
+          </h3>
+          <h3>
+            password 
+            <Input.Password size="large" placeholder="large Password" onChange={e => setPass(e.target.value)} />
+            <input type='text' onChange={e => setPass(e.target.value)}></input
+          </h3>
+          <div className='box_btn'>
+            <button type='submit' onClick={login}>
+              Login
+            </button>
+            <button type='submit' onClick={getprofile}>
+              Get profile
+            </button>
+            {profile}
+          </div> */}
         </div>
       </div>
     </StyledWrapper>

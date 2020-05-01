@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 import * as axios from 'axios'
+import Router from 'next/router'
 import { useForm } from 'react-hook-form'
 import {
   Layout,
@@ -53,6 +54,7 @@ function Form001Page () {
   }
   useEffect(() => {
     getuser()
+    componentsSwtich()
   }, [])
   
   const { register, handleSubmit, errors } = useForm() // initialise the hook
@@ -64,17 +66,38 @@ function Form001Page () {
         console.log('res.data',res.data);
       })
   }
-  
+
+  const logout = () =>{
+    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('token')
+    Router.push('/')
+}  
+const [selectedMenuItem, setSelectedMenuItem] = useState('1')
+const componentsSwtich = key => {
+  switch (key) {
+    case '1':
+      return (<OptionPage/>)
+    case '2':
+      return (<ProfilePage/>)
+    case '3':
+      return (logout())
+    default:
+      break
+  }
+}
   return (
     <StyledWrapper>
       <title>Form001Page</title>
       <Layout className='layout'>
         <Header>
           <div className='logo' />
-          <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']}>
+          <Menu theme='dark'
+            selectedKeys={selectedMenuItem}
+            mode='horizontal'
+            onClick={e => setSelectedMenuItem(e.key)}>
             <Menu.Item key='1'>MainPage</Menu.Item>
             <Menu.Item key='2'>Profile</Menu.Item>
-            <Menu.Item key='3'>Logout</Menu.Item>
+            <Menu.Item onClick={logout}>Logout</Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
