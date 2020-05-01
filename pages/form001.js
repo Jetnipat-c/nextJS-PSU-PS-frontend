@@ -53,7 +53,7 @@ function Form001Page () {
     setUser(sessionStorage.getItem('username'))
   }
   useEffect(() => {
-    getuser()
+    getuser(),
     componentsSwtich()
   }, [])
   
@@ -76,9 +76,7 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
 const componentsSwtich = key => {
   switch (key) {
     case '1':
-      return (<OptionPage/>)
-    case '2':
-      return (<ProfilePage/>)
+      return (Router.push('/'))
     case '3':
       return (logout())
     default:
@@ -91,13 +89,14 @@ const componentsSwtich = key => {
       <Layout className='layout'>
         <Header>
           <div className='logo' />
-          <Menu theme='dark'
+          <Menu
+            theme='dark'
             selectedKeys={selectedMenuItem}
             mode='horizontal'
-            onClick={e => setSelectedMenuItem(e.key)}>
+            onClick={e => componentsSwtich(e.key)}
+          >
             <Menu.Item key='1'>MainPage</Menu.Item>
-            <Menu.Item key='2'>Profile</Menu.Item>
-            <Menu.Item onClick={logout}>Logout</Menu.Item>
+            <Menu.Item key='3'>Logout</Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
