@@ -27,7 +27,7 @@ function HomePage() {
   else{
     return (
       <>
-        {Router.push('/Mainpage_test')}
+        {Router.push('/Main')}
       </>
     )
   }

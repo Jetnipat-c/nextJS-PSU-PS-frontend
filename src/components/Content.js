@@ -1,12 +1,11 @@
-import WithAuth from '../src/hoc/withAuth'
-import MainPage from './main'
-import Topbar from '../src/components/Topbar'
-import Content from '../src/components/Content'
-import Footer from '../src/components/Footer'
-
 import { Layout, Menu, Breadcrumb } from 'antd'
-const { Header } = Layout
+import { useState, useEffect } from 'react'
+import OptionPage from './Option'
+import ProfilePage from './Profile'
 import styled from 'styled-components'
+const Content = (prop) => {
+const { Header, Content, Footer } = Layout
+
 const StyledWrapper = styled.div`
   .site-layout-content {
     background: #fff;
@@ -24,16 +23,14 @@ const StyledWrapper = styled.div`
     float: left;
   }
 `
-const Mainpage_test = () => {
   return (
     <StyledWrapper>
-      <Layout className='layout'>
-        <Topbar />
-        <Content />
-        <Footer />
-      </Layout>
+
+       <Content style={{ padding: '0 50px' }}>
+          sadasd
+        </Content>
+
     </StyledWrapper>
   )
 }
-
-export default Mainpage_test
+export default Content

@@ -65,10 +65,9 @@ function Form001Page () {
       })
   }
   
-
-
   return (
     <StyledWrapper>
+      <title>Form001Page</title>
       <Layout className='layout'>
         <Header>
           <div className='logo' />
