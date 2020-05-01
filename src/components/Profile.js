@@ -30,6 +30,8 @@ const ProfilePage = () => {
     )
     console.log('user', users)
     setProfile(users.data)
+
+    
   }
   return (
     <StyledWrapper>

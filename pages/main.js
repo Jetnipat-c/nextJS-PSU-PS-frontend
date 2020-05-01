@@ -25,7 +25,7 @@ const StyledWrapper = styled.div`
   }
 `
 const MainPage = () => {
-  const [selectedMenuItem, setSelectedMenuItem] = useState('1')
+  
   const [token, setToken] = useState(null)
 
   const CheckToken = async () => {
@@ -46,7 +46,7 @@ const MainPage = () => {
 
 
 
-
+const [selectedMenuItem, setSelectedMenuItem] = useState('1')
   const componentsSwtich = key => {
     switch (key) {
       case '1':
