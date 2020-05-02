@@ -68,7 +68,7 @@ function OptionPage () {
         </div>
         <div className='box'>
           <UserOutlined 
-            onClick={() => Router.push('/')}
+            onClick={() => Router.push('/profilepage')}
             style={{ fontSize: '100px', color: '#08c' }}
           />
           <h3>จัดการข้อมูลส่วนตัว</h3>

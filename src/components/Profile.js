@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
     justify-content: space-around;
   }
 `
-const ProfilePage = () => {
+const Profile = () => {
   const [user, setUser] = useState('')
   const getuser = () => {
     setUser(sessionStorage.getItem('username'))
@@ -49,4 +49,4 @@ const ProfilePage = () => {
     </StyledWrapper>
   )
 }
-export default ProfilePage
+export default Profile

@@ -1,13 +1,10 @@
-import styled from 'styled-components'
-import React from 'react'
+import react ,  { useState , useEffect } from 'react'
 import Router from 'next/router'
-import { useState, useEffect } from 'react'
-import OptionPage from '../src/components/Option'
-import ProfilePage from '../src/components/Profile'
-import WithAuth from "../src/hoc/withAuth"
+import Profile from '../src/components/Profile'
 import { Layout, Menu, Breadcrumb } from 'antd'
 const { Header, Content, Footer } = Layout
-const StyledWrapper = styled.div`
+import styled from 'styled-components'
+const StyledWarpper = styled.div`
   .site-layout-content {
     background: #fff;
     padding: 24px;
@@ -24,33 +21,20 @@ const StyledWrapper = styled.div`
     float: left;
   }
 `
-const MainPage = () => {
-  
-  const [token, setToken] = useState(null)
-
-  const CheckToken = async () => {
-    setToken(sessionStorage.getItem('token'))
-  }
-
-  useEffect(() => {
-    CheckToken()
-  }, [])
-
-
-  
-  const logout = () =>{
-    sessionStorage.removeItem('username')
-    sessionStorage.removeItem('token')
-    Router.push('/')
-}  
-
-
-
-const [selectedMenuItem, setSelectedMenuItem] = useState('1')
+const ProfilePage = () =>{
+    const logout = () =>{
+        sessionStorage.removeItem('username')
+        sessionStorage.removeItem('token')
+        Router.push('/')
+    }
+    useEffect(() => {
+        componentsSwtich()
+      }, [])
+    const [selectedMenuItem, setSelectedMenuItem] = useState('1')
   const componentsSwtich = key => {
     switch (key) {
       case '1':
-        return (<OptionPage/>)
+        return (Router.push('/main'))
 
       case '3':
         return (logout())
@@ -59,10 +43,13 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
     }
   }
 
-  return (
-    <StyledWrapper>
-      <title>Mainpage</title>
-      <Layout className='layout'>
+  const gotomain = () =>{
+      Router.push('/')
+  }
+    return(
+        <StyledWarpper>
+            <title>ProfilePage</title>
+            <Layout className='layout'>
         <Header>
           <div className='logo' />
           <Menu
@@ -71,14 +58,16 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
             mode='horizontal'
             onClick={e => setSelectedMenuItem(e.key)}
           >
-            <Menu.Item key='1'>MainPage</Menu.Item>
+            <Menu.Item key='1'>
+               <a onClick={gotomain}>MainPage</a> 
+                </Menu.Item>
             <Menu.Item key='3'>Logout</Menu.Item>
           </Menu>
         </Header>
         
         <Content style={{ padding: '0 50px' }}>
           <div>
-              {componentsSwtich(selectedMenuItem)}
+          <Profile/>
           </div>
         </Content>
 
@@ -86,9 +75,8 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
           Ant Design ©2018 Created by Ant UED
         </Footer>
       </Layout>
-    </StyledWrapper>
-  )
+       
+        </StyledWarpper>
+    )
 }
-export default MainPage
-
-
+export default ProfilePage

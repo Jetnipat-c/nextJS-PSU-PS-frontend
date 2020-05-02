@@ -48,42 +48,39 @@ const StyledWrapper = styled.div`
 const { Header, Content, Footer } = Layout
 
 function Form001Page () {
-  
   const [user, setUser] = useState('')
   const getuser = () => {
     setUser(sessionStorage.getItem('username'))
   }
   useEffect(() => {
-    getuser(),
-    componentsSwtich()
+    getuser(), componentsSwtich()
   }, [])
-  
+
   const { register, handleSubmit, errors } = useForm() // initialise the hook
   const onSubmit = data => {
-    console.log('data',data)
-    axios.post(`http://localhost:3001/form001/insert`, data )
-      .then(res => {
-        console.log('res',res);
-        console.log('res.data',res.data);
-      })
+    console.log('data', data)
+    axios.post(`http://localhost:3001/form001/insert`, data).then(res => {
+      console.log('res', res)
+      console.log('res.data', res.data)
+    })
   }
 
-  const logout = () =>{
+  const logout = () => {
     sessionStorage.removeItem('username')
     sessionStorage.removeItem('token')
     Router.push('/')
-}  
-const [selectedMenuItem, setSelectedMenuItem] = useState('1')
-const componentsSwtich = key => {
-  switch (key) {
-    case '1':
-      return (Router.push('/'))
-    case '3':
-      return (logout())
-    default:
-      break
   }
-}
+  const [selectedMenuItem, setSelectedMenuItem] = useState('1')
+  const componentsSwtich = key => {
+    switch (key) {
+      case '1':
+        return Router.push('/')
+      case '3':
+        return logout()
+      default:
+        break
+    }
+  }
   return (
     <StyledWrapper>
       <title>Form001Page</title>
@@ -113,15 +110,21 @@ const componentsSwtich = key => {
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-            <Row gutter={[0, 24]}>
+              <Row gutter={[0, 24]}>
                 <Col span={18} push={10}>
                   {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
-                  <input name='sid' value={user} disabled={true} ref={register}></input>
+                  <input
+                    name='sid'
+                    value={user}
+                    disabled={true}
+                    ref={register}
+                  ></input>
                 </Col>
                 <Col span={6} pull={18}>
-                  เอกสารของ 
+                  เอกสารของ
                 </Col>
               </Row>
+
               <Row gutter={[0, 24]}>
                 <Col span={18} push={10}>
                   {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
