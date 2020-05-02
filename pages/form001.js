@@ -9,12 +9,15 @@ import {
   Breadcrumb,
   Form,
   Input,
-  Button,
+  Button, 
+  message,
   Radio,
   Row,
   Col,
   Checkbox,
-  Pagination
+  Pagination,
+  Modal,
+  Alert 
 } from 'antd'
 const StyledWrapper = styled.div`
   .site-layout-content {
@@ -57,12 +60,12 @@ function Form001Page () {
   }, [])
 
   const { register, handleSubmit, errors } = useForm() // initialise the hook
-  const onSubmit = data => {
+  const onSubmit  =  data => {
     console.log('data', data)
-    axios.post(`http://localhost:3001/form001/insert`, data).then(res => {
-      console.log('res', res)
+      axios.post(`http://localhost:3001/form001/insert`, data).then(res => {
       console.log('res.data', res.data)
     })
+    openMessage()    
   }
 
   const logout = () => {
@@ -81,6 +84,15 @@ function Form001Page () {
         break
     }
   }
+  const key = 'updatable';
+  const openMessage = () => {
+    message.loading({ content: 'Save...', key });
+    setTimeout(() => {
+      message.success({ content: 'Saved!', key, duration: 2 });
+      Router.push('/')
+    }, 1000);
+    
+  };
   return (
     <StyledWrapper>
       <title>Form001Page</title>
@@ -143,9 +155,11 @@ function Form001Page () {
                   ลงวันที่
                 </Col>
               </Row>
-              <input type='submit' />
+              <input type='submit'/>
+              {/* <Button type='submit'  onClick={openMessage} > Open the message box</Button> */}
+             
             </form>
-
+            <div>
             {/* <Row gutter={[0, 24]}>
               <Col span={18} push={10}>
                 <Input style={{ maxWidth: 500  }} placeholder='' />
@@ -418,11 +432,12 @@ function Form001Page () {
 
             {/* <Button onClick={Singin} type="primary">บันทึก</Button> */}
           </div>
-          <Pagination
+          {/* <Pagination
             style={{ textAlign: 'center', marginTop: 10 }}
             defaultCurrent={1}
             total={50}
-          />
+          /> */}
+          </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
           Ant Design ©2018 Created by Ant UED
