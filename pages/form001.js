@@ -48,6 +48,7 @@ const StyledWrapper = styled.div`
 const { Header, Content, Footer } = Layout
 
 function Form001Page () {
+  
   const [user, setUser] = useState('')
   const getuser = () => {
     setUser(sessionStorage.getItem('username'))
@@ -115,7 +116,7 @@ const componentsSwtich = key => {
             <Row gutter={[0, 24]}>
                 <Col span={18} push={10}>
                   {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
-                  <input name='user' placeholder={user} disabled ref={register}></input>
+                  <input name='sid' value={user} disabled={true} ref={register}></input>
                 </Col>
                 <Col span={6} pull={18}>
                   เอกสารของ 
