@@ -3,7 +3,7 @@ import React from "react"
 import Router from 'next/router'
 import { useState, useEffect } from 'react'
 import { Breadcrumb } from 'antd'
-import { SmileOutlined } from '@ant-design/icons'
+import { UserOutlined  , EditOutlined , FormOutlined } from '@ant-design/icons'
 const StyledWrapper = styled.div`
   .site-layout-content {
     background: #fff;
@@ -49,7 +49,7 @@ function OptionPage () {
           </Breadcrumb>
       <div className='site-layout-content'>
         <div className='box'>
-          <SmileOutlined
+          <EditOutlined 
             onClick={() => Router.push('/Form001')}
             style={{ fontSize: '100px', color: '#08c' }}
           />
@@ -58,7 +58,7 @@ function OptionPage () {
           <h4>- เพิ่มคำสั่งซื้อรายการพัสดุมากกว่า 2 รายการ</h4>
         </div>
         <div className='box'>
-          <SmileOutlined
+          <FormOutlined 
             onClick={() => Router.push('/')}
             style={{ fontSize: '100px', color: '#08c' }}
           />
@@ -67,7 +67,7 @@ function OptionPage () {
           <h4>- เพิ่มคำสั่งซื้อรายการพัสดุมากกว่า 2 รายการ</h4>
         </div>
         <div className='box'>
-          <SmileOutlined
+          <UserOutlined 
             onClick={() => Router.push('/')}
             style={{ fontSize: '100px', color: '#08c' }}
           />

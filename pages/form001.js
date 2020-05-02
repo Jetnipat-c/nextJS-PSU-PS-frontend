@@ -112,6 +112,15 @@ const componentsSwtich = key => {
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
+            <Row gutter={[0, 24]}>
+                <Col span={18} push={10}>
+                  {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
+                  <input name='user' placeholder={user} disabled ref={register}></input>
+                </Col>
+                <Col span={6} pull={18}>
+                  เอกสารของ 
+                </Col>
+              </Row>
               <Row gutter={[0, 24]}>
                 <Col span={18} push={10}>
                   {/* <Input name="firstname" ref={register} style={{ maxWidth: 500 }} placeholder=''  /> */}
