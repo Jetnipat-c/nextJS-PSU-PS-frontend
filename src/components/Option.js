@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import React from "react"
 import Router from 'next/router'
-import { useState, useEffect } from 'react'
+import React,{ useState, useEffect } from 'react'
 import { Breadcrumb } from 'antd'
 import { UserOutlined  , EditOutlined , FormOutlined } from '@ant-design/icons'
 const StyledWrapper = styled.div`
