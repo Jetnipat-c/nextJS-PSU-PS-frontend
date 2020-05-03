@@ -3,7 +3,7 @@ import React from 'react'
 import Router from 'next/router'
 import { useState, useEffect } from 'react'
 import OptionPage from '../src/components/Option'
-import ProfilePage from '../src/components/Profile'
+import History from '../src/components/History'
 import WithAuth from "../src/hoc/withAuth"
 import { Layout, Menu, Breadcrumb } from 'antd'
 const { Header, Content, Footer } = Layout
@@ -51,7 +51,8 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
     switch (key) {
       case '1':
         return (<OptionPage/>)
-
+      case '2':
+        return (<History/>)
       case '3':
         return (logout())
       default:
@@ -72,6 +73,7 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
             onClick={e => setSelectedMenuItem(e.key)}
           >
             <Menu.Item key='1'>MainPage</Menu.Item>
+            <Menu.Item key='2'>History</Menu.Item>
             <Menu.Item key='3'>Logout</Menu.Item>
           </Menu>
         </Header>
