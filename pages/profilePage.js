@@ -1,5 +1,6 @@
 import react ,  { useState , useEffect } from 'react'
 import Router from 'next/router'
+import WithAuth from '../src/hoc/withAuth'
 import Profile from '../src/components/Profile'
 import { Layout, Menu, Breadcrumb } from 'antd'
 const { Header, Content, Footer } = Layout
@@ -79,4 +80,5 @@ const ProfilePage = () =>{
         </StyledWarpper>
     )
 }
-export default ProfilePage
+const WithTransfer =()=><WithAuth component={ProfilePage} />
+export default WithTransfer
