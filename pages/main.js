@@ -4,7 +4,7 @@ import Router from 'next/router'
 import { useState, useEffect } from 'react'
 import OptionPage from '../src/components/Option'
 import History from '../src/components/History'
-import WithAuth from "../src/hoc/withAuth"
+import WithAuth from '../src/hoc/withAuth'
 import { Layout, Menu, Breadcrumb } from 'antd'
 const { Header, Content, Footer } = Layout
 const StyledWrapper = styled.div`
@@ -90,6 +90,7 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
     </StyledWrapper>
   )
 }
-export default MainPage
+const WithTransfer =()=><WithAuth component={MainPage} />
+export default WithTransfer
 
 
