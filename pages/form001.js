@@ -2,22 +2,15 @@ import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 import * as axios from 'axios'
 import Router from 'next/router'
+import WithAuth from '../src/hoc/withAuth'
 import { useForm } from 'react-hook-form'
 import {
   Layout,
   Menu,
-  Breadcrumb,
-  Form,
-  Input,
-  Button, 
+  Breadcrumb, 
   message,
-  Radio,
   Row,
   Col,
-  Checkbox,
-  Pagination,
-  Modal,
-  Alert 
 } from 'antd'
 const StyledWrapper = styled.div`
   .site-layout-content {
@@ -446,4 +439,6 @@ function Form001Page () {
     </StyledWrapper>
   )
 }
-export default Form001Page
+
+const WithTransfer =()=><WithAuth component={Form001Page} />
+export default WithTransfer
