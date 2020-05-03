@@ -53,8 +53,6 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
         return (<OptionPage/>)
       case '2':
         return (<History/>)
-      case '3':
-        return (logout())
       default:
         break
     }
@@ -74,7 +72,9 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
           >
             <Menu.Item key='1'>MainPage</Menu.Item>
             <Menu.Item key='2'>History</Menu.Item>
-            <Menu.Item key='3'>Logout</Menu.Item>
+            <Menu.Item >
+              <a onClick={logout}>Logout</a>
+              </Menu.Item>
           </Menu>
         </Header>
         
