@@ -50,7 +50,7 @@ function LoginPage () {
   const [profile, setProfile] = useState()
 
   const onFinish = values => {
-    console.log('Received values of form: ', values)
+    //console.log('Received values of form: ', values)
   }
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function LoginPage () {
 
   const getprofile = async () => {
     const profiles = sessionStorage.getItem('login', JSON.stringify(user))
-    console.log('profiles', profiles)
+    //console.log('profiles', profiles)
     setProfile(profiles)
     //console.log('profile',profile)
     //console.log(sessionStorage.getItem('login',JSON.stringify({user})))

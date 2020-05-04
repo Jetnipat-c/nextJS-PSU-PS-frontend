@@ -95,10 +95,12 @@ const StyledWrapper = styled.div`
 
 const Form001Content = () => {
   const [size, setSize] = useState('default')
+
   const [username, setUsername] = useState('')
   const getuser = () => {
     setUsername(sessionStorage.getItem('username'))
   }
+
   const { register, handleSubmit, errors } = useForm() // initialise the hook
   const onSubmit = data => {
     console.log('data', data)
@@ -223,8 +225,9 @@ const Form001Content = () => {
                 (ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม)  (จำนวนแผ่น)'
                 >
                   <input
+                    type='number'
                     className='text-input'
-                    name='o_specific '
+                    name='o_specific'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -234,6 +237,7 @@ const Form001Content = () => {
                 บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
                 >
                   <input
+                  type='number'
                     className='text-input'
                     name='o_appointment'
                     ref={register}
@@ -244,6 +248,7 @@ const Form001Content = () => {
                   label='2.3 บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
                 >
                   <input
+                  type='number'
                     className='text-input'
                     name='o_results'
                     ref={register}
@@ -306,6 +311,7 @@ const Form001Content = () => {
                 <div span={3}>* ใส่ข้อมูลเฉพาะที่มี</div>
                 <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
                   <input
+                    type='number'
                     className='text-input'
                     name='o_gvm_sub'
                     ref={register}
@@ -313,6 +319,7 @@ const Form001Content = () => {
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้ ปี'>
                   <input
+                  type='number'
                     className='text-input'
                     name='o_income'
                     ref={register}
@@ -320,6 +327,7 @@ const Form001Content = () => {
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้สะสม ปี'>
                   <input
+                  type='number'
                     className='text-input'
                     name='o_aml_income'
                     ref={register}
@@ -380,6 +388,7 @@ const Form001Content = () => {
                   label='เงินอื่นๆโปรดระบุ (ตามที่แนบมาพร้อมนี้) '
                 >
                   <input
+                    type='number'
                     className='text-input'
                     name='o_other_m'
                     ref={register}
