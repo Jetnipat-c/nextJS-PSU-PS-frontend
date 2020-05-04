@@ -1,10 +1,10 @@
+import react , { useState, useEffect } from 'react'
 
 import styled from 'styled-components'
-import react , { useState, useEffect } from 'react'
 const StyledWrapper = styled.div`
 
 `
-function HomePage() {
+function IndexPage() {
   return(
     <StyledWrapper>
       <title>Index</title>
@@ -12,4 +12,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default IndexPage
