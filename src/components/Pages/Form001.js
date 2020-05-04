@@ -301,7 +301,7 @@ const Form001Content = () => {
               </Descriptions>
 {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
-{/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
+{/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
               <Descriptions bordered title='4. แหล่งเงิน' size={size}>
                 <div span={3}>* ใส่ข้อมูลเฉพาะที่มี</div>
                 <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
@@ -387,50 +387,53 @@ const Form001Content = () => {
                 </Descriptions.Item>
               </Descriptions>
               <br />
-            </form>
-{/* -------------------------------------------------------------------------------------------------------------- */}            
-            <br />
-            <br />
-{/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
-            <div className='center'>
-              <button class='btn' type='submit'>
+{/* -------------------------------------------------------------------------------------------------------------- */}  
+{/* ---------------------------------------------------- button ---------------------------------------------------- */}
+<div className='center'>
+              
+              <button className='btn' type='submit'>
                 <svg
                   width='180px'
                   height='60px'
                   viewBox='0 0 180 60'
-                  class='border'
+                  className='border'
                 >
                   <polyline
                     points='179,1 179,59 1,59 1,1 179,1'
-                    class='bg-line'
+                    className='bg-line'
                   />
                   <polyline
                     points='179,1 179,59 1,59 1,1 179,1'
-                    class='hl-line'
+                    className='hl-line'
                   />
                 </svg>
                 <span>Submit</span>
               </button>
 
-              <button class='btn btn2' >
+              <button className='btn btn2' >
                 <svg
                   width='180px'
                   height='60px'
                   viewBox='0 0 180 60'
-                  class='border'
+                  className='border'
                 >
                   <polyline
                     points='179,1 179,59 1,59 1,1 179,1'
-                    class='bg-line'
+                    className='bg-line'
                   />
                   <polyline
                     points='179,1 179,59 1,59 1,1 179,1'
-                    class='hl-line'
+                    className='hl-line'
                   />
                 </svg>
                 <span>Cancel</span>
               </button>
             </div>
+            </form>
+ {/* -------------------------------------------------------------------------------------------------------------- */}           
+            <br />
+            <br />
+            
           </div>
           <Divider
             orientation='left'
