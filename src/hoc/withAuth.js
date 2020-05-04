@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 import LoginPage from "../components/Login";
 
 const WithAuth = (props) => {
@@ -15,7 +15,7 @@ const WithAuth = (props) => {
     if (token === null) {
         return (
             <>
-                <LoginPage />
+                <LoginPage/>
             </>
         )
     }

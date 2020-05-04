@@ -1,4 +1,4 @@
-import react , { useState, useEffect } from 'react'
+import React , { useState, useEffect } from 'react'
 import WithAuth from '../src/hoc/withAuth'
 import styled from 'styled-components'
 const StyledWrapper = styled.div`

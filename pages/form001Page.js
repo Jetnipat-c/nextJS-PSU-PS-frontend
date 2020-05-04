@@ -15,8 +15,9 @@ import SiderComponent from '../src/components/Sider'
 import ContentComponent from '../src/components/Content'
 import FooterComponent from '../src/components/Footer'
 import WithAuth from '../src/hoc/withAuth'
-
+import Form001Content from '../src/components/Pages/Form001'
 import styled from 'styled-components'
+
 const StyledWrapper = styled.div`
   #components-layout-demo-top-side-2 .logo {
     width: 120px;
@@ -30,7 +31,7 @@ const StyledWrapper = styled.div`
     background: #fff;
   }
 `
-function HomePage () {
+const Pageform001 = () => {
   return (
     <StyledWrapper>
       <title>HomePage</title>
@@ -39,7 +40,7 @@ function HomePage () {
         <Layout>
           <SiderComponent />
           <Layout style={{ padding: '0 24px 24px' }}>
-            <ContentComponent />
+            <Form001Content />
           </Layout>
         </Layout>
         <FooterComponent />
@@ -47,5 +48,4 @@ function HomePage () {
     </StyledWrapper>
   )
 }
-const WithTransfer =()=><WithAuth component={HomePage} />
-export default WithTransfer
+export default Pageform001

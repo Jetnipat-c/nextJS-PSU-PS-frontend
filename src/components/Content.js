@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Layout, Menu, Breadcrumb } from 'antd'
 import {
@@ -46,13 +46,13 @@ const ContentComponent = () => {
               <h2>Patch fix</h2>
               <div className='text-content'>
               <div>- xxxx</div>
-              <h1>- xxxx</h1>
+              <div>- xxxx</div>
               </div>
           </div>
           <h2>Patch update</h2>
               <div className='text-content'>
               <div>- xxxx</div>
-              <h1>- xxxx</h1>
+              <div>- xxxx</div>
               </div>
         
       </Content>

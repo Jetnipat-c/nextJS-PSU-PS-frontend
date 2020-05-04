@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Router from 'next/router'
 
 import { Layout, Menu, Breadcrumb } from 'antd'
@@ -43,7 +43,7 @@ const HeaderComponent = () => {
       <Header className='header'>
         <div className='logo' />
         <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']}>
-          <Menu.Item key='1'>nav 1</Menu.Item>
+          <Menu.Item key='1'>Purchasing system</Menu.Item>
           <Menu.Item key='2'>
              <a>{username}</a> 
               </Menu.Item>

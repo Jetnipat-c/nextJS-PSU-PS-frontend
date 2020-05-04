@@ -1,4 +1,5 @@
-import react, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import Router from 'next/router'
 
 import { Layout, Menu, Breadcrumb } from 'antd'
 import { UserOutlined, LaptopOutlined, NotificationOutlined ,EditOutlined } from '@ant-design/icons';
@@ -21,6 +22,10 @@ const StyledWrapper = styled.div`
 `
 
 const SiderComponent = () => {
+  const gotoPage = () =>{
+    Router.push('/Form001page')
+    console.log('xxxx')
+  }
   return (
     <StyledWrapper>
       <Sider width={250} className='site-layout-background'>
@@ -31,7 +36,9 @@ const SiderComponent = () => {
           style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu key='sub1'  icon={<EditOutlined />} title='แบบฟอร์ม'>
-            <Menu.Item key='1'>เพิ่มคำสั่งซื้อพัสดุแบบปกติ 001</Menu.Item>
+            <Menu.Item key='1'>
+            <a onClick={gotoPage}>เพิ่มคำสั่งซื้อพัสดุแบบปกติ 001</a> 
+              </Menu.Item>
             <Menu.Item key='2'>เพิ่มคำสั่งซื้อพัสดุแบบเร่งด่วน 002</Menu.Item>
           </SubMenu>
           <SubMenu key='sub2' icon={<LaptopOutlined />} title='จัดการข้อมูลส่วนตัว'>
