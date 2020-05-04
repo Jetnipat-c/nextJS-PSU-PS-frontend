@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import Axios from 'axios'
+import axios from 'axios'
 
-import { Layout, Menu, Breadcrumb, message, Row, Col, } from 'antd'
-import { UserOutlined, LaptopOutlined, NotificationOutlined} from '@ant-design/icons'
+import { Layout, Menu, Breadcrumb, message, Row, Col } from 'antd'
+import {
+  UserOutlined,
+  LaptopOutlined,
+  NotificationOutlined
+} from '@ant-design/icons'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
@@ -32,22 +36,17 @@ const StyledWrapper = styled.div`
 `
 
 const HistoryContent = () => {
-    const [profile, setProfile] = useState({})
-    const getprofiledatabase = async () => {
-      const users = await Axios.get(
-        `http://localhost:3001/users/${sessionStorage.getItem('username')}`,
-        {
-          headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
-        }
-      )
-      console.log('user', users)
-      setProfile(users.data)
-  
-      
-    }
-  useEffect(()=>{
-    getprofiledatabase()
-  },[])
+  const [history, setHistoty] = useState([])
+  const getForm001Bysid = async () => {
+    var found = await axios.get(
+      `http://localhost:3001/form001/${sessionStorage.getItem('username')}`
+    )
+    console.log('found = ', found.data)
+    setHistoty(JSON.parse(JSON.stringify(found.data)))
+  }
+  useEffect(() => {
+    getForm001Bysid()
+  }, [])
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -63,8 +62,16 @@ const HistoryContent = () => {
         }}
       >
         <div className='site-layout-content'>
-        History
-          </div>
+            {
+                history.map((data , index)=>{  
+                    return(
+                        <div key={index} >
+                        วันที่ : {data.date}
+                        </div>
+                    )
+                })
+            }
+        </div>
       </Content>
     </StyledWrapper>
   )
