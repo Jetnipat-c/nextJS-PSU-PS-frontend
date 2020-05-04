@@ -9,11 +9,14 @@ import {
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
-import styled from 'styled-components'
+
 import HeaderComponent from '../src/components/Header'
 import SiderComponent from '../src/components/Sider'
 import ContentComponent from '../src/components/Content'
 import FooterComponent from '../src/components/Footer'
+import WithAuth from '../src/hoc/withAuth'
+
+import styled from 'styled-components'
 const StyledWrapper = styled.div`
   #components-layout-demo-top-side-2 .logo {
     width: 120px;
@@ -44,5 +47,5 @@ function HomePage () {
     </StyledWrapper>
   )
 }
-
-export default HomePage
+const WithTransfer =()=><WithAuth component={HomePage} />
+export default WithTransfer
