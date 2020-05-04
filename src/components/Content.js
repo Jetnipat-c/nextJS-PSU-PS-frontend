@@ -22,8 +22,8 @@ const StyledWrapper = styled.div`
   .site-layout-background {
     background: #fff;
   }
-  .text-content{
-      margin-left: 15px;
+  .text-content {
+    margin-left: 15px;
   }
 `
 
@@ -35,25 +35,23 @@ const ContentComponent = () => {
         <Breadcrumb.Item>Announce</Breadcrumb.Item>
       </Breadcrumb>
       <Content
-        className='site-layout-background'
-        style={{
-          padding: 24,
-          margin: 0,
-          minHeight: 280
-        }}
-      >
-          <div>
-              <h2>Patch fix</h2>
-              <div className='text-content'>
-              <div>- 6:52 PM 5/4/2020 ออกแบบหน้าเว็ปใหม่</div>
-              </div>
+          className="site-layout-background"
+          style={{
+            padding: 24,
+            margin: 0,
+            minHeight: 280,
+          }}
+        >
+        <div>
+          <h2>Patch fix</h2>
+          <div className='text-content'>
+            <div>- 6:52 PM 5/4/2020 ออกแบบหน้าเว็ปใหม่</div>
           </div>
-          <h2>Patch update</h2>
-              <div className='text-content'>
-              <div>- 6:52 PM 5/4/2020 ปรับปรุงฟังก์ชันจากเวอร์ชั่นเก่า</div>
-
-              </div>
-        
+        </div>
+        <h2>Patch update</h2>
+        <div className='text-content'>
+          <div>- 6:52 PM 5/4/2020 ปรับปรุงฟังก์ชันจากเวอร์ชั่นเก่า</div>
+        </div>
       </Content>
     </StyledWrapper>
   )

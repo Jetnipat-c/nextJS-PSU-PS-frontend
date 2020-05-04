@@ -77,7 +77,7 @@ const ProfileContent = () => {
             orientation='left'
             style={{ color: '#333', fontWeight: 'normal' }}
           >
-            Percentage columns
+            ข้อมูลส่วนตัว
           </Divider>
           <div>
             <Radio.Group onChange={cssonChange} value={size}>
@@ -87,7 +87,7 @@ const ProfileContent = () => {
             </Radio.Group>
             <br />
             <br />
-            <Descriptions bordered title='Custom Size' size={size}>
+            <Descriptions bordered title=' ' size={size}>
               <Descriptions.Item label='รหัสนักศึกษา'>
                 {profile.sid}
               </Descriptions.Item>
