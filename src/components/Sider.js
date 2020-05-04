@@ -29,7 +29,9 @@ const SiderComponent = () => {
   const gotoPageProfile = (e) =>{
     Router.push('/formprofilepage')
 }
-
+const gotoPageHistory = (e) =>{
+  Router.push('/formhistorypage')
+}
   return (
     <StyledWrapper>
       <Sider width={250} className='site-layout-background'>
@@ -51,7 +53,9 @@ const SiderComponent = () => {
               </Menu.Item>
           </SubMenu>
           <SubMenu key='sub3' icon={<NotificationOutlined />} title='ประวัติการทำรายการ'>
-            <Menu.Item key='9'>ประวัติการทำรายการของท่าน</Menu.Item>
+            <Menu.Item key='9'>
+            <a onClick={gotoPageHistory}>ประวัติการทำรายการของท่าน</a>
+              </Menu.Item>
 
           </SubMenu>
         </Menu>
