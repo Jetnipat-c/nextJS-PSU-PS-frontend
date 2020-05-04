@@ -29,7 +29,7 @@ const HeaderComponent = () => {
     const logout = () =>{
         sessionStorage.removeItem('username')
         sessionStorage.removeItem('token')
-        Router.push('/homepage')
+        Router.push('/')
     }
   return (
     <StyledWrapper>
