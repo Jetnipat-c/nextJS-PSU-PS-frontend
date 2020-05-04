@@ -10,10 +10,6 @@ const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
 import styled from 'styled-components'
-import HeaderComponent from '../src/components/Header'
-import SiderComponent from '../src/components/Sider'
-import ContentComponent from '../src/components/Content'
-import FooterComponent from '../src/components/Footer'
 const StyledWrapper = styled.div`
   #components-layout-demo-top-side-2 .logo {
     width: 120px;
@@ -27,22 +23,14 @@ const StyledWrapper = styled.div`
     background: #fff;
   }
 `
-function HomePage () {
+
+const FooterComponent = () => {
   return (
     <StyledWrapper>
-      <title>HomePage</title>
-      <Layout>
-        <HeaderComponent />
-        <Layout>
-          <SiderComponent />
-          <Layout style={{ padding: '0 24px 24px' }}>
-            <ContentComponent />
-          </Layout>
-        </Layout>
-        <FooterComponent />
-      </Layout>
+      <Footer style={{ textAlign: 'center' }}>
+          Copyright © 2020 CoE ระบบจัดซื้อ Purchasing system
+        </Footer>
     </StyledWrapper>
   )
 }
-
-export default HomePage
+export default FooterComponent
