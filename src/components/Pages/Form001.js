@@ -157,6 +157,7 @@ const Form001Content = () => {
             </Radio.Group>
             <br />
             <br />
+{/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}            
             <form onSubmit={handleSubmit(onSubmit)}>
               <Descriptions bordered title='1. รายละเอียด' size={size}>
                 <Descriptions.Item label='เอกสารของ'>
@@ -171,14 +172,14 @@ const Form001Content = () => {
                 <Descriptions.Item label='เอกสารที่ มอ. 696 /'>
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_location'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='ลงวันที่'>
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_date'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -189,28 +190,28 @@ const Form001Content = () => {
                 >
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_purpose'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='ชื่อโครงการ (ถ้ามี)'>
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_projectname'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='วันที่ต้องใช้พัสดุ'>
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_require'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
-
+{/* -------------------------------------------------------------------------------------------------------------- */}
               <br></br>
-
+{/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
               <Descriptions
                 bordered
                 title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน'
@@ -223,7 +224,7 @@ const Form001Content = () => {
                 >
                   <input
                     className='text-input'
-                    name='sid'
+                    name='o_specific '
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -234,7 +235,7 @@ const Form001Content = () => {
                 >
                   <input
                     className='text-input'
-                    name='sid'
+                    name='o_appointment'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -244,32 +245,34 @@ const Form001Content = () => {
                 >
                   <input
                     className='text-input'
-                    name='sid'
+                    name='o_results'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
+{/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
+{/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
               <Descriptions bordered title='3. คณะกรรมการ' size={size}>
                 <div span={3}>คณะกรรมการพิจารณาผล</div>
                 <Descriptions.Item label='ประธานกรรมการ'>
                   <input
                     className='text-input'
-                    name='sid'
+                    name='o_committee1'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='คณะกรรมการ'>
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_committee2'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='คณะกรรมการ'>
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_committee3'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -277,46 +280,48 @@ const Form001Content = () => {
                 <Descriptions.Item label='ประธานกรรมการ'>
                   <input
                     className='text-input'
-                    name='sid'
+                    name='o_committee4'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='คณะกรรมการ'>
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_committee5'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='คณะกรรมการ'>
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_committee6'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
+{/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
+{/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
               <Descriptions bordered title='4. แหล่งเงิน' size={size}>
                 <div span={3}>* ใส่ข้อมูลเฉพาะที่มี</div>
                 <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
                   <input
                     className='text-input'
-                    name='sid'
+                    name='o_gvm_sub'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้ ปี'>
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_income'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้สะสม ปี'>
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_aml_income'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -324,49 +329,49 @@ const Form001Content = () => {
                 <Descriptions.Item label='ทิศทาง'>
                   <input
                     className='text-input'
-                    name='sid'
+                    name='o_direction'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item span={2} label='นโยบาย'>
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_policy'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='ผลงาน'>
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_works'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item span={2} label='งาน'>
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_task'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='หมวดรายจ่าย'>
                   <input
                     className='text-input'
-                    name='date'
+                    name='o_expense_cg'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item span={2} label='หมวดย่อย'>
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_sub_cg'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item span={3} label='ชื่อรายการ'>
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_list_n'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -376,16 +381,17 @@ const Form001Content = () => {
                 >
                   <input
                     className='text-input'
-                    name='loca'
+                    name='o_other_m'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
-
               <br />
             </form>
+{/* -------------------------------------------------------------------------------------------------------------- */}            
             <br />
             <br />
+{/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
             <div className='center'>
               <button class='btn' type='submit'>
                 <svg
@@ -430,287 +436,6 @@ const Form001Content = () => {
             orientation='left'
             style={{ color: '#333', fontWeight: 'normal' }}
           ></Divider>
-
-          {/* ##################################################################################################################### */}
-
-          <div>
-            {/* <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                ลงวันที่
-              </Col>
-            </Row>
-
-            <h2>1) รายละเอียด</h2>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                ด้วยมหาวิทยาลัยการคอมพิวเตอร์
-                มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                ชื่อโครงการ (ถ้ามี)
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                วันที่ต้องใช้พัสดุ
-              </Col>
-            </Row>
-
-            <h2>2) รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน</h2>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input
-                  style={{ maxWidth: 500 , marginRight: 10 }}
-                  placeholder=''
-                />
-                แผ่น
-              </Col>
-              <Col span={6} pull={18}>
-                2.1 รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน
-                (ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม) จำนวน
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input
-                  style={{ maxWidth: 500 , marginRight: 10 }}
-                  placeholder=''
-                />
-                แผ่น
-              </Col>
-              <Col span={6} pull={18}>
-                2.2
-                บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
-                จำนวน
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input
-                  style={{ maxWidth: 500 , marginRight: 10 }}
-                  placeholder=''
-                />
-                แผ่น
-              </Col>
-              <Col span={6} pull={18}>
-                2.3 บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
-                จำนวน
-              </Col>
-            </Row>
-
-            <h2>3) คณะกรรมการ</h2>
-            <h3>คณะกรรมการพิจารณาผล</h3>
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                ประธานกรรมการ
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                กรรมการ
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                กรรมการ
-              </Col>
-            </Row>
-
-            <h3>คณะกรรมการตรวจรับพัสดุ</h3>
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                ประธานกรรมการ
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                กรรมการ
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                กรรมการ
-              </Col>
-            </Row>
-
-            <h2>4) แหล่งเงิน</h2>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                <Checkbox value='A'>เงินอุดหนุนจากรัฐบาล ปี</Checkbox>
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                <Checkbox value='B'>เงินรายได้ ปี</Checkbox>
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                <Checkbox value='C'>เงินรายได้สะสม ปี</Checkbox>
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                ทิศทาง
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                นโยบาย
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                ผลงาน
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                งาน
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                หมวดรายจ่าย
-              </Col>
-            </Row>
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                หมวดย่อย
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                ชื่อรายการ
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  , marginRight: 10 }} placeholder='' />
-                ตามที่แนบมาพร้อมนี้
-              </Col>
-              <Col span={6} pull={18}>
-                <Checkbox value='A'>เงินอื่นๆโปรดระบุ</Checkbox>
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  , marginRight: 10 }} placeholder='' />
-                ผู้ขอ
-              </Col>
-              <Col span={6} pull={18}>
-                (ลงชื่อ)
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  , marginRight: 10 }} placeholder='' />
-                
-              </Col>
-              <Col span={6} pull={18}>
-              </Col>
-            </Row>
-
-            <Row gutter={[0, 24]}>
-              <Col span={18} push={10}>
-                <Input style={{ maxWidth: 500  , marginRight: 10 }} placeholder='' />
-              </Col>
-              <Col span={6} pull={18}>
-                เบอร์ติดต่อ
-              </Col>
-            </Row> */}
-
-            {/* <Button onClick={Singin} type="primary">บันทึก</Button> */}
-          </div>
-          {/* <Pagination
-            style={{ textAlign: 'center', marginTop: 10 }}
-            defaultCurrent={1}
-            total={50}
-          /> */}
         </div>
       </Content>
     </StyledWrapper>
