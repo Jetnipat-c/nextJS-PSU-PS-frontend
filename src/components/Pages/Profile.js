@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 
-import { Layout, Menu, Breadcrumb, message, Row, Col, } from 'antd'
-import { UserOutlined, LaptopOutlined, NotificationOutlined} from '@ant-design/icons'
+import {
+  Layout,
+  Menu,
+  Breadcrumb,
+  message,
+  Row,
+  Col,
+  Divider,
+  Descriptions,
+  Radio
+} from 'antd'
+import {
+  UserOutlined,
+  LaptopOutlined,
+  NotificationOutlined
+} from '@ant-design/icons'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
@@ -18,36 +32,32 @@ const StyledWrapper = styled.div`
 
   .site-layout-background {
     background: #fff;
-  }
-  .text-content {
-    margin-left: 15px;
-  }
-  .titlepage {
-    text-align: center;
-    min-maxwidth: 500 px;
-    font-size: 20px;
-    font-weight: bold;
-    padding-bottom: 24px;
+    /* display: flex;
+    align-content: center;
+    justify-content: center; */
   }
 `
 
 const ProfileContent = () => {
-    const [profile, setProfile] = useState({})
-    const getprofiledatabase = async () => {
-      const users = await Axios.get(
-        `http://localhost:3001/users/${sessionStorage.getItem('username')}`,
-        {
-          headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
-        }
-      )
-      console.log('user', users)
-      setProfile(users.data)
-  
-      
-    }
-  useEffect(()=>{
+  const [size, setSize] = useState('default')
+  const [profile, setProfile] = useState({})
+  const getprofiledatabase = async () => {
+    const users = await Axios.get(
+      `http://localhost:3001/users/${sessionStorage.getItem('username')}`,
+      {
+        headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
+      }
+    )
+    console.log('user', users)
+    setProfile(users.data)
+  }
+  const cssonChange = e => {
+    console.log('size checked', e.target.value)
+    setSize(e.target.value)
+  }
+  useEffect(() => {
     getprofiledatabase()
-  },[])
+  }, [])
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -63,11 +73,50 @@ const ProfileContent = () => {
         }}
       >
         <div className='site-layout-content'>
-        <div>รหัสนักศึกษา : {profile.sid}</div>
-        <div>ชื่อ : {profile.firstname}</div>
-        <div>นามสกุล : {profile.lastname}</div>
-        <div>บัตรประจำตัวประชาชน : {profile.cid}</div>
+          <Divider
+            orientation='left'
+            style={{ color: '#333', fontWeight: 'normal' }}
+          >
+            Percentage columns
+          </Divider>
+          <div>
+            <Radio.Group onChange={cssonChange} value={size}>
+              <Radio value='default'>default</Radio>
+              <Radio value='middle'>middle</Radio>
+              <Radio value='small'>small</Radio>
+            </Radio.Group>
+            <br />
+            <br />
+            <Descriptions bordered title='Custom Size' size={size}>
+              <Descriptions.Item label='รหัสนักศึกษา'>
+                {profile.sid}
+              </Descriptions.Item>
+              <Descriptions.Item label='ชื่อ'>
+                {profile.firstname}
+              </Descriptions.Item>
+              <Descriptions.Item label='นามสกุล'>
+                {profile.lastname}
+              </Descriptions.Item>
+              <Descriptions.Item label='บัตรประจำตัวประชาชน'>
+                {profile.cid}
+              </Descriptions.Item>
+              <Descriptions.Item label='ที่อยู่'>
+                99/99 หมู่ 4
+                <br />
+                อำเภอ กะทู้ ตำบล กะทู้
+                <br />
+                จังหวัด ภูเก็ต 83000
+                <br />
+              </Descriptions.Item>
+            </Descriptions>
+            <br />
+            <br />
           </div>
+          <Divider
+            orientation='left'
+            style={{ color: '#333', fontWeight: 'normal' }}
+          ></Divider>
+        </div>
       </Content>
     </StyledWrapper>
   )

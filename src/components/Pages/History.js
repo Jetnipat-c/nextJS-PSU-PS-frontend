@@ -23,16 +23,7 @@ const StyledWrapper = styled.div`
   .site-layout-background {
     background: #fff;
   }
-  .text-content {
-    margin-left: 15px;
-  }
-  .titlepage {
-    text-align: center;
-    min-maxwidth: 500 px;
-    font-size: 20px;
-    font-weight: bold;
-    padding-bottom: 24px;
-  }
+
 `
 
 const HistoryContent = () => {
