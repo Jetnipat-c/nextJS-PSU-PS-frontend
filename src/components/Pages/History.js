@@ -62,15 +62,14 @@ const HistoryContent = () => {
         }}
       >
         <div className='site-layout-content'>
-            {
-                history.map((data , index)=>{  
-                    return(
-                        <div key={index} >
-                        วันที่ : {data.date}
-                        </div>
-                    )
-                })
-            }
+          {history.map((data, index) => {
+            return (
+              <div key={index}>
+                <h1>วันที่ : {data.date}</h1>
+                <div style={{margin: '15px'}}> >> {data.loca}</div>
+              </div>
+            )
+          })}
         </div>
       </Content>
     </StyledWrapper>
