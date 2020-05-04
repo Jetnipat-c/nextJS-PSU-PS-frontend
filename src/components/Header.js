@@ -35,6 +35,10 @@ const HeaderComponent = () => {
   const getuser = () => {
     setUsername(sessionStorage.getItem('username'))
   }
+  const gotoPage = () =>{
+    Router.push('/homepage')
+    console.log('xxxx')
+  }
   useEffect(()=>{
       getuser()
   },[])
@@ -43,7 +47,9 @@ const HeaderComponent = () => {
       <Header className='header'>
         <div className='logo' />
         <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']}>
-          <Menu.Item key='1'>Purchasing system</Menu.Item>
+          <Menu.Item key='1'>
+             <a onClick={gotoPage}>Purchasing system</a> 
+              </Menu.Item>
           <Menu.Item key='2'>
              <a>{username}</a> 
               </Menu.Item>
