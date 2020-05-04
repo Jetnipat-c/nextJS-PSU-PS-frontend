@@ -22,6 +22,9 @@ const StyledWrapper = styled.div`
   .site-layout-background {
     background: #fff;
   }
+  .text-content{
+      margin-left: 15px;
+  }
 `
 
 const ContentComponent = () => {
@@ -29,8 +32,7 @@ const ContentComponent = () => {
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
+        <Breadcrumb.Item>Announce</Breadcrumb.Item>
       </Breadcrumb>
       <Content
         className='site-layout-background'
@@ -40,7 +42,19 @@ const ContentComponent = () => {
           minHeight: 280
         }}
       >
-        Content
+          <div>
+              <h2>Patch fix</h2>
+              <div className='text-content'>
+              <div>- xxxx</div>
+              <h1>- xxxx</h1>
+              </div>
+          </div>
+          <h2>Patch update</h2>
+              <div className='text-content'>
+              <div>- xxxx</div>
+              <h1>- xxxx</h1>
+              </div>
+        
       </Content>
     </StyledWrapper>
   )

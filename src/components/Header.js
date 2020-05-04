@@ -45,7 +45,7 @@ const HeaderComponent = () => {
         <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']}>
           <Menu.Item key='1'>nav 1</Menu.Item>
           <Menu.Item key='2'>
-              {username}
+             <a>{username}</a> 
               </Menu.Item>
           <Menu.Item key='3'>
             <a onClick={logout}>SignOut</a>
