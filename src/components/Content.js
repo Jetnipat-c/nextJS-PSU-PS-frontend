@@ -45,14 +45,13 @@ const ContentComponent = () => {
           <div>
               <h2>Patch fix</h2>
               <div className='text-content'>
-              <div>- xxxx</div>
-              <div>- xxxx</div>
+              <div>- 6:52 PM 5/4/2020 ออกแบบหน้าเว็ปใหม่</div>
               </div>
           </div>
           <h2>Patch update</h2>
               <div className='text-content'>
-              <div>- xxxx</div>
-              <div>- xxxx</div>
+              <div>- 6:52 PM 5/4/2020 ปรับปรุงฟังก์ชันจากเวอร์ชั่นเก่า</div>
+
               </div>
         
       </Content>

@@ -49,4 +49,5 @@ const Pageprofile = () => {
     </StyledWrapper>
   )
 }
-export default Pageprofile
+const WithTransfer =()=><WithAuth component={Pageprofile} />
+export default WithTransfer

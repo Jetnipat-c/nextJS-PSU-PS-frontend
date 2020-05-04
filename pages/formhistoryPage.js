@@ -50,4 +50,5 @@ const Pagehistory = () => {
     </StyledWrapper>
   )
 }
-export default Pagehistory
+const WithTransfer =()=><WithAuth component={Pagehistory} />
+export default WithTransfer

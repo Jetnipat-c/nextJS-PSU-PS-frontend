@@ -48,4 +48,5 @@ const Pageform001 = () => {
     </StyledWrapper>
   )
 }
-export default Pageform001
+const WithTransfer =()=><WithAuth component={Pageform001} />
+export default WithTransfer
