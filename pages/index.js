@@ -1,5 +1,5 @@
 import react , { useState, useEffect } from 'react'
-
+import WithAuth from '../src/hoc/withAuth'
 import styled from 'styled-components'
 const StyledWrapper = styled.div`
 
@@ -11,5 +11,5 @@ function IndexPage() {
     </StyledWrapper>
   )
 }
-
-export default IndexPage
+const WithTransfer =()=><WithAuth component={IndexPage} />
+export default WithTransfer

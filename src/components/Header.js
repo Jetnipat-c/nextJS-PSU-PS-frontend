@@ -1,4 +1,5 @@
 import react, { useState, useEffect } from 'react'
+import Router from 'next/router'
 
 import { Layout, Menu, Breadcrumb } from 'antd'
 import {
@@ -25,6 +26,11 @@ const StyledWrapper = styled.div`
 `
 
 const HeaderComponent = () => {
+    const logout = () =>{
+        sessionStorage.removeItem('username')
+        sessionStorage.removeItem('token')
+        Router.push('/homepage')
+    }
   return (
     <StyledWrapper>
       <Header className='header'>
@@ -32,7 +38,9 @@ const HeaderComponent = () => {
         <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['2']}>
           <Menu.Item key='1'>nav 1</Menu.Item>
           <Menu.Item key='2'>nav 2</Menu.Item>
-          <Menu.Item key='3'>nav 3</Menu.Item>
+          <Menu.Item key='3'>
+          <a onClick={logout}>SignOut</a>
+              </Menu.Item>
         </Menu>
       </Header>
     </StyledWrapper>
