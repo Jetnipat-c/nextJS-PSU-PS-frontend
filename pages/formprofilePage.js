@@ -16,6 +16,7 @@ import ContentComponent from '../src/components/Content'
 import FooterComponent from '../src/components/Footer'
 import WithAuth from '../src/hoc/withAuth'
 import Form001Content from '../src/components/Pages/Form001'
+import ProfileContent from '../src/components/Pages/Profile'
 import styled from 'styled-components'
 
 const StyledWrapper = styled.div`
@@ -40,7 +41,7 @@ const Pageprofile = () => {
         <Layout>
           <SiderComponent />
           <Layout style={{ padding: '0 24px 24px' }}>
-          Pageprofile
+          <ProfileContent />
           </Layout>
         </Layout>
         <FooterComponent />
