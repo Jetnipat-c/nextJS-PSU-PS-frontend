@@ -8,6 +8,12 @@ import WithAuth from '../src/hoc/withAuth'
 import { Layout, Menu, Breadcrumb } from 'antd'
 const { Header, Content, Footer } = Layout
 const StyledWrapper = styled.div`
+.ant-layout-header {
+    height: 52px;
+    padding: 0 50px;
+    line-height: 64px;
+    background: #001529;
+}
   .site-layout-content {
     background: #fff;
     padding: 24px;
@@ -84,7 +90,7 @@ const [selectedMenuItem, setSelectedMenuItem] = useState('1')
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2018 Created by Ant UED
+        Copyright © 2020 CoE ระบบจัดซื้อ Purchasing system
         </Footer>
       </Layout>
     </StyledWrapper>
