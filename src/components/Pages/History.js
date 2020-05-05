@@ -42,7 +42,7 @@ const HistoryContent = () => {
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>แก้ไขข้อมูลประวัติส่วนตัว</Breadcrumb.Item>
+        <Breadcrumb.Item>ประวัติการทำรายการ</Breadcrumb.Item>
       </Breadcrumb>
       <Content
         className='site-layout-background'
@@ -56,8 +56,32 @@ const HistoryContent = () => {
           {history.map((data, index) => {
             return (
               <div key={index}>
-                <h1>วันที่ : {data.date}</h1>
-                <div style={{margin: '15px'}}> >> {data.loca}</div>
+                <h1>วันที่ : {data.o_date}</h1>
+                <div style={{margin: '15px'}}> >> {data.o_location}</div>
+                <div style={{margin: '15px'}}> >> {data.o_purpose}</div>
+                <div style={{margin: '15px'}}> >> {data.o_projectname}</div>
+                <div style={{margin: '15px'}}> >> {data.o_require}</div>
+                {/* <div style={{margin: '15px'}}> >> {data.o_specific}</div>
+                <div style={{margin: '15px'}}> >> {data.o_appointment}</div>
+                <div style={{margin: '15px'}}> >> {data.o_results}</div> */}
+                <div style={{margin: '15px'}}> >> {data.o_committee1}</div>
+                <div style={{margin: '15px'}}> >> {data.o_committee2}</div>
+                <div style={{margin: '15px'}}> >> {data.o_committee3}</div>
+                <div style={{margin: '15px'}}> >> {data.o_committee4}</div>
+                <div style={{margin: '15px'}}> >> {data.o_committee5}</div>
+                <div style={{margin: '15px'}}> >> {data.o_committee6}</div>
+                {/* <div style={{margin: '15px'}}> >> {data.o_gvm_sub}</div>
+                <div style={{margin: '15px'}}> >> {data.o_income}</div>
+                <div style={{margin: '15px'}}> >> {data.o_aml_income}</div>
+                <div style={{margin: '15px'}}> >> {data.o_direction}</div>
+                <div style={{margin: '15px'}}> >> {data.o_policy}</div>
+                <div style={{margin: '15px'}}> >> {data.o_works}</div>
+                <div style={{margin: '15px'}}> >> {data.o_task}</div>
+                <div style={{margin: '15px'}}> >> {data.o_expense_cg}</div>
+                <div style={{margin: '15px'}}> >> {data.o_sub_cg}</div>
+                <div style={{margin: '15px'}}> >> {data.o_list_n}</div>
+                <div style={{margin: '15px'}}> >> {data.o_other_m}</div> */}
+
               </div>
             )
           })}

@@ -419,7 +419,7 @@ const Form001Content = () => {
                 <span>Submit</span>
               </button>
 
-              {/* <button className='btn btn2' >
+              <button className='btn btn2' >
                 <svg
                   width='180px'
                   height='60px'
@@ -436,7 +436,7 @@ const Form001Content = () => {
                   />
                 </svg>
                 <span>Cancel</span>
-              </button> */}
+              </button>
             </div>
             </form>
  {/* -------------------------------------------------------------------------------------------------------------- */}           

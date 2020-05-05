@@ -42,7 +42,8 @@ const ContentComponent = () => {
           minHeight: 280
         }}
       >
-        <div>
+        <h1>Announce</h1>
+        {/* <div>
           <h2>Patch Frontend</h2>
           <div className='text-content'>
             <div>- 6:52 PM 5/4/2020 ออกแบบหน้าเว็ปใหม่</div>
@@ -60,7 +61,7 @@ const ContentComponent = () => {
         <h2>Problem list</h2>
         <div className='text-content'>
           <div>- 2:23 AM 5/4/2020 บันทึกค่า Null ยังไม่ได้ และ กด Purchasing system แล้วเป็นการบันทึกข้อมูล ***ปัญหาที่ css .button</div>
-        </div>
+        </div> */}
       </Content>
     </StyledWrapper>
   )
