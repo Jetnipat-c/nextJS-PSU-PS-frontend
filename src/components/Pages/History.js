@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import { Layout, Menu, Breadcrumb, message, Row, Col } from 'antd'
 import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined
-} from '@ant-design/icons'
+  Layout,
+  Menu,
+  Breadcrumb,
+  message,
+  Row,
+  Col,
+  Divider,
+  Descriptions,
+  Radio
+} from 'antd'
+
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
@@ -23,7 +29,6 @@ const StyledWrapper = styled.div`
   .site-layout-background {
     background: #fff;
   }
-
 `
 
 const HistoryContent = () => {
@@ -34,6 +39,13 @@ const HistoryContent = () => {
     )
     console.log('found = ', found.data)
     setHistoty(JSON.parse(JSON.stringify(found.data)))
+  }
+  const [showResults, setShowResults] = useState(false)
+  const showresult = () => setShowResults(true)
+  const [size, setSize] = useState('default')
+  const cssonChange = e => {
+    console.log('size checked', e.target.value)
+    setSize(e.target.value)
   }
   useEffect(() => {
     getForm001Bysid()
@@ -56,32 +68,267 @@ const HistoryContent = () => {
           {history.map((data, index) => {
             return (
               <div key={index}>
-                <h1>วันที่ : {data.o_date}</h1>
-                <div style={{margin: '15px'}}> >> {data.o_location}</div>
-                <div style={{margin: '15px'}}> >> {data.o_purpose}</div>
-                <div style={{margin: '15px'}}> >> {data.o_projectname}</div>
-                <div style={{margin: '15px'}}> >> {data.o_require}</div>
-                {/* <div style={{margin: '15px'}}> >> {data.o_specific}</div>
-                <div style={{margin: '15px'}}> >> {data.o_appointment}</div>
-                <div style={{margin: '15px'}}> >> {data.o_results}</div> */}
-                <div style={{margin: '15px'}}> >> {data.o_committee1}</div>
-                <div style={{margin: '15px'}}> >> {data.o_committee2}</div>
-                <div style={{margin: '15px'}}> >> {data.o_committee3}</div>
-                <div style={{margin: '15px'}}> >> {data.o_committee4}</div>
-                <div style={{margin: '15px'}}> >> {data.o_committee5}</div>
-                <div style={{margin: '15px'}}> >> {data.o_committee6}</div>
-                {/* <div style={{margin: '15px'}}> >> {data.o_gvm_sub}</div>
-                <div style={{margin: '15px'}}> >> {data.o_income}</div>
-                <div style={{margin: '15px'}}> >> {data.o_aml_income}</div>
-                <div style={{margin: '15px'}}> >> {data.o_direction}</div>
-                <div style={{margin: '15px'}}> >> {data.o_policy}</div>
-                <div style={{margin: '15px'}}> >> {data.o_works}</div>
-                <div style={{margin: '15px'}}> >> {data.o_task}</div>
-                <div style={{margin: '15px'}}> >> {data.o_expense_cg}</div>
-                <div style={{margin: '15px'}}> >> {data.o_sub_cg}</div>
-                <div style={{margin: '15px'}}> >> {data.o_list_n}</div>
-                <div style={{margin: '15px'}}> >> {data.o_other_m}</div> */}
+                <span style={{fontSize:'20px' , marginLeft: 20}}>วันที่ : {data.o_date}</span>{' '}
+                <button onClick={showresult}>Show info</button>
+                {showResults ? (
+                  <div>
+                    <Divider
+                      orientation='left'
+                      style={{ color: '#333', fontWeight: 'normal' }}
+                    >
+                      แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
+                      กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
+                    </Divider>
+                    <div>
+                      <Radio.Group onChange={cssonChange} value={size}>
+                        <Radio value='default'>default</Radio>
+                        <Radio value='middle'>middle</Radio>
+                        <Radio value='small'>small</Radio>
+                      </Radio.Group>
+                      <br />
+                      <br />
+                      <Descriptions bordered title='1. รายละเอียด' size={size}>
+                        <Descriptions.Item label='เอกสารของ'>
+                          <input
+                            className='text-input'
+                            value='sid'
+                            value={data.sid}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='เอกสารที่ มอ. 696 /'>
+                          <input
+                            className='text-input'
+                            value={data.o_location}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='ลงวันที่'>
+                          <input
+                            className='text-input'
+                            value={data.o_date}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item
+                          span={3}
+                          label='ด้วยมหาวิทยาลัยการคอมพิวเตอร์
+                มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ'
+                        >
+                          <input
+                            className='text-input'
+                            value={data.o_purpose}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='ชื่อโครงการ (ถ้ามี)'>
+                          <input
+                            className='text-input'
+                            value={data.o_projectname}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='วันที่ต้องใช้พัสดุ'>
+                          <input
+                            className='text-input'
+                            value={data.o_require}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                      </Descriptions>
+                      {/* -------------------------------------------------------------------------------------------------------------- */}
+                      <br></br>
+                      {/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
+                      <Descriptions
+                        bordered
+                        title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน'
+                        size={size}
+                      >
+                        <Descriptions.Item
+                          span={3}
+                          label='2.1 รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน
+                (ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม)  (จำนวนแผ่น)'
+                        >
+                          <input
+                            type='number'
+                            className='text-input'
+                            value={data.o_specific}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item
+                          span={3}
+                          label='2.2
+                บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
+                        >
+                          <input
+                            type='number'
+                            className='text-input'
+                            value={data.o_appointment}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item
+                          span={3}
+                          label='2.3 บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
+                        >
+                          <input
+                            type='number'
+                            className='text-input'
+                            value={data.o_results}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                      </Descriptions>
+                      {/* -------------------------------------------------------------------------------------------------------------- */}
+                      <br />
+                      {/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
+                      <Descriptions bordered title='3. คณะกรรมการ' size={size}>
+                        <div span={3}>คณะกรรมการพิจารณาผล</div>
+                        <Descriptions.Item label='ประธานกรรมการ'>
+                          <input
+                            className='text-input'
+                            value={data.o_committee1}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='คณะกรรมการ'>
+                          <input
+                            className='text-input'
+                            value={data.o_committee2}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='คณะกรรมการ'>
+                          <input
+                            className='text-input'
+                            value={data.o_committee3}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <div span={3}>คณะกรรมการตรวจรับพัสดุ</div>
+                        <Descriptions.Item label='ประธานกรรมการ'>
+                          <input
+                            className='text-input'
+                            value={data.o_committee4}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='คณะกรรมการ'>
+                          <input
+                            className='text-input'
+                            value={data.o_committee5}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='คณะกรรมการ'>
+                          <input
+                            className='text-input'
+                            value={data.o_committee6}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                      </Descriptions>
+                      {/* -------------------------------------------------------------------------------------------------------------- */}
+                      <br />
+                      {/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
+                      <Descriptions bordered title='4. แหล่งเงิน' size={size}>
+                        <div span={3}>* ใส่ข้อมูลเฉพาะที่มี</div>
+                        <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
+                          <input
+                            type='number'
+                            className='text-input'
+                            value={data.o_gvm_sub}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='เงินรายได้ ปี'>
+                          <input
+                            type='number'
+                            className='text-input'
+                            value={data.o_income}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='เงินรายได้สะสม ปี'>
+                          <input
+                            type='number'
+                            className='text-input'
+                            value={data.o_aml_income}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
 
+                        <Descriptions.Item label='ทิศทาง'>
+                          <input
+                            className='text-input'
+                            value={data.o_direction}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item span={2} label='นโยบาย'>
+                          <input
+                            className='text-input'
+                            value={data.o_policy}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='ผลงาน'>
+                          <input
+                            className='text-input'
+                            value={data.o_works}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item span={2} label='งาน'>
+                          <input
+                            className='text-input'
+                            value={data.o_task}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='หมวดรายจ่าย'>
+                          <input
+                            className='text-input'
+                            value={data.o_expense_cg}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item span={2} label='หมวดย่อย'>
+                          <input
+                            className='text-input'
+                            value={data.o_sub_cg}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item span={3} label='ชื่อรายการ'>
+                          <input
+                            className='text-input'
+                            value={data.o_list_n}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                        <Descriptions.Item
+                          span={3}
+                          label='เงินอื่นๆโปรดระบุ (ตามที่แนบมาพร้อมนี้) '
+                        >
+                          <input
+                            type='number'
+                            className='text-input'
+                            value={data.o_other_m}
+                            disabled={true}
+                          ></input>
+                        </Descriptions.Item>
+                      </Descriptions>
+                      <br />
+                      <Divider
+                        orientation='left'
+                        style={{ color: '#333', fontWeight: 'normal' }}
+                      ></Divider>
+                      {/* -------------------------------------------------------------------------------------------------------------- */}
+                    </div>
+                  </div>
+                ) : null}
               </div>
             )
           })}
