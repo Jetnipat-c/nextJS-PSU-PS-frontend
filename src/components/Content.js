@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Layout, Menu, Breadcrumb } from 'antd'
+import { Layout, Menu, Breadcrumb, Carousel  } from 'antd'
 import {
   UserOutlined,
   LaptopOutlined,
@@ -25,6 +25,17 @@ const StyledWrapper = styled.div`
   .text-content {
     margin-left: 15px;
   }
+  .ant-carousel .slick-slide {
+  text-align: center;
+  height: 200px;
+  line-height: 200px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
 `
 
 const ContentComponent = () => {
@@ -34,16 +45,24 @@ const ContentComponent = () => {
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>Announce</Breadcrumb.Item>
       </Breadcrumb>
-      <Content
-        className='site-layout-background'
-        style={{
-          padding: 24,
-          margin: 0,
-          minHeight: 280
-        }}
-      >
+      <Content>
         {/* <h1>Announce</h1> */}
-        <div>
+        <Carousel autoplay>
+    <div>
+    {/* <img src="/bg_login.jpg" alt="bg1" /> */}
+    <h3>1</h3>
+    </div>
+    <div>
+      <h3>2</h3>
+    </div>
+    <div>
+      <h3>3</h3>
+    </div>
+    <div>
+      <h3>4</h3>
+    </div>
+  </Carousel>
+        {/* <div>
           <h2>Patch Frontend</h2>
           <div className='text-content'>
             <div>- 6:52 PM 5/4/2020 ออกแบบหน้าเว็ปใหม่</div>
@@ -69,7 +88,7 @@ const ContentComponent = () => {
         <div className='text-content'>
           <div>- 2:23 AM 5/4/2020 บันทึกค่า Null ยังไม่ได้ และ กด Purchasing system แล้วเป็นการบันทึกข้อมูล ***ปัญหาที่ css .button</div>
           <div>- 3:12 AM 5/6/2020 css button ' Show info ' รอปรับปรุง</div>
-        </div>
+        </div> */}
       </Content>
     </StyledWrapper>
   )
