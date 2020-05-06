@@ -93,9 +93,10 @@ const StyledWrapper = styled.div`
 }
 `
 
-const EditForm001Content = () => {
+const EditForm001Content = (props) => {
   const [size, setSize] = useState('default')
-
+  const [order_id,setOrder_id] = useState(props.order_id) 
+  console.log('order_id inpage editform001 = ',order_id)
   const [username, setUsername] = useState('')
   const getuser = () => {
     setUsername(sessionStorage.getItem('username'))
@@ -133,7 +134,7 @@ const EditForm001Content = () => {
       <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>แบบฟอร์ม</Breadcrumb.Item>
-        <Breadcrumb.Item>เพิ่มคำสั่งซื้อพัสดุแบบปกติ 001</Breadcrumb.Item>
+        <Breadcrumb.Item>แก้ไขคำสั่งซื้อพัสดุแบบปกติ 001</Breadcrumb.Item>
       </Breadcrumb>
       <Content
         className='site-layout-background'
@@ -148,6 +149,7 @@ const EditForm001Content = () => {
             orientation='left'
             style={{ color: '#333', fontWeight: 'normal' }}
           >
+            แก้ไขคำสั่งซื้อพัสดุแบบปกติ เลขออร์เดอร์ที่ xxx
             แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
             กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
           </Divider>
