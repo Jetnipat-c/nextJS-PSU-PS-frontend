@@ -42,6 +42,7 @@ const HistoryContent = () => {
   }
   const [showResults, setShowResults] = useState(false)
   const showresult = () => setShowResults(true)
+  const closeesult = () => setShowResults(false)
   const [size, setSize] = useState('default')
   const cssonChange = e => {
     console.log('size checked', e.target.value)
@@ -68,17 +69,17 @@ const HistoryContent = () => {
           {history.map((data, index) => {
             return (
               <div key={index}>
-                <span style={{fontSize:'20px' , marginLeft: 20}}>วันที่ : {data.o_date}</span>{' '}
-                <button onClick={showresult}>Show info</button>
-                {showResults ? (
-                  <div>
-                    <Divider
+                <div><Divider
                       orientation='left'
                       style={{ color: '#333', fontWeight: 'normal' }}
                     >
-                      แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
-                      กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
+                      วันที่ : {data.o_date}
+                   <button style={{marginLeft: '15px'}} onClick={showresult}>Show info</button> 
+                   <button style={{marginLeft: '15px'}} onClick={closeesult}>Close info</button>    
                     </Divider>
+                </div>
+                {showResults ? (
+                  <div>
                     <div>
                       <Radio.Group onChange={cssonChange} value={size}>
                         <Radio value='default'>default</Radio>
