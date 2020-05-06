@@ -51,6 +51,12 @@ const HistoryContent = () => {
   useEffect(() => {
     getForm001Bysid()
   }, [])
+  const deletehistory = async (order_id) =>{
+    //console.log('order_id = ',order_id)
+    var found = await axios.delete(
+      `http://localhost:3001/form001/${order_id}`
+    )
+  }
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -74,8 +80,10 @@ const HistoryContent = () => {
                       style={{ color: '#333', fontWeight: 'normal' }}
                     >
                       วันที่ : {data.o_date}
+                      เลขออร์เดอร์ : {data.order_id}
                    <button style={{marginLeft: '15px'}} onClick={showresult}>Show info</button> 
-                   <button style={{marginLeft: '15px'}} onClick={closeesult}>Close info</button>    
+                   <button style={{marginLeft: '15px'}} onClick={closeesult}>Close info</button>  
+                   <button style={{marginLeft: '15px'}} onClick={() => deletehistory(data.order_id)}>Delete info</button> 
                     </Divider>
                 </div>
                 {showResults ? (
