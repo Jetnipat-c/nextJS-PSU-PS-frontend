@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import * as axios from 'axios'
+import axios from 'axios'
 import Router from 'next/router'
 import { useForm } from 'react-hook-form'
 
@@ -85,18 +85,18 @@ const StyledWrapper = styled.div`
     font-weight: 100;
   }
   .center {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 60px;
-  justify-content: space-around;
-}
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    justify-content: space-around;
+  }
 `
 
-const EditForm001Content = (props) => {
+const EditForm001Content = props => {
   const [size, setSize] = useState('default')
-  const [order_id,setOrder_id] = useState(props.order_id) 
-  console.log('order_id inpage editform001 = ',order_id)
+  const [order_id, setOrder_id] = useState(props.order_id)
+  //console.log('order_id inpage editform001 = ', order_id)
   const [username, setUsername] = useState('')
   const getuser = () => {
     setUsername(sessionStorage.getItem('username'))
@@ -104,9 +104,9 @@ const EditForm001Content = (props) => {
 
   const { register, handleSubmit, errors } = useForm() // initialise the hook
   const onSubmit = data => {
-    console.log('data', data)
-    axios.post(`http://localhost:3001/form001/insert`, data).then(res => {
-      console.log('res.data', res.data)
+    //console.log('data', data)
+    axios.patch(`http://localhost:3001/form001/${order_id}`, data).then(res => {
+      //console.log('res.data', res.data)
     })
     openMessage()
   }
@@ -125,6 +125,7 @@ const EditForm001Content = (props) => {
   const checkbox = e => {
     console.log(`checked = ${e.target.checked}`)
   }
+
 
   useEffect(() => {
     getuser()
@@ -145,24 +146,25 @@ const EditForm001Content = (props) => {
         }}
       >
         <div className='site-layout-content'>
-          <Divider
-            orientation='left'
-            style={{ color: '#333', fontWeight: 'normal' }}
-          >
-            แก้ไขคำสั่งซื้อพัสดุแบบปกติ เลขออร์เดอร์ที่ xxx
-            แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
-            กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
-          </Divider>
           <div>
-            <Radio.Group onChange={cssonChange} value={size}>
-              <Radio value='default'>default</Radio>
-              <Radio value='middle'>middle</Radio>
-              <Radio value='small'>small</Radio>
-            </Radio.Group>
-            <br />
-            <br />
-{/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}            
             <form onSubmit={handleSubmit(onSubmit)}>
+              <Divider
+                orientation='left'
+                style={{ color: '#333', fontWeight: 'normal' }}
+              >
+                <h1>แก้ไขคำสั่งซื้อพัสดุแบบปกติ เลขออร์เดอร์ที่ {order_id}</h1>
+                แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
+                กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
+              </Divider>
+
+              <Radio.Group onChange={cssonChange} value={size}>
+                <Radio value='default'>default</Radio>
+                <Radio value='middle'>middle</Radio>
+                <Radio value='small'>small</Radio>
+              </Radio.Group>
+              <br />
+              <br />
+{/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}
               <Descriptions bordered title='1. รายละเอียด' size={size}>
                 <Descriptions.Item label='เอกสารของ'>
                   <input
@@ -213,9 +215,9 @@ const EditForm001Content = (props) => {
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
-{/* -------------------------------------------------------------------------------------------------------------- */}
+              {/* -------------------------------------------------------------------------------------------------------------- */}
               <br></br>
-{/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
+              {/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
               <Descriptions
                 bordered
                 title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน'
@@ -239,7 +241,7 @@ const EditForm001Content = (props) => {
                 บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
                 >
                   <input
-                  type='number'
+                    type='number'
                     className='text-input'
                     name='o_appointment'
                     ref={register}
@@ -250,16 +252,16 @@ const EditForm001Content = (props) => {
                   label='2.3 บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
                 >
                   <input
-                  type='number'
+                    type='number'
                     className='text-input'
                     name='o_results'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
-{/* -------------------------------------------------------------------------------------------------------------- */}
+              {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
-{/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
+              {/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
               <Descriptions bordered title='3. คณะกรรมการ' size={size}>
                 <div span={3}>คณะกรรมการพิจารณาผล</div>
                 <Descriptions.Item label='ประธานกรรมการ'>
@@ -306,9 +308,9 @@ const EditForm001Content = (props) => {
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
-{/* -------------------------------------------------------------------------------------------------------------- */}
+              {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
-{/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
+              {/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
               <Descriptions bordered title='4. แหล่งเงิน' size={size}>
                 <div span={3}>* ใส่ข้อมูลเฉพาะที่มี</div>
                 <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
@@ -321,7 +323,7 @@ const EditForm001Content = (props) => {
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้ ปี'>
                   <input
-                  type='number'
+                    type='number'
                     className='text-input'
                     name='o_income'
                     ref={register}
@@ -329,7 +331,7 @@ const EditForm001Content = (props) => {
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้สะสม ปี'>
                   <input
-                  type='number'
+                    type='number'
                     className='text-input'
                     name='o_aml_income'
                     ref={register}
@@ -398,11 +400,11 @@ const EditForm001Content = (props) => {
                 </Descriptions.Item>
               </Descriptions>
               <br />
-{/* -------------------------------------------------------------------------------------------------------------- */}  
-{/* ---------------------------------------------------- button ---------------------------------------------------- */}
-<div className='center'>
-              
-              <button className='btn' type='submit'>
+              {/* -------------------------------------------------------------------------------------------------------------- */}
+              {/* ---------------------------------------------------- button ---------------------------------------------------- */}
+              <div className='center'>
+                <button style={{ marginLeft: '15px' }} type='submit' >Eidt form001</button>
+                {/* <button className='btn' type='submit'>
                 <svg
                   width='180px'
                   height='60px'
@@ -419,9 +421,9 @@ const EditForm001Content = (props) => {
                   />
                 </svg>
                 <span>Submit</span>
-              </button>
+              </button> */}
 
-              <button className='btn btn2' >
+                {/* <button className='btn btn2' >
                 <svg
                   width='180px'
                   height='60px'
@@ -438,13 +440,12 @@ const EditForm001Content = (props) => {
                   />
                 </svg>
                 <span>Cancel</span>
-              </button>
-            </div>
+              </button> */}
+              </div>
             </form>
- {/* -------------------------------------------------------------------------------------------------------------- */}           
+            {/* -------------------------------------------------------------------------------------------------------------- */}
             <br />
             <br />
-            
           </div>
           <Divider
             orientation='left'

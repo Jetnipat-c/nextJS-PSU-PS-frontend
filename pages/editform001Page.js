@@ -37,7 +37,7 @@ const StyledWrapper = styled.div`
 const Pageeidtform001 = () => {
     const router = useRouter();
     const order_id = router.query.order_id;
-    console.log('order_id inpage editform001page=',router.query.order_id);
+    //console.log('order_id inpage editform001page=',router.query.order_id);
 
 
   return (
@@ -48,7 +48,6 @@ const Pageeidtform001 = () => {
         <Layout>
           <SiderComponent />
           <Layout style={{ padding: '0 24px 24px' }}>
-              {order_id}
             <EditForm001Content order_id={order_id}/>
           </Layout>
         </Layout>

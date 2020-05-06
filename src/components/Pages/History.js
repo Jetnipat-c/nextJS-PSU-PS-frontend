@@ -55,9 +55,10 @@ const HistoryContent = () => {
     var found = await axios.delete(
       `http://localhost:3001/form001/${order_id}`
     )
+    Router.reload();
   }
   const edithistory = async (order_id) =>{
-    console.log('order_id = ',order_id)
+    //console.log('order_id = ',order_id)
     Router.push({
       pathname: '/editform001page',
       query: { order_id: order_id }
@@ -66,6 +67,7 @@ const HistoryContent = () => {
     //   `http://localhost:3001/form001/${order_id}`
     // )
   }
+  
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
