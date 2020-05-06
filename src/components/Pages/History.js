@@ -86,7 +86,7 @@ const HistoryContent = () => {
                       style={{ color: '#333', fontWeight: 'normal' }}
                     >
                       วันที่ : {data.o_date}
-                      เลขออร์เดอร์ : {data.order_id}
+                      {/* เลขออร์เดอร์ : {data.order_id} */}
                    <button style={{marginLeft: '15px'}} onClick={showresult}>Show info</button> 
                    <button style={{marginLeft: '15px'}} onClick={closeesult}>Close info</button>  
                    <button style={{marginLeft: '15px'}} onClick={() => deletehistory(data.order_id)}>Delete info</button> 
