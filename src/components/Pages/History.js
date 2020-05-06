@@ -37,7 +37,7 @@ const HistoryContent = () => {
     var found = await axios.get(
       `http://localhost:3001/form001/${sessionStorage.getItem('username')}`
     )
-    console.log('found = ', found.data)
+    //console.log('found = ', found.data)
     setHistoty(JSON.parse(JSON.stringify(found.data)))
   }
   const [showResults, setShowResults] = useState(false)
@@ -57,6 +57,12 @@ const HistoryContent = () => {
       `http://localhost:3001/form001/${order_id}`
     )
   }
+  // const edithistory = async (order_id) =>{
+  //   //console.log('order_id = ',order_id)
+  //   var found = await axios.patch(
+  //     `http://localhost:3001/form001/${order_id}`
+  //   )
+  // }
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -84,6 +90,7 @@ const HistoryContent = () => {
                    <button style={{marginLeft: '15px'}} onClick={showresult}>Show info</button> 
                    <button style={{marginLeft: '15px'}} onClick={closeesult}>Close info</button>  
                    <button style={{marginLeft: '15px'}} onClick={() => deletehistory(data.order_id)}>Delete info</button> 
+                   {/* <button style={{marginLeft: '15px'}} onClick={() => deletehistory(data.order_id)}>Delete info</button>  */}
                     </Divider>
                 </div>
                 {showResults ? (
