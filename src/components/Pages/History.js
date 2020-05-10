@@ -10,7 +10,9 @@ import {
   Col,
   Divider,
   Descriptions,
-  Radio
+  Radio,
+  PageHeader,
+  Button
 } from 'antd'
 
 const { SubMenu } = Menu
@@ -27,6 +29,10 @@ const StyledWrapper = styled.div`
 
   .site-layout-background {
     background: #fff;
+  }
+  .site-page-header-ghost-wrapper {
+    background-color: #f5f5f5;
+    padding: 24px;
   }
 `
 
@@ -50,30 +56,29 @@ const HistoryContent = () => {
   useEffect(() => {
     getForm001Bysid()
   }, [])
-  const deletehistory = async (order_id) =>{
+  const deletehistory = async order_id => {
     //console.log('order_id = ',order_id)
-    var found = await axios.delete(
-      `http://localhost:3001/form001/${order_id}`
-    )
-    Router.reload();
+    var found = await axios.delete(`http://localhost:3001/form001/${order_id}`)
+    Router.reload()
   }
-  const edithistory = async (order_id) =>{
+  const edithistory = async order_id => {
     //console.log('order_id = ',order_id)
     Router.push({
       pathname: '/editform001page',
       query: { order_id: order_id }
-  })
+    })
     // var found = await axios.patch(
     //   `http://localhost:3001/form001/${order_id}`
     // )
   }
-  
+
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>ประวัติการทำรายการ</Breadcrumb.Item>
       </Breadcrumb>
+
       <Content
         className='site-layout-background'
         style={{
@@ -83,20 +88,78 @@ const HistoryContent = () => {
         }}
       >
         <div className='site-layout-content'>
+          <div className='site-page-header-ghost-wrapper'>
+            {history.map((data, index) => {
+              return (
+                <div>
+                  <div className='site-page-header-ghost-wrapper'>
+                    <PageHeader
+                      ghost={false}
+                      onBack={() => window.history.back()}
+                      title='Title'
+                      subTitle='This is a subtitle'
+                      extra={[
+                        <Button key='3'>Operation</Button>,
+                        <Button key='2'>Operation</Button>,
+                        <Button key='1' type='primary'>
+                          Primary
+                        </Button>
+                      ]}
+                    >
+                      <Descriptions size='small' column={3}>
+                        <Descriptions.Item label='Created'>
+                          Lili Qu
+                        </Descriptions.Item>
+                        <Descriptions.Item label='Association'>
+                          <a>421421</a>
+                        </Descriptions.Item>
+                        <Descriptions.Item label='Creation Time'>
+                          2017-01-10
+                        </Descriptions.Item>
+                        <Descriptions.Item label='Effective Time'>
+                          2017-10-10
+                        </Descriptions.Item>
+                        <Descriptions.Item label='Remarks'>
+                          Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                        </Descriptions.Item>
+                      </Descriptions>
+                    </PageHeader>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* ----------------------------------------------------------------------------------- */}
           {history.map((data, index) => {
             return (
               <div key={index}>
-                <div><Divider
-                      orientation='left'
-                      style={{ color: '#333', fontWeight: 'normal' }}
+                <div>
+                  <Divider
+                    orientation='left'
+                    style={{ color: '#333', fontWeight: 'normal' }}
+                  >
+                    วันที่ : {data.o_date}
+                    เลขออร์เดอร์ : {data.order_id}
+                    <button style={{ marginLeft: '15px' }} onClick={showresult}>
+                      Show info
+                    </button>
+                    <button style={{ marginLeft: '15px' }} onClick={closeesult}>
+                      Close info
+                    </button>
+                    <button
+                      style={{ marginLeft: '15px' }}
+                      onClick={() => deletehistory(data.order_id)}
                     >
-                      วันที่ : {data.o_date}
-                      เลขออร์เดอร์ : {data.order_id}
-                   <button style={{marginLeft: '15px'}} onClick={showresult}>Show info</button> 
-                   <button style={{marginLeft: '15px'}} onClick={closeesult}>Close info</button>  
-                   <button style={{marginLeft: '15px'}} onClick={() => deletehistory(data.order_id)}>Delete info</button> 
-                   <button style={{marginLeft: '15px'}} onClick={() => edithistory(data.order_id)}>Edit info</button> 
-                    </Divider>
+                      Delete info
+                    </button>
+                    <button
+                      style={{ marginLeft: '15px' }}
+                      onClick={() => edithistory(data.order_id)}
+                    >
+                      Edit info
+                    </button>
+                  </Divider>
                 </div>
                 {showResults ? (
                   <div>
