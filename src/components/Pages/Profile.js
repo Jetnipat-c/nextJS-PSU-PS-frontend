@@ -87,7 +87,7 @@ const ProfileContent = () => {
             </Radio.Group>
             <br />
             <br />
-            <Descriptions bordered title=' ' size={size}>
+            <Descriptions bordered title=' ' size={size} column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}>
               <Descriptions.Item label='รหัสนักศึกษา'>
                 {profile.sid}
               </Descriptions.Item>
