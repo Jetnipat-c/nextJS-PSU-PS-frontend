@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Layout, Menu, Breadcrumb, Carousel  } from 'antd'
+import { Layout, Menu, Breadcrumb, Carousel } from 'antd'
 import {
   UserOutlined,
   LaptopOutlined,
@@ -26,16 +26,16 @@ const StyledWrapper = styled.div`
     margin-left: 15px;
   }
   .ant-carousel .slick-slide {
-  text-align: center;
-  height: 200px;
-  line-height: 200px;
-  background: #364d79;
-  overflow: hidden;
-}
+    text-align: center;
+    height: 200px;
+    line-height: 200px;
+    background: #364d79;
+    overflow: hidden;
+  }
 
-.ant-carousel .slick-slide h3 {
-  color: #fff;
-}
+  .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }
 `
 
 const ContentComponent = () => {
@@ -46,22 +46,21 @@ const ContentComponent = () => {
         <Breadcrumb.Item>Announce</Breadcrumb.Item>
       </Breadcrumb>
       <Content>
-        {/* <h1>Announce</h1> */}
         <Carousel autoplay>
-    <div>
-    {/* <img src="/bg_login.jpg" alt="bg1" /> */}
-    <h3>1</h3>
-    </div>
-    <div>
-      <h3>2</h3>
-    </div>
-    <div>
-      <h3>3</h3>
-    </div>
-    <div>
-      <h3>4</h3>
-    </div>
-  </Carousel>
+          <div>
+            {/* <img src="/bg_login.jpg" alt="bg1" /> */}
+            <h3>1</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+        </Carousel>
         {/* <div>
           <h2>Patch Frontend</h2>
           <div className='text-content'>

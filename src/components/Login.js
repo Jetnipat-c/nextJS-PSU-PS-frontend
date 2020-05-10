@@ -61,12 +61,19 @@ function LoginPage () {
     const result = await axios.post(
       'http://localhost:3001/auth/login',
       { username: user, password: pass }
-    )
+    ).then((result) => {
+      sessionStorage.setItem('token', (  result.data.access_token ))
+      sessionStorage.setItem('username', user)
+      Router.push('/homepage')
+      })
+      .catch((result) => {
+      if (result.status == undefined) {
+      alert('Password or user is incorrect')
+      }
+      })
     // console.log('result data',result.data)
     // console.log('username',user)
-    sessionStorage.setItem('token', (  result.data.access_token ))
-    sessionStorage.setItem('username', user)
-    Router.push('/homepage')
+   
   }
 
   const getprofile = async () => {
