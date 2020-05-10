@@ -92,7 +92,7 @@ const ContentComponent = () => {
           <div>- 2:23 AM 5/4/2020 บันทึกค่า Null ยังไม่ได้ และ กด Purchasing system แล้วเป็นการบันทึกข้อมูล ***ปัญหาที่ css .button * Fixed</div>
           <div>- 3:12 AM 5/6/2020 css button ' Show info ' รอปรับปรุง * Fixed</div>
           <div>- 8:44 PM 5/10/2020 บันทึกค่า Null ยังไม่ได้</div>
-          <div>- 9:39 PM 5/10/2020 Sider not Responsive</div>
+          <div>- 9:39 PM 5/10/2020 Sider not Responsive * Fixed</div>
         </div>
       </Content>
     </StyledWrapper>

@@ -19,6 +19,11 @@ const StyledWrapper = styled.div`
   .site-layout-background {
     background: #fff;
   }
+  #components-layout-demo-responsive .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
 `
 
 const SiderComponent = props => {
