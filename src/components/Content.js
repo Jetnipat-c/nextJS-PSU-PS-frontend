@@ -68,8 +68,8 @@ const ContentComponent = () => {
             <div>- 3:12 AM 5/6/2020 ทำหน้าแสดงผลประวัติรายการ</div>
             <div>- 4:19 AM 5/6/2020 เพิ่มปุ่มลบรายการ</div>
             <div>- 6:05 AM 5/6/2020 เพิ่มปุ่มแก้ไขรายการ reload page เมื่อกด Delete</div>
-            
             <div>- 8:05 PM 5/10/2020 ออกแบบหน้าประวัติทำรายการใหม่</div>
+            <div>- 8:44 PM 5/10/2020 แก้ปุ่ม Submit , Cancel</div>
           </div>
         </div>
         <h2>Patch Backend</h2>
@@ -85,11 +85,14 @@ const ContentComponent = () => {
           <div>- 4:19 AM 5/6/2020 เพิ่มฟังก์ชัน Delete </div>
           <div>- 6:05 AM 5/6/2020 เพิ่มฟังก์ชัน Patch 'Editform001' , Router.reload</div>
           <div>- 6:06 PM 5/10/2020 แก้ฟังก์ชัน Signin ขณะใส่รหัสผิด</div>
+          <div>- 9:39 PM 5/10/2020 เพิ่มฟังก์ชันลิงค์ไปยัง ProfilePage</div>
         </div>
         <h2>Problem list</h2>
         <div className='text-content'>
-          <div>- 2:23 AM 5/4/2020 บันทึกค่า Null ยังไม่ได้ และ กด Purchasing system แล้วเป็นการบันทึกข้อมูล ***ปัญหาที่ css .button</div>
-          <div>- 3:12 AM 5/6/2020 css button ' Show info ' รอปรับปรุง</div>
+          <div>- 2:23 AM 5/4/2020 บันทึกค่า Null ยังไม่ได้ และ กด Purchasing system แล้วเป็นการบันทึกข้อมูล ***ปัญหาที่ css .button * Fixed</div>
+          <div>- 3:12 AM 5/6/2020 css button ' Show info ' รอปรับปรุง * Fixed</div>
+          <div>- 8:44 PM 5/10/2020 บันทึกค่า Null ยังไม่ได้</div>
+          <div>- 9:39 PM 5/10/2020 Sider not Responsive</div>
         </div>
       </Content>
     </StyledWrapper>

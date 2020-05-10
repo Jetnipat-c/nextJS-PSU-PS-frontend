@@ -396,10 +396,10 @@ const Form001Content = () => {
               {/* -------------------------------------------------------------------------------------------------------------- */}
               {/* ---------------------------------------------------- button ---------------------------------------------------- */}
               <div className='center'>
-                <button class='example_c' type='submit'>
+                <button className='example_c' type='submit'>
                   Submit
                 </button>
-                <button class='example_cancel'>
+                <button className='example_cancel'>
                   Cancel
                 </button>
               </div>

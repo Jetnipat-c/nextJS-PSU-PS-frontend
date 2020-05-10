@@ -21,8 +21,7 @@ const StyledWrapper = styled.div`
   }
 `
 
-const SiderComponent = () => {
-
+const SiderComponent = props => {
   const gotoPageForm001 = (e) =>{
       Router.push('/Form001page')
   }
@@ -32,13 +31,19 @@ const SiderComponent = () => {
 const gotoPageHistory = (e) =>{
   Router.push('/formhistorypage')
 }
+
   return (
     <StyledWrapper>
-      <Sider width={250} className='site-layout-background'>
+      <Sider width={250} className='site-layout-background'  breakpoint="lg"
+      collapsedWidth="0"
+      onBreakpoint={broken => {
+        console.log(broken);
+      }}
+      onCollapse={(collapsed, type) => {
+        console.log(collapsed, type);
+      }} >
         <Menu
-          mode='inline'
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
+          mode='inline' 
           style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu key='sub1'  icon={<EditOutlined />} title='แบบฟอร์ม'>

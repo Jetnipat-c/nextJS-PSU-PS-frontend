@@ -30,7 +30,7 @@ const StyledWrapper = styled.div`
     background: #fff;
   }
 `
-function HomePage () {
+const HomePage = () => {
   return (
     <StyledWrapper>
       <title>HomePage</title>

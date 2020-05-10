@@ -37,11 +37,16 @@ const HeaderComponent = () => {
   }
   const gotoPage = () =>{
     Router.push('/homepage')
-    console.log('xxxx')
+    //console.log('xxxx')
+  }
+  const gotoProfilePage = () =>{
+    Router.push('/formprofilepage')
+
   }
   useEffect(()=>{
       getuser()
   },[])
+  
   return (
     <StyledWrapper>
       <Header className='header'>
@@ -51,7 +56,7 @@ const HeaderComponent = () => {
              <a onClick={gotoPage}>Purchasing system</a> 
               </Menu.Item>
           <Menu.Item key='2'>
-             <a>{username}</a> 
+             <a onClick={gotoProfilePage}>{username}</a> 
               </Menu.Item>
           <Menu.Item key='3'>
             <a onClick={logout}>SignOut</a>
