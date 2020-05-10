@@ -14,7 +14,7 @@ import {
   PageHeader,
   Button
 } from 'antd'
-import { SearchOutlined } from '@ant-design/icons'
+import { SearchOutlined,CloseCircleOutlined,DeleteOutlined,EditOutlined    } from '@ant-design/icons'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 import styled from 'styled-components'
@@ -110,6 +110,8 @@ const HistoryContent = () => {
                           type='sec'
                           style={{ marginLeft: '15px' }}
                           onClick={closeesult}
+                          icon={<CloseCircleOutlined />}
+                           
                         >
                           Close info
                         </Button>,
@@ -118,6 +120,7 @@ const HistoryContent = () => {
                           type='danger'
                           style={{ marginLeft: '15px' }}
                           onClick={() => deletehistory(data.order_id)}
+                          icon={<DeleteOutlined  />}
                         >
                           Delete
                         </Button>,
@@ -126,6 +129,7 @@ const HistoryContent = () => {
                           type='primary'
                           style={{ marginLeft: '15px' }}
                           onClick={() => edithistory(data.order_id)}
+                          icon={<EditOutlined  />}
                         >
                           Edit
                         </Button>
