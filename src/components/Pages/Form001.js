@@ -13,7 +13,8 @@ import {
   Divider,
   Descriptions,
   Radio,
-  Checkbox
+  Checkbox,
+  Button
 } from 'antd'
 import {
   UserOutlined,
@@ -44,53 +45,48 @@ const StyledWrapper = styled.div`
     border-left-style: hidden;
   }
 
-  .btn {
-    width: 180px;
-    height: 60px;
-    cursor: pointer;
-    background: transparent;
-    border: 2px solid #d7d7d7;
-    outline: none;
-    transition: 1s ease-in-out;
-  }
-
-  svg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    fill: none;
-    stroke: #fff;
-    stroke-dasharray: 150 480;
-    stroke-dashoffset: 150;
-    transition: 1s ease-in-out;
-  }
-
-  .btn:hover {
-    transition: 1s ease-in-out;
-    background: #5ab0ff;
-  }
-
-  .btn2:hover {
-    transition: 1s ease-in-out;
-    background: #ffd7b6;
-  }
-
-  .btn:hover svg {
-    stroke-dashoffset: -480;
-  }
-
-  .btn span {
-    color: black;
-    font-size: 18px;
-    font-weight: 100;
-  }
   .center {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 60px;
-  justify-content: space-around;
-}
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .example_c {
+    text-align: center;
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+  }
+  .example_c:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+  }
+
+  .example_cancel {
+    text-align: center;
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+  }
+  .example_cancel:hover {
+    color: #ffffff !important;
+    background: #F1948A;
+    border-color: #F1948A !important;
+    transition: all 0.4s ease 0s;
+  }
 `
 
 const Form001Content = () => {
@@ -102,6 +98,7 @@ const Form001Content = () => {
   }
 
   const { register, handleSubmit, errors } = useForm() // initialise the hook
+
   const onSubmit = data => {
     console.log('data', data)
     axios.post(`http://localhost:3001/form001/insert`, data).then(res => {
@@ -159,7 +156,7 @@ const Form001Content = () => {
             </Radio.Group>
             <br />
             <br />
-{/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}            
+            {/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}
             <form onSubmit={handleSubmit(onSubmit)}>
               <Descriptions bordered title='1. รายละเอียด' size={size}>
                 <Descriptions.Item label='เอกสารของ'>
@@ -211,9 +208,9 @@ const Form001Content = () => {
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
-{/* -------------------------------------------------------------------------------------------------------------- */}
+              {/* -------------------------------------------------------------------------------------------------------------- */}
               <br></br>
-{/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
+              {/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
               <Descriptions
                 bordered
                 title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน'
@@ -237,7 +234,7 @@ const Form001Content = () => {
                 บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
                 >
                   <input
-                  type='number'
+                    type='number'
                     className='text-input'
                     name='o_appointment'
                     ref={register}
@@ -248,16 +245,16 @@ const Form001Content = () => {
                   label='2.3 บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
                 >
                   <input
-                  type='number'
+                    type='number'
                     className='text-input'
                     name='o_results'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
-{/* -------------------------------------------------------------------------------------------------------------- */}
+              {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
-{/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
+              {/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
               <Descriptions bordered title='3. คณะกรรมการ' size={size}>
                 <div span={3}>คณะกรรมการพิจารณาผล</div>
                 <Descriptions.Item label='ประธานกรรมการ'>
@@ -304,9 +301,9 @@ const Form001Content = () => {
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
-{/* -------------------------------------------------------------------------------------------------------------- */}
+              {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
-{/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
+              {/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
               <Descriptions bordered title='4. แหล่งเงิน' size={size}>
                 <div span={3}>* ใส่ข้อมูลเฉพาะที่มี</div>
                 <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
@@ -319,7 +316,7 @@ const Form001Content = () => {
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้ ปี'>
                   <input
-                  type='number'
+                    type='number'
                     className='text-input'
                     name='o_income'
                     ref={register}
@@ -327,7 +324,7 @@ const Form001Content = () => {
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้สะสม ปี'>
                   <input
-                  type='number'
+                    type='number'
                     className='text-input'
                     name='o_aml_income'
                     ref={register}
@@ -396,53 +393,20 @@ const Form001Content = () => {
                 </Descriptions.Item>
               </Descriptions>
               <br />
-{/* -------------------------------------------------------------------------------------------------------------- */}  
-{/* ---------------------------------------------------- button ---------------------------------------------------- */}
-<div className='center'>
-              
-              <button className='btn' type='submit'>
-                <svg
-                  width='180px'
-                  height='60px'
-                  viewBox='0 0 180 60'
-                  className='border'
-                >
-                  <polyline
-                    points='179,1 179,59 1,59 1,1 179,1'
-                    className='bg-line'
-                  />
-                  <polyline
-                    points='179,1 179,59 1,59 1,1 179,1'
-                    className='hl-line'
-                  />
-                </svg>
-                <span>Submit</span>
-              </button>
-
-              <button className='btn btn2' >
-                <svg
-                  width='180px'
-                  height='60px'
-                  viewBox='0 0 180 60'
-                  className='border'
-                >
-                  <polyline
-                    points='179,1 179,59 1,59 1,1 179,1'
-                    className='bg-line'
-                  />
-                  <polyline
-                    points='179,1 179,59 1,59 1,1 179,1'
-                    className='hl-line'
-                  />
-                </svg>
-                <span>Cancel</span>
-              </button>
-            </div>
+              {/* -------------------------------------------------------------------------------------------------------------- */}
+              {/* ---------------------------------------------------- button ---------------------------------------------------- */}
+              <div className='center'>
+                <button class='example_c' type='submit'>
+                  Submit
+                </button>
+                <button class='example_cancel'>
+                  Cancel
+                </button>
+              </div>
             </form>
- {/* -------------------------------------------------------------------------------------------------------------- */}           
+            {/* -------------------------------------------------------------------------------------------------------------- */}
             <br />
             <br />
-            
           </div>
           <Divider
             orientation='left'
