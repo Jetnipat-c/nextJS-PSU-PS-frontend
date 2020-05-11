@@ -158,7 +158,7 @@ const Form001Content = () => {
             <br />
             {/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Descriptions bordered title='1. รายละเอียด' size={size} column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}>
+              <Descriptions bordered title='1. รายละเอียด' size={size} >
                 <Descriptions.Item label='เอกสารของ'>
                   <input
                     className='text-input'
@@ -211,7 +211,7 @@ const Form001Content = () => {
               {/* -------------------------------------------------------------------------------------------------------------- */}
               <br></br>
               {/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
-              <Descriptions bordered title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน' size={size} column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+              <Descriptions bordered title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน' size={size} 
               >
                 <Descriptions.Item
                   span={3}
@@ -252,7 +252,7 @@ const Form001Content = () => {
               {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
               {/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
-              <Descriptions bordered title='3. คณะกรรมการ' size={size} column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}>
+              <Descriptions bordered title='3. คณะกรรมการ' size={size} >
                 <div span={3}>คณะกรรมการพิจารณาผล</div>
                 <Descriptions.Item label='ประธานกรรมการ'>
                   <input
@@ -301,7 +301,7 @@ const Form001Content = () => {
               {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
               {/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
-              <Descriptions bordered title='4. แหล่งเงิน' size={size} column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}>
+              <Descriptions bordered title='4. แหล่งเงิน' size={size} >
                 <div span={3}>* ใส่ข้อมูลเฉพาะที่มี</div>
                 <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
                   <input

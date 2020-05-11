@@ -70,6 +70,7 @@ const ContentComponent = () => {
             <div>- 6:05 AM 5/6/2020 เพิ่มปุ่มแก้ไขรายการ reload page เมื่อกด Delete</div>
             <div>- 8:05 PM 5/10/2020 ออกแบบหน้าประวัติทำรายการใหม่</div>
             <div>- 8:44 PM 5/10/2020 แก้ปุ่ม Submit , Cancel</div>
+            <div>- 11:09 AM 5/11/2020 ย้ายปุ่มให้ Responsive</div>
           </div>
         </div>
         <h2>Patch Backend</h2>

@@ -12,7 +12,8 @@ import {
   Descriptions,
   Radio,
   PageHeader,
-  Button
+  Button,
+  Tabs, Statistic
 } from 'antd'
 import { SearchOutlined,CloseCircleOutlined,DeleteOutlined,EditOutlined    } from '@ant-design/icons'
 const { SubMenu } = Menu
@@ -91,49 +92,12 @@ const HistoryContent = () => {
                 <div key={index}>
                   <div className='site-page-header-ghost-wrapper'>
                     <PageHeader
+                    className="site-page-header-responsive"
                       ghost={false}
                       //onBack={() => window.history.back()}
                       title='ใบราายการที่'
                       subTitle={data.order_id}
-                      extra={[
-                        <Button
-                          key='4'
-                          type='one'
-                          style={{ marginLeft: '15px' }}
-                          onClick={showresult}
-                          icon={<SearchOutlined />}
-                        >
-                          Show info
-                        </Button>,
-                        <Button
-                          key='3'
-                          type='sec'
-                          style={{ marginLeft: '15px' }}
-                          onClick={closeesult}
-                          icon={<CloseCircleOutlined />}
-                           
-                        >
-                          Close info
-                        </Button>,
-                        <Button
-                          key='2'
-                          type='danger'
-                          style={{ marginLeft: '15px' }}
-                          onClick={() => deletehistory(data.order_id)}
-                          icon={<DeleteOutlined  />}
-                        >
-                          Delete
-                        </Button>,
-                        <Button
-                          key='1'
-                          type='primary'
-                          style={{ marginLeft: '15px' }}
-                          onClick={() => edithistory(data.order_id)}
-                          icon={<EditOutlined  />}
-                        >
-                          Edit
-                        </Button>
-                      ]}
+                      
                     >
                       <Descriptions size='small' column={3}>
                         <Descriptions.Item label='ผู้บันทึกใบรายการ'>
@@ -149,6 +113,45 @@ const HistoryContent = () => {
                           รออนุมัติ
                         </Descriptions.Item>
                       </Descriptions>
+                     
+                        <Button
+                          key='4'
+                          type='one'
+                          style={{ marginLeft: '15px' }}
+                          onClick={showresult}
+                          icon={<SearchOutlined />}
+                        >
+                          Show info
+                        </Button>
+                        <Button
+                          key='3'
+                          type='sec'
+                          style={{ marginLeft: '15px' }}
+                          onClick={closeesult}
+                          icon={<CloseCircleOutlined />}
+                           
+                        >
+                          Close info
+                        </Button>
+                        <Button
+                          key='2'
+                          type='danger'
+                          style={{ marginLeft: '15px' }}
+                          onClick={() => deletehistory(data.order_id)}
+                          icon={<DeleteOutlined  />}
+                        >
+                          Delete
+                        </Button>
+                        <Button
+                          key='1'
+                          type='primary'
+                          style={{ marginLeft: '15px' }}
+                          onClick={() => edithistory(data.order_id)}
+                          icon={<EditOutlined  />}
+                        >
+                          Edit
+                        </Button>
+                     
                     </PageHeader>
                   </div>
                   {showResults ? (
