@@ -122,38 +122,12 @@ const Viewform001Component = props => {
     <StyledWrapper>
        {history.map((data , index)=>{
              return (
-                //  <div key={index}>
-                //     <div> เอกสารที่ มอ. 696 / : {data.o_location}</div>
-                //     <div> ลงวันที่ {data.o_date}</div>
-                //     <div> ด้วยมหาวิทยาลัยการคอมพิวเตอร์มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ {data.o_purpose}</div>
-                //     <div> ชื่อโครงการ (ถ้ามี) {data.o_projectname}</div>
-                //     <div> วันที่ต้องใช้พัสดุ {data.o_require}</div>
-                //     <div> รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน(ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม)  (จำนวนแผ่น) {data.o_specific}</div>
-                //     <div> บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น) {data.o_appointment}</div>
-                //     <div> บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น) {data.o_results}</div>
-                //     <div> คณะกรรมการพิจารณาผล ประธานกรรมการ {data.o_committee1}</div>
-                //     <div> คณะกรรมการพิจารณาผล คณะกรรมการ {data.o_committee2}</div>
-                //     <div> คณะกรรมการพิจารณาผล คณะกรรมการ {data.o_committee3}</div>
-                //     <div> คณะกรรมการตรวจรับพัสดุ ประธานกรรมการ {data.o_committee4}</div>
-                //     <div> คณะกรรมการตรวจรับพัสดุ คณะกรรมการ {data.o_committee5}</div>
-                //     <div> คณะกรรมการตรวจรับพัสดุ คณะกรรมการ {data.o_committee6}</div>
-                //     <div> เงินอุดหนุนจากรัฐบาล ปี {data.o_gvm_sub}</div>
-                //     <div> เงินรายได้ ปี {data.o_income}</div>
-                //     <div> เงินรายได้สะสม ปี {data.o_aml_income}</div>
-                //     <div> ทิศทาง {data.o_direction}</div>
-                //     <div> นโยบาย {data.o_policy}</div>
-                //     <div> ผลงาน {data.o_works}</div>
-                //     <div> งาน {data.o_task}</div>
-                //     <div> หมวดรายจ่าย {data.o_expense_cg}</div>
-                //     <div> หมวดย่อย {data.o_sub_cg}</div>
-                //     <div> ชื่อรายการ {data.o_list_n}</div>
-                //     <div> เงินอื่นๆโปรดระบุ (ตามที่แนบมาพร้อมนี้) {data.o_other_m}</div>
-                //  </div>
                 <div key={index}>
                     <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>แบบฟอร์ม</Breadcrumb.Item>
-        <Breadcrumb.Item>คำสั่งซื้อพัสดุแบบปกติ 001</Breadcrumb.Item>
+        <Breadcrumb.Item>ประวัติคำสั่งซื้อ 001</Breadcrumb.Item>
+        <Breadcrumb.Item>รายละเอียดคำสั่งซื้อ</Breadcrumb.Item>
       </Breadcrumb>
       <Content
         className='site-layout-background'
@@ -170,7 +144,7 @@ const Viewform001Component = props => {
                 orientation='left'
                 style={{ color: '#333', fontWeight: 'normal' }}
               >
-                <h1>คำสั่งซื้อพัสดุแบบปกติ เลขออร์เดอร์ที่ {order_id}</h1>
+                <h1>คำสั่งซื้อพัสดุแบบปกติ ใบรายการที่ {order_id}</h1>
                 แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
                 กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
               </Divider>
@@ -190,7 +164,6 @@ const Viewform001Component = props => {
                     name='sid'
                     value={data.sid}
                     disabled={true}
-                    
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='เอกสารที่ มอ. 696 /'>
@@ -205,7 +178,8 @@ const Viewform001Component = props => {
                   <input
                     className='text-input'
                     name='o_date'
-                    
+                    value={data.o_date}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item
@@ -216,21 +190,24 @@ const Viewform001Component = props => {
                   <input
                     className='text-input'
                     name='o_purpose'
-                    
+                    value={data.o_purpose}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='ชื่อโครงการ (ถ้ามี)'>
                   <input
                     className='text-input'
                     name='o_projectname'
-                    
+                    value={data.o_projectname}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='วันที่ต้องใช้พัสดุ'>
                   <input
                     className='text-input'
                     name='o_require'
-                    
+                    value={data.o_require}
+                    disabled={true} 
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
@@ -251,7 +228,8 @@ const Viewform001Component = props => {
                     type='number'
                     className='text-input'
                     name='o_specific'
-                    
+                    value={data.o_specific}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item
@@ -263,7 +241,8 @@ const Viewform001Component = props => {
                     type='number'
                     className='text-input'
                     name='o_appointment'
-                    
+                    value={data.o_appointment}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item
@@ -274,7 +253,8 @@ const Viewform001Component = props => {
                     type='number'
                     className='text-input'
                     name='o_results'
-                    
+                    value={data.o_results}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
@@ -287,21 +267,24 @@ const Viewform001Component = props => {
                   <input
                     className='text-input'
                     name='o_committee1'
-                    
+                    value={data.o_committee1}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='คณะกรรมการ'>
                   <input
                     className='text-input'
                     name='o_committee2'
-                    
+                    value={data.o_committee2}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='คณะกรรมการ'>
                   <input
                     className='text-input'
                     name='o_committee3'
-                    
+                    value={data.o_committee3}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <div span={3}>คณะกรรมการตรวจรับพัสดุ</div>
@@ -309,21 +292,24 @@ const Viewform001Component = props => {
                   <input
                     className='text-input'
                     name='o_committee4'
-                    
+                    value={data.o_committee4}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='คณะกรรมการ'>
                   <input
                     className='text-input'
                     name='o_committee5'
-                    
+                    value={data.o_committee5}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='คณะกรรมการ'>
                   <input
                     className='text-input'
                     name='o_committee6'
-                    
+                    value={data.o_committee6}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
@@ -337,7 +323,8 @@ const Viewform001Component = props => {
                     type='number'
                     className='text-input'
                     name='o_gvm_sub'
-                    
+                    value={data.o_gvm_sub}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้ ปี'>
@@ -345,7 +332,8 @@ const Viewform001Component = props => {
                     type='number'
                     className='text-input'
                     name='o_income'
-                    
+                    value={data.o_income}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='เงินรายได้สะสม ปี'>
@@ -353,7 +341,8 @@ const Viewform001Component = props => {
                     type='number'
                     className='text-input'
                     name='o_aml_income'
-                    
+                    value={data.o_aml_income}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
 
@@ -361,49 +350,56 @@ const Viewform001Component = props => {
                   <input
                     className='text-input'
                     name='o_direction'
-                    
+                    value={data.o_direction}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item span={2} label='นโยบาย'>
                   <input
                     className='text-input'
                     name='o_policy'
-                    
+                    value={data.o_policy}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='ผลงาน'>
                   <input
                     className='text-input'
                     name='o_works'
-                    
+                    value={data.o_works}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item span={2} label='งาน'>
                   <input
                     className='text-input'
                     name='o_task'
-                    
+                    value={data.o_task}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='หมวดรายจ่าย'>
                   <input
                     className='text-input'
                     name='o_expense_cg'
-                    
+                    value={data.o_expense_cg}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item span={2} label='หมวดย่อย'>
                   <input
                     className='text-input'
                     name='o_sub_cg'
-                    
+                    value={data.o_sub_cg}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item span={3} label='ชื่อรายการ'>
                   <input
                     className='text-input'
                     name='o_list_n'
-                    
+                    value={data.o_list_n}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
                 <Descriptions.Item
@@ -414,7 +410,8 @@ const Viewform001Component = props => {
                     type='number'
                     className='text-input'
                     name='o_other_m'
-                    
+                    value={data.o_other_m}
+                    disabled={true}
                   ></input>
                 </Descriptions.Item>
               </Descriptions>
