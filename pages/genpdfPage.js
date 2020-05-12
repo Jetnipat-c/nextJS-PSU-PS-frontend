@@ -11,6 +11,18 @@ const genpdfPage = props => {
     const router = useRouter()
     const { order_id } = router.query
     console.log(order_id)
+
+    const getform001byorder_id = async() => {
+        const result = await axios.get(
+            `http://localhost:3001/form001/findbyorder/${order_id}`
+          )
+          console.log('result = ', result.data)
+          //setHistoty(JSON.parse(JSON.stringify(result.data)))
+    }
+
+    useEffect(()=>{
+        getform001byorder_id()
+    },[])
     return(
         <StyledWrapper>
                 genpdfPage
