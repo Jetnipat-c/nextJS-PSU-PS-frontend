@@ -94,6 +94,7 @@ const StyledWrapper = styled.div`
 `
 
 const EditForm001Content = props => {
+
   const [size, setSize] = useState('default')
   const [order_id, setOrder_id] = useState(props.order_id)
   //console.log('order_id inpage editform001 = ', order_id)

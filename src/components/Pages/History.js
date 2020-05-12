@@ -15,7 +15,7 @@ import {
   Button,
   Tabs, Statistic
 } from 'antd'
-import { SearchOutlined,CloseCircleOutlined,DeleteOutlined,EditOutlined    } from '@ant-design/icons'
+import { SearchOutlined,CloseCircleOutlined,DeleteOutlined,EditOutlined,PrinterOutlined    } from '@ant-design/icons'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 import styled from 'styled-components'
@@ -69,11 +69,9 @@ const HistoryContent = () => {
       pathname: '/editform001page',
       query: { order_id: order_id }
     })
-    // var found = await axios.patch(
-    //   `http://localhost:3001/form001/${order_id}`
-    // )
   }
   const genpdf = async order_id => {
+    //console.log('order_id = ',order_id)
     Router.push({
       pathname: '/genpdfpage',
       query: { order_id: order_id }
@@ -128,7 +126,7 @@ const HistoryContent = () => {
                           type='primary'
                           style={{ marginLeft: '15px' }}
                           onClick={() => genpdf(data.order_id)}
-                          icon={<EditOutlined  />}
+                          icon={<PrinterOutlined />}
                         >
                           PDF
                         </Button>
