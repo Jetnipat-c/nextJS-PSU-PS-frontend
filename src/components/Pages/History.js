@@ -24,6 +24,10 @@ const StyledWrapper = styled.div`
     background-color: #f5f5f5;
     padding: 10px;
   }
+  .ant-btn-three {
+    background-color: #58D68D;
+    color: white;
+  }
   .ant-btn-sec {
     background-color: #ffa500;
     color: white;
@@ -69,7 +73,12 @@ const HistoryContent = () => {
     //   `http://localhost:3001/form001/${order_id}`
     // )
   }
-
+  const genpdf = async order_id => {
+    Router.push({
+      pathname: '/genpdfpage',
+      query: { order_id: order_id }
+    })
+  }
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -113,7 +122,16 @@ const HistoryContent = () => {
                           รออนุมัติ
                         </Descriptions.Item>
                       </Descriptions>
-                     
+
+                      <Button
+                          key='5'
+                          type='primary'
+                          style={{ marginLeft: '15px' }}
+                          onClick={() => genpdf(data.order_id)}
+                          icon={<EditOutlined  />}
+                        >
+                          PDF
+                        </Button>
                         <Button
                           key='4'
                           type='one'
@@ -151,6 +169,7 @@ const HistoryContent = () => {
                         >
                           Edit
                         </Button>
+                        
                      
                     </PageHeader>
                   </div>
