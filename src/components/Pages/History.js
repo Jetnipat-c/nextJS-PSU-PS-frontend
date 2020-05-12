@@ -44,7 +44,7 @@ const HistoryContent = () => {
     var found = await axios.get(
       `http://localhost:3001/form001/${sessionStorage.getItem('username')}`
     )
-    //console.log('found = ', found.data)
+    console.log('found = ', found.data)
     setHistoty(JSON.parse(JSON.stringify(found.data)))
   }
   const [showResults, setShowResults] = useState(false)
@@ -111,7 +111,7 @@ const HistoryContent = () => {
                           {data.sid}
                         </Descriptions.Item>
                         <Descriptions.Item label='วันที่บันทึกใบรายการ'>
-                          {data.o_date}
+                          {data.createdAt}
                         </Descriptions.Item>
                         <Descriptions.Item label='ชื่อโครงการ'>
                           {data.o_projectname}
