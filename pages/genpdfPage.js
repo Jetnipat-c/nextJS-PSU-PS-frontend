@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
-import { Router, Route, Link } from 'react-router'
+import ReactToPrint from 'react-to-print';
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 const StyledWrapper = styled.div``
 
-const genpdfPage = props => {
+const GenpdfPage = props => {
     const componentRef = useRef();
   const router = useRouter()
   const { order_id } = router.query
@@ -62,4 +62,18 @@ const genpdfPage = props => {
      </StyledWrapper> 
   )
 }
-export default genpdfPage
+
+const Example = () => {
+    const componentRef = useRef();
+   
+    return (
+      <div>
+        <ReactToPrint
+          trigger={() => <button>Print this out!</button>}
+          content={() => componentRef.current}
+        />
+        <GenpdfPage ref={componentRef} />
+      </div>
+    );
+  };
+  export default Example

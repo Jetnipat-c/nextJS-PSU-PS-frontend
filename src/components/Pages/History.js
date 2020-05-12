@@ -74,7 +74,7 @@ const HistoryContent = () => {
   const genpdf = async order_id => {
     //console.log('order_id = ',order_id)
     Router.push({
-      pathname: '/genpdfpage',
+      pathname: '/genpdfclasspage',
       query: { order_id: order_id }
     })
   }
