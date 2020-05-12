@@ -126,14 +126,26 @@ const EditForm001Content = props => {
   const checkbox = e => {
     console.log(`checked = ${e.target.checked}`)
   }
-
+  const [history, setHistoty] = useState([])
+  const getform001byorder_id = async () => {
+    const found = await axios.get(
+      `http://localhost:3001/form001/findbyorder/${order_id}`
+    )
+    console.log('found = ', found.data)
+    setHistoty(JSON.parse(JSON.stringify(found.data)))
+    console.log('history', history)
+  }
 
   useEffect(() => {
-    getuser()
+    getuser(),
+    getform001byorder_id()
   }, [])
   return (
     <StyledWrapper>
-      <Breadcrumb style={{ margin: '16px 0' }}>
+      {history.map((data,index)=>{
+        return(
+          <div key={index}>
+<Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>แบบฟอร์ม</Breadcrumb.Item>
         <Breadcrumb.Item>แก้ไขคำสั่งซื้อพัสดุแบบปกติ 001</Breadcrumb.Item>
@@ -180,6 +192,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_location'
+                    //placeholder={data.o_location}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -187,6 +200,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_date'
+                    //placeholder={data.o_date}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -198,6 +212,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_purpose'
+                    //placeholder={data.o_purpose}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -205,6 +220,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_projectname'
+                    //placeholder={data.o_projectname}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -212,6 +228,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_require'
+                    //placeholder={data.o_require}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -233,6 +250,7 @@ const EditForm001Content = props => {
                     type='number'
                     className='text-input'
                     name='o_specific'
+                    //placeholder={data.o_specific}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -245,6 +263,7 @@ const EditForm001Content = props => {
                     type='number'
                     className='text-input'
                     name='o_appointment'
+                    //placeholder={data.o_appointment}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -256,6 +275,7 @@ const EditForm001Content = props => {
                     type='number'
                     className='text-input'
                     name='o_results'
+                    //placeholder={data.o_results}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -269,6 +289,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_committee1'
+                    //placeholder={data.o_committee1}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -276,6 +297,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_committee2'
+                    //placeholder={data.o_committee2}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -283,6 +305,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_committee3'
+                    //placeholder={data.o_committee3}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -291,6 +314,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_committee4'
+                    //placeholder={data.o_committee4}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -298,6 +322,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_committee5'
+                    //placeholder={data.o_committee5}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -305,6 +330,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_committee6'
+                    //placeholder={data.o_committee6}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -319,6 +345,7 @@ const EditForm001Content = props => {
                     type='number'
                     className='text-input'
                     name='o_gvm_sub'
+                    //placeholder={data.o_gvm_sub}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -327,6 +354,7 @@ const EditForm001Content = props => {
                     type='number'
                     className='text-input'
                     name='o_income'
+                    //placeholder={data.o_income}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -335,6 +363,7 @@ const EditForm001Content = props => {
                     type='number'
                     className='text-input'
                     name='o_aml_income'
+                    //placeholder={data.o_aml_income}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -343,6 +372,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_direction'
+                    //placeholder={data.o_direction}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -350,6 +380,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_policy'
+                    //placeholder={data.o_policy}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -357,6 +388,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_works'
+                    //placeholder={data.o_works}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -364,6 +396,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_task'
+                    //placeholder={data.o_task}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -371,6 +404,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_expense_cg'
+                    //placeholder={data.o_expense_cg}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -378,6 +412,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_sub_cg'
+                    //placeholder={data.o_sub_cg}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -385,6 +420,7 @@ const EditForm001Content = props => {
                   <input
                     className='text-input'
                     name='o_list_n'
+                    //placeholder={data.o_list_n}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -396,6 +432,7 @@ const EditForm001Content = props => {
                     type='number'
                     className='text-input'
                     name='o_other_m'
+                    //placeholder={data.o_other_m}
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -454,6 +491,10 @@ const EditForm001Content = props => {
           ></Divider>
         </div>
       </Content>
+          </div>
+        )
+      })}
+      
     </StyledWrapper>
   )
 }
