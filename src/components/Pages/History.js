@@ -46,6 +46,7 @@ const HistoryContent = () => {
     )
     console.log('found = ', found.data)
     setHistoty(JSON.parse(JSON.stringify(found.data)))
+    console.log('history',history)
   }
   const [showResults, setShowResults] = useState(false)
   const showresult = () => setShowResults(true)
@@ -123,7 +124,7 @@ const HistoryContent = () => {
 
                       <Button
                           key='5'
-                          type='primary'
+                          type='three'
                           style={{ marginLeft: '15px' }}
                           onClick={() => genpdf(data.order_id)}
                           icon={<PrinterOutlined />}
