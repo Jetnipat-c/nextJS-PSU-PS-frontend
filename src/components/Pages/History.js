@@ -74,7 +74,14 @@ const HistoryContent = () => {
   const genpdf = async order_id => {
     //console.log('order_id = ',order_id)
     Router.push({
-      pathname: '/genpdfclasspage',
+      pathname: '/genpdfpage',
+      query: { order_id: order_id }
+    })
+  }
+  const view = async order_id => {
+    //console.log('order_id = ',order_id)
+    Router.push({
+      pathname: '/viewform001page',
       query: { order_id: order_id }
     })
   }
@@ -122,6 +129,15 @@ const HistoryContent = () => {
                         </Descriptions.Item>
                       </Descriptions>
 
+                      <Button
+                          key='6'
+                          type='three'
+                          style={{ marginLeft: '15px' }}
+                          onClick={() => view(data.order_id)}
+                          icon={<PrinterOutlined />}
+                        >
+                          View
+                        </Button>
                       <Button
                           key='5'
                           type='three'
