@@ -11,17 +11,6 @@ const { Header, Content, Sider, Footer } = Layout
 
 import styled from 'styled-components'
 const StyledWrapper = styled.div`
-  #components-layout-demo-top-side-2 .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 28px 16px 0;
-    float: left;
-  }
-
-  .site-layout-background {
-    background: #fff;
-  }
   .text-content {
     margin-left: 15px;
   }
@@ -36,6 +25,11 @@ const StyledWrapper = styled.div`
   .ant-carousel .slick-slide h3 {
     color: #fff;
   }
+  .ant-carousel .slick-dots-bottom {
+    bottom: 12px;
+    /* margin-top: 90%; */
+    margin-left: 0;
+}
 `
 
 const ContentComponent = () => {
@@ -45,8 +39,7 @@ const ContentComponent = () => {
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>Announce</Breadcrumb.Item>
       </Breadcrumb>
-      <Content>
-        <Carousel autoplay>
+      <Carousel autoplay>
           <div>
             {/* <img src="/bg_login.jpg" alt="bg1" /> */}
             <h3>1</h3>
@@ -61,6 +54,7 @@ const ContentComponent = () => {
             <h3>4</h3>
           </div>
         </Carousel>
+      <Content>
         <div>
           <h2>Patch Frontend</h2>
           <div className='text-content'>
@@ -98,7 +92,7 @@ const ContentComponent = () => {
           <div>- 8:44 PM 5/10/2020 บันทึกค่า Null ยังไม่ได้</div>
           <div>- 9:39 PM 5/10/2020 Sider not Responsive * Fixed</div>
           <div>- 9:55 PM 5/10/2020 Responsive ไม่ทุกอุปกรณ์</div>
-          <div>- 9:55 PM 5/10/2020 หน้า Homepage Carousel ไม่ตรงกลาง , จัดหน้า GenPDF</div>
+          <div>- 9:55 PM 5/10/2020 หน้า Homepage Carousel ไม่ตรงกลาง * Fixed , จัดหน้า GenPDF</div>
         </div>
       </Content>
     </StyledWrapper>
