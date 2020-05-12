@@ -32,7 +32,7 @@ const StyledWrapper = styled.div`
 const GenpdfPage = () => {
     const router = useRouter();
     const order_id = router.query.order_id;
-    //console.log('order_id inpage editform001page=',router.query.order_id);
+    console.log('order_id before send=',router.query.order_id);
 
 
   return (
