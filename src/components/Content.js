@@ -71,6 +71,7 @@ const ContentComponent = () => {
             <div>- 8:05 PM 5/10/2020 ออกแบบหน้าประวัติทำรายการใหม่</div>
             <div>- 8:44 PM 5/10/2020 แก้ปุ่ม Submit , Cancel</div>
             <div>- 11:09 AM 5/11/2020 ย้ายปุ่มให้ Responsive</div>
+            <div>- 1:48 AM 5/13/2020 ออกแบบหน้า View , GenPDF</div>
           </div>
         </div>
         <h2>Patch Backend</h2>
@@ -78,6 +79,7 @@ const ContentComponent = () => {
           <div>- 2:23 AM 5/5/2020 เพิ่ม Model ใหม่เข้าไป</div>
           <div>- 4:19 AM 5/6/2020 เพิ่ม Delete API</div>
           <div>- 6:05 AM 5/6/2020 เพิ่ม Patch API</div>
+          <div>- 1:48 AM 5/13/2020 เพิ่ม Get API By order_id</div>
         </div>
         <h2>Patch Function</h2>
         <div className='text-content'>
@@ -87,6 +89,7 @@ const ContentComponent = () => {
           <div>- 6:05 AM 5/6/2020 เพิ่มฟังก์ชัน Patch 'Editform001' , Router.reload</div>
           <div>- 6:06 PM 5/10/2020 แก้ฟังก์ชัน Signin ขณะใส่รหัสผิด</div>
           <div>- 9:39 PM 5/10/2020 เพิ่มฟังก์ชันลิงค์ไปยัง ProfilePage</div>
+          <div>- 1:48 AM 5/13/2020 เพิ่มฟังก์ชัน View form001 , GenPDF </div>
         </div>
         <h2>Problem list</h2>
         <div className='text-content'>
@@ -95,6 +98,7 @@ const ContentComponent = () => {
           <div>- 8:44 PM 5/10/2020 บันทึกค่า Null ยังไม่ได้</div>
           <div>- 9:39 PM 5/10/2020 Sider not Responsive * Fixed</div>
           <div>- 9:55 PM 5/10/2020 Responsive ไม่ทุกอุปกรณ์</div>
+          <div>- 9:55 PM 5/10/2020 หน้า Homepage Carousel ไม่ตรงกลาง , จัดหน้า GenPDF</div>
         </div>
       </Content>
     </StyledWrapper>
