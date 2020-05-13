@@ -7,8 +7,11 @@ const WithAuth = (props) => {
 
     const [token, setToken] = useState(null);
 
-    useEffect(() => {
-        setToken(sessionStorage.getItem('token'))
+    const checktoken = async => {
+         setToken(sessionStorage.getItem('token'))
+    }
+     useEffect( () => {
+        checktoken()
     }, [])
 
 

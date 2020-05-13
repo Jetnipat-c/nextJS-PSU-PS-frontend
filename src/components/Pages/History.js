@@ -128,8 +128,8 @@ const HistoryContent = () => {
                         <Descriptions.Item label='ชื่อโครงการ'>
                           {data.o_projectname}
                         </Descriptions.Item>
-                        <Descriptions.Item label='สาถานะ'>
-                          รออนุมัติ
+                        <Descriptions.Item label='สถานะ'>
+                          ...
                         </Descriptions.Item>
                       </Descriptions>
 

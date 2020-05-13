@@ -302,7 +302,7 @@ const Form001Content = () => {
               <br />
               {/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
               <Descriptions bordered title='4. แหล่งเงิน' size={size} >
-                <div span={3}>* ใส่ข้อมูลเฉพาะที่มี</div>
+                <div span={3}>* ข้อมูลที่มีให้ใส่ 0</div>
                 <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
                   <input
                     type='number'

@@ -21,6 +21,7 @@ import HistoryContent from '../src/components/Pages/History'
 import EditForm001Content from '../src/components/Pages/EditForm001'
 import Viewform001Component from '../src/components/Pages/Viewform001'
 import Example from '../src/components/Pages/Genpdf'
+import Testprops from '../src/components/Pages/Testprops'
 import styled from 'styled-components'
 
 const StyledWrapper = styled.div`
@@ -29,7 +30,7 @@ const StyledWrapper = styled.div`
     background: #fff;
   }
 `
-const GenpdfPage = () => {
+const GenpdfPage = (props) => {
     const router = useRouter();
     const order_id = router.query.order_id;
     console.log('order_id before send=',router.query.order_id);
@@ -38,7 +39,7 @@ const GenpdfPage = () => {
   return (
     <StyledWrapper>
       <title>GenpdfPage</title>
-            <Example order_id={order_id}/>
+            <Example order_id ={order_id}/>
     </StyledWrapper>
   )
 }
