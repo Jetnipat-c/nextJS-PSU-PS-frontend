@@ -1,11 +1,6 @@
-import React, { useState, useEffect } from 'react'
-
+import React from 'react'
 import { Layout, Menu, Breadcrumb, Carousel } from 'antd'
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined
-} from '@ant-design/icons'
+
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
@@ -29,7 +24,7 @@ const StyledWrapper = styled.div`
     bottom: 12px;
     /* margin-top: 90%; */
     margin-left: 0;
-}
+  }
 `
 
 const ContentComponent = () => {
@@ -40,20 +35,20 @@ const ContentComponent = () => {
         <Breadcrumb.Item>Announce</Breadcrumb.Item>
       </Breadcrumb>
       <Carousel autoplay>
-          <div>
-            {/* <img src="/bg_login.jpg" alt="bg1" /> */}
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-        </Carousel>
+        <div>
+          {/* <img src="/bg_login.jpg" alt="bg1" /> */}
+          <h3>1</h3>
+        </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+      </Carousel>
       <Content>
         <div>
           <h2>Patch Frontend</h2>
@@ -61,7 +56,9 @@ const ContentComponent = () => {
             <div>- 6:52 PM 5/4/2020 ออกแบบหน้าเว็ปใหม่</div>
             <div>- 3:12 AM 5/6/2020 ทำหน้าแสดงผลประวัติรายการ</div>
             <div>- 4:19 AM 5/6/2020 เพิ่มปุ่มลบรายการ</div>
-            <div>- 6:05 AM 5/6/2020 เพิ่มปุ่มแก้ไขรายการ reload page เมื่อกด Delete</div>
+            <div>
+              - 6:05 AM 5/6/2020 เพิ่มปุ่มแก้ไขรายการ reload page เมื่อกด Delete
+            </div>
             <div>- 8:05 PM 5/10/2020 ออกแบบหน้าประวัติทำรายการใหม่</div>
             <div>- 8:44 PM 5/10/2020 แก้ปุ่ม Submit , Cancel</div>
             <div>- 11:09 AM 5/11/2020 ย้ายปุ่มให้ Responsive</div>
@@ -80,19 +77,29 @@ const ContentComponent = () => {
           <div>- 6:52 PM 5/4/2020 ปรับปรุงฟังก์ชันจากเวอร์ชั่นเก่า</div>
           <div>- 2:23 AM 5/4/2020 แก้ไข้ฟังก์ชันดึงข้อมูลส่วนตัว</div>
           <div>- 4:19 AM 5/6/2020 เพิ่มฟังก์ชัน Delete </div>
-          <div>- 6:05 AM 5/6/2020 เพิ่มฟังก์ชัน Patch 'Editform001' , Router.reload</div>
+          <div>
+            - 6:05 AM 5/6/2020 เพิ่มฟังก์ชัน Patch 'Editform001' , Router.reload
+          </div>
           <div>- 6:06 PM 5/10/2020 แก้ฟังก์ชัน Signin ขณะใส่รหัสผิด</div>
           <div>- 9:39 PM 5/10/2020 เพิ่มฟังก์ชันลิงค์ไปยัง ProfilePage</div>
           <div>- 1:48 AM 5/13/2020 เพิ่มฟังก์ชัน View form001 , GenPDF </div>
         </div>
         <h2>Problem list</h2>
         <div className='text-content'>
-          <div>- 2:23 AM 5/4/2020 บันทึกค่า Null ยังไม่ได้ และ กด Purchasing system แล้วเป็นการบันทึกข้อมูล ***ปัญหาที่ css .button * Fixed</div>
-          <div>- 3:12 AM 5/6/2020 css button ' Show info ' รอปรับปรุง * Fixed</div>
+          <div>
+            - 2:23 AM 5/4/2020 บันทึกค่า Null ยังไม่ได้ และ กด Purchasing system
+            แล้วเป็นการบันทึกข้อมูล ***ปัญหาที่ css .button * Fixed
+          </div>
+          <div>
+            - 3:12 AM 5/6/2020 css button ' Show info ' รอปรับปรุง * Fixed
+          </div>
           <div>- 8:44 PM 5/10/2020 บันทึกค่า Null ยังไม่ได้</div>
           <div>- 9:39 PM 5/10/2020 Sider not Responsive * Fixed</div>
           <div>- 9:55 PM 5/10/2020 Responsive ไม่ทุกอุปกรณ์</div>
-          <div>- 9:55 PM 5/10/2020 หน้า Homepage Carousel ไม่ตรงกลาง * Fixed , จัดหน้า GenPDF</div>
+          <div>
+            - 9:55 PM 5/10/2020 หน้า Homepage Carousel ไม่ตรงกลาง * Fixed ,
+            จัดหน้า GenPDF
+          </div>
         </div>
       </Content>
     </StyledWrapper>

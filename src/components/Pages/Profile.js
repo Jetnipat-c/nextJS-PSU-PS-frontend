@@ -1,22 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
-
-import {
-  Layout,
-  Menu,
-  Breadcrumb,
-  message,
-  Row,
-  Col,
-  Divider,
-  Descriptions,
-  Radio
-} from 'antd'
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined
-} from '@ant-design/icons'
+import { Layout, Menu, Breadcrumb, Divider, Descriptions, Radio } from 'antd'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
@@ -87,7 +71,12 @@ const ProfileContent = () => {
             </Radio.Group>
             <br />
             <br />
-            <Descriptions bordered title=' ' size={size} column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}>
+            <Descriptions
+              bordered
+              title=' '
+              size={size}
+              column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+            >
               <Descriptions.Item label='รหัสนักศึกษา'>
                 {profile.sid}
               </Descriptions.Item>

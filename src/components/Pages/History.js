@@ -5,20 +5,12 @@ import {
   Layout,
   Menu,
   Breadcrumb,
-  message,
-  Row,
-  Col,
-  Divider,
   Descriptions,
-  Radio,
   PageHeader,
-  Button,
-  Tabs,
-  Statistic
+  Button
 } from 'antd'
 import {
   SearchOutlined,
-  CloseCircleOutlined,
   DeleteOutlined,
   EditOutlined,
   PrinterOutlined
@@ -65,26 +57,22 @@ const HistoryContent = () => {
     getForm001Bysid()
   }, [])
   const deletehistory = async order_id => {
-    //console.log('order_id = ',order_id)
     var found = await axios.delete(`http://localhost:3001/form001/${order_id}`)
     Router.reload()
   }
   const edithistory = async order_id => {
-    //console.log('order_id = ',order_id)
     Router.push({
       pathname: '/editform001page',
       query: { order_id: order_id }
     })
   }
   const genpdf = async order_id => {
-    //console.log('order_id = ',order_id)
     Router.push({
       pathname: '/genpdfpage',
       query: { order_id: order_id }
     })
   }
   const view = async order_id => {
-    //console.log('order_id = ',order_id)
     Router.push({
       pathname: '/viewform001page',
       query: { order_id: order_id }
@@ -128,9 +116,7 @@ const HistoryContent = () => {
                         <Descriptions.Item label='ชื่อโครงการ'>
                           {data.o_projectname}
                         </Descriptions.Item>
-                        <Descriptions.Item label='สถานะ'>
-                          ...
-                        </Descriptions.Item>
+                        <Descriptions.Item label='สถานะ'>...</Descriptions.Item>
                       </Descriptions>
 
                       <Button

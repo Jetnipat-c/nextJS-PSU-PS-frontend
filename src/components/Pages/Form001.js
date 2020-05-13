@@ -2,25 +2,15 @@ import React, { useState, useEffect } from 'react'
 import * as axios from 'axios'
 import Router from 'next/router'
 import { useForm } from 'react-hook-form'
-
 import {
   Layout,
   Menu,
   Breadcrumb,
   message,
-  Row,
-  Col,
   Divider,
   Descriptions,
-  Radio,
-  Checkbox,
-  Button
+  Radio
 } from 'antd'
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined
-} from '@ant-design/icons'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
@@ -83,8 +73,8 @@ const StyledWrapper = styled.div`
   }
   .example_cancel:hover {
     color: #ffffff !important;
-    background: #F1948A;
-    border-color: #F1948A !important;
+    background: #f1948a;
+    border-color: #f1948a !important;
     transition: all 0.4s ease 0s;
   }
 `
@@ -158,7 +148,7 @@ const Form001Content = () => {
             <br />
             {/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Descriptions bordered title='1. รายละเอียด' size={size} >
+              <Descriptions bordered title='1. รายละเอียด' size={size}>
                 <Descriptions.Item label='เอกสารของ'>
                   <input
                     className='text-input'
@@ -211,7 +201,10 @@ const Form001Content = () => {
               {/* -------------------------------------------------------------------------------------------------------------- */}
               <br></br>
               {/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
-              <Descriptions bordered title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน' size={size} 
+              <Descriptions
+                bordered
+                title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน'
+                size={size}
               >
                 <Descriptions.Item
                   span={3}
@@ -252,7 +245,7 @@ const Form001Content = () => {
               {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
               {/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
-              <Descriptions bordered title='3. คณะกรรมการ' size={size} >
+              <Descriptions bordered title='3. คณะกรรมการ' size={size}>
                 <div span={3}>คณะกรรมการพิจารณาผล</div>
                 <Descriptions.Item label='ประธานกรรมการ'>
                   <input
@@ -301,7 +294,7 @@ const Form001Content = () => {
               {/* -------------------------------------------------------------------------------------------------------------- */}
               <br />
               {/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
-              <Descriptions bordered title='4. แหล่งเงิน' size={size} >
+              <Descriptions bordered title='4. แหล่งเงิน' size={size}>
                 <div span={3}>* ข้อมูลที่มีให้ใส่ 0</div>
                 <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
                   <input
@@ -396,9 +389,7 @@ const Form001Content = () => {
                 <button className='example_c' type='submit'>
                   Submit
                 </button>
-                <button className='example_cancel'>
-                  Cancel
-                </button>
+                <button className='example_cancel'>Cancel</button>
               </div>
             </form>
             {/* -------------------------------------------------------------------------------------------------------------- */}

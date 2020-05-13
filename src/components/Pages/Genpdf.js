@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import ReactToPrint from 'react-to-print'
-import { useRouter } from 'next/router'
 import styled from 'styled-components'
 const StyledWrapper = styled.div`
   margin: 0;

@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import React from "react"
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Form, Input, Button, Checkbox } from 'antd'
@@ -37,11 +36,10 @@ const StyledWrapper = styled.div`
   }
   h1 {
     margin-top: 10px;
-      font-family: 'Roboto';
-      font-weight: 600;
-      color: rgb(90, 90, 90);
+    font-family: 'Roboto';
+    font-weight: 600;
+    color: rgb(90, 90, 90);
   }
-  
 `
 
 function LoginPage () {
@@ -58,22 +56,23 @@ function LoginPage () {
   }, [])
 
   const login = async () => {
-    const result = await axios.post(
-      'http://localhost:3001/auth/login',
-      { username: user, password: pass }
-    ).then((result) => {
-      sessionStorage.setItem('token', (  result.data.access_token ))
-      sessionStorage.setItem('username', user)
-      Router.push('/homepage')
+    const result = await axios
+      .post('http://localhost:3001/auth/login', {
+        username: user,
+        password: pass
       })
-      .catch((result) => {
-      if (result.status == undefined) {
-      alert('Password or user is incorrect')
-      }
+      .then(result => {
+        sessionStorage.setItem('token', result.data.access_token)
+        sessionStorage.setItem('username', user)
+        Router.push('/homepage')
+      })
+      .catch(result => {
+        if (result.status == undefined) {
+          alert('Password or user is incorrect')
+        }
       })
     // console.log('result data',result.data)
     // console.log('username',user)
-   
   }
 
   const getprofile = async () => {
@@ -102,8 +101,8 @@ function LoginPage () {
             >
               <Input
                 prefix={<UserOutlined className='site-form-item-icon' />}
-                placeholder='Username' 
-                onChange={e => setUser(e.target.value)} 
+                placeholder='Username'
+                onChange={e => setUser(e.target.value)}
               />
             </Form.Item>
             <Form.Item
@@ -116,7 +115,7 @@ function LoginPage () {
                 prefix={<LockOutlined className='site-form-item-icon' />}
                 type='password'
                 placeholder='Password'
-                onChange={e => setPass(e.target.value)} 
+                onChange={e => setPass(e.target.value)}
               />
             </Form.Item>
             <Form.Item>
@@ -134,36 +133,8 @@ function LoginPage () {
               >
                 Log in
               </Button>
-              {/* <Button
-                type='primary'
-                htmlType='submit'
-                onClick={getprofile}
-              >
-                Get profile
-              </Button>
-              {profile} */}
             </Form.Item>
           </Form>
-
-          {/* <h3>
-            username 
-            <Input size="large" placeholder="large size" prefix={<UserOutlined />} onChange={e => setUser(e.target.value)} />
-            <input type='text' onChange={e => setUser(e.target.value)}></input
-          </h3>
-          <h3>
-            password 
-            <Input.Password size="large" placeholder="large Password" onChange={e => setPass(e.target.value)} />
-            <input type='text' onChange={e => setPass(e.target.value)}></input
-          </h3>
-          <div className='box_btn'>
-            <button type='submit' onClick={login}>
-              Login
-            </button>
-            <button type='submit' onClick={getprofile}>
-              Get profile
-            </button>
-            {profile}
-          </div> */}
         </div>
       </div>
     </StyledWrapper>

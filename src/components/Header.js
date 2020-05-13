@@ -1,29 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Router from 'next/router'
-
-import { Layout, Menu, Breadcrumb } from 'antd'
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined
-} from '@ant-design/icons'
+import { Layout, Menu } from 'antd'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
-
 import styled from 'styled-components'
-const StyledWrapper = styled.div`
-  #components-layout-demo-top-side-2 .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 28px 16px 0;
-    float: left;
-  }
-
-  .site-layout-background {
-    background: #fff;
-  }
-`
+const StyledWrapper = styled.div``
 
 const HeaderComponent = () => {
   const logout = () => {
@@ -35,29 +16,27 @@ const HeaderComponent = () => {
   const getuser = () => {
     setUsername(sessionStorage.getItem('username'))
   }
-  const gotoPage = () =>{
+  const gotoPage = () => {
     Router.push('/homepage')
-    //console.log('xxxx')
   }
-  const gotoProfilePage = () =>{
+  const gotoProfilePage = () => {
     Router.push('/formprofilepage')
-
   }
-  useEffect(()=>{
-      getuser()
-  },[])
-  
+  useEffect(() => {
+    getuser()
+  }, [])
+
   return (
     <StyledWrapper>
       <Header className='header'>
         <div className='logo' />
         <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']}>
           <Menu.Item key='1'>
-             <a onClick={gotoPage}>Purchasing system</a> 
-              </Menu.Item>
+            <a onClick={gotoPage}>Purchasing system</a>
+          </Menu.Item>
           <Menu.Item key='2'>
-             <a onClick={gotoProfilePage}>{username}</a> 
-              </Menu.Item>
+            <a onClick={gotoProfilePage}>{username}</a>
+          </Menu.Item>
           <Menu.Item key='3'>
             <a onClick={logout}>SignOut</a>
           </Menu.Item>
