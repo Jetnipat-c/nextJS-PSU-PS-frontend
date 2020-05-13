@@ -21,7 +21,6 @@ import HistoryContent from '../src/components/Pages/History'
 import EditForm001Content from '../src/components/Pages/EditForm001'
 import Viewform001Component from '../src/components/Pages/Viewform001'
 import Example from '../src/components/Pages/Genpdf'
-import Testprops from '../src/components/Pages/Testprops'
 import styled from 'styled-components'
 
 const StyledWrapper = styled.div`
