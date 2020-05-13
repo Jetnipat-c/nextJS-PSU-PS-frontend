@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const StyledWrapper = styled.div`
   margin: 0;
   padding: 0;
-  background-color: #fafafa;
+
   font: 12pt 'Tahoma';
   * {
     box-sizing: border-box;
@@ -19,12 +19,11 @@ const StyledWrapper = styled.div`
     margin: 1cm auto;
     border: 1px #d3d3d3 solid;
     border-radius: 5px;
-    background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
 
   .subpage {
-    padding: 1cm;
+    padding: 0.2cm;
 
     height: 256mm;
   }
@@ -40,6 +39,35 @@ const StyledWrapper = styled.div`
       background: initial;
       page-break-after: always;
     }
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: stretch;
+    background-color: white;
+  }
+
+  .flex-container > div {
+    background-color: red;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .flex-containersub {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .flex-containersub > div {
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 15px;
   }
 `
 
@@ -70,73 +98,104 @@ class ComponentToPrint extends React.Component {
             <div className='book'>
               <div className='page'>
                 <div className='subpage'>
-                  <div>
-                    <h1>GenPDF Example</h1>
-                    <div> เอกสารที่ มอ. 696 / : {data.o_location}</div>
-                    <div> ลงวันที่ {data.o_date}</div>
-                    <div>
-                      {' '}
-                      ด้วยมหาวิทยาลัยการคอมพิวเตอร์มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ{' '}
-                      {data.o_purpose}
+                    <div className='flex-container'>
+                      <div style={{flexGrow:'7' , backgroundColor:'black'}}> แบบขอให้จัดหาพัสดุ<br/>กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท</div>
+                      <div style={{flexGrow:'2' , backgroundColor:'blue'}}>แบบจัดหา 001<br/>วิธีเฉพาะเจาะจง</div>
                     </div>
-                    <div> ชื่อโครงการ (ถ้ามี) {data.o_projectname}</div>
-                    <div> วันที่ต้องใช้พัสดุ {data.o_require}</div>
-                    <div>
-                      {' '}
-                      รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน(ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม)
-                      (จำนวนแผ่น) {data.o_specific}
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'end'}}>เอกสารที่ มอ. 696 / &ensp; {data.o_location}</div>
                     </div>
-                    <div>
-                      {' '}
-                      บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
-                      (จำนวนแผ่น) {data.o_appointment}
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'end' , marginRight:'92px'}}>ลงวันที่ &ensp; {data.o_date}</div>
                     </div>
-                    <div>
-                      {' '}
-                      บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
-                      (จำนวนแผ่น) {data.o_results}
+                    <h4>1)	*** รายละเอียด</h4>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}> ด้วยมหาวิทยาลัยการคอมพิวเตอร์มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ &ensp;
+                      {data.o_purpose}</div>
                     </div>
-                    <div>
-                      {' '}
-                      คณะกรรมการพิจารณาผล ประธานกรรมการ {data.o_committee1}
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}> ชื่อโครงการ (ถ้ามี)  &ensp; {data.o_projectname}</div>
                     </div>
-                    <div>
-                      {' '}
-                      คณะกรรมการพิจารณาผล คณะกรรมการ {data.o_committee2}
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}> วันที่ต้องใช้พัสดุ   &ensp; {data.o_require}</div>
                     </div>
-                    <div>
-                      {' '}
-                      คณะกรรมการพิจารณาผล คณะกรรมการ {data.o_committee3}
+
+                    <h4>2) *** กำหนดรายละเอียดขอบเขตงาน/คุณลักษณะเฉพาะ *** เอกสารแนบประทับตรามหาวิทยาลัยพร้อมลงนามทุกฉบับ</h4>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}> รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน(ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม)
+                      (จำนวนแผ่น)  &ensp; {data.o_specific}</div>
                     </div>
-                    <div>
-                      {' '}
-                      คณะกรรมการตรวจรับพัสดุ ประธานกรรมการ {data.o_committee4}
+
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>  บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
+                      (จำนวนแผ่น)   &ensp; {data.o_appointment}</div>
                     </div>
-                    <div>
-                      {' '}
-                      คณะกรรมการตรวจรับพัสดุ คณะกรรมการ {data.o_committee5}
+                  
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>   บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
+                      (จำนวนแผ่น)  &ensp; {data.o_results} </div>
                     </div>
-                    <div>
-                      {' '}
-                      คณะกรรมการตรวจรับพัสดุ คณะกรรมการ {data.o_committee6}
+
+                    <h4>3)	*** กรรมการตรวจรับพัสดุ *** กรณีวงเงินไม่เกิน 1 แสนบาท จะแต่งตั้งบุคคลใดบุคคลหนึ่งเป็นผู้ตรวจรับพัสดุก็ได้ แต่ถ้าเกิน 1 แสนบาท         ต้องแต่งตั้งคณะกรรมการตรวจรับพัสดุอย่างน้อย 3 คน</h4>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>3.1&ensp; {data.o_committee1} &ensp;  คณะกรรมการพิจารณาผล ประธานกรรมการ  </div>
                     </div>
-                    <div> เงินอุดหนุนจากรัฐบาล ปี {data.o_gvm_sub}</div>
-                    <div> เงินรายได้ ปี {data.o_income}</div>
-                    <div> เงินรายได้สะสม ปี {data.o_aml_income}</div>
-                    <div> ทิศทาง {data.o_direction}</div>
-                    <div> นโยบาย {data.o_policy}</div>
-                    <div> ผลงาน {data.o_works}</div>
-                    <div> งาน {data.o_task}</div>
-                    <div> หมวดรายจ่าย {data.o_expense_cg}</div>
-                    <div> หมวดย่อย {data.o_sub_cg}</div>
-                    <div> ชื่อรายการ {data.o_list_n}</div>
-                    <div>
-                      {' '}
-                      เงินอื่นๆโปรดระบุ (ตามที่แนบมาพร้อมนี้) {data.o_other_m}
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>3.2&ensp; {data.o_committee2} &ensp;   คณะกรรมการพิจารณาผล คณะกรรมการ  </div>
                     </div>
-                  </div>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>3.3&ensp; {data.o_committee3} &ensp;   คณะกรรมการพิจารณาผล คณะกรรมการ  </div>
+                    </div>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>3.4&ensp; {data.o_committee4} &ensp;    คณะกรรมการตรวจรับพัสดุ ประธานกรรมการ  </div>
+                    </div>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>3.5&ensp; {data.o_committee5} &ensp;    คณะกรรมการตรวจรับพัสดุ คณะกรรมการ  </div>
+                    </div>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>3.6&ensp; {data.o_committee6} &ensp;    คณะกรรมการตรวจรับพัสดุ คณะกรรมการ  </div>
+                    </div>
+                    <h4>4)	*** แหล่งเงิน *** เอกสารที่เป็นสำเนาต้องรับรองสำเนาถูกต้องทุกฉบับ</h4>
+                    <div className='flex-containersub'>
+                    <div style={{flexGrow:'2' , textAlign:'start'}}> เงินอุดหนุนจากรัฐบาล ปี {data.o_gvm_sub} </div>
+                    <div style={{flexGrow:'2' , textAlign:'start'}}> เงินรายได้ ปี {data.o_income}</div>
+                      <div style={{flexGrow:'2' , textAlign:'start'}}> เงินรายได้สะสม ปี {data.o_aml_income}</div>
+                    </div>
+
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>ทิศทาง  &ensp; {data.o_direction} </div>
+                    </div>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>นโยบาย  &ensp;{data.o_policy} </div>
+                    </div>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>ผลงาน  &ensp; {data.o_works} </div>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>งาน  &ensp; {data.o_task} </div>
+                    </div>
+
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>หมวดรายจ่าย  &ensp; {data.o_expense_cg} </div>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>หมวดย่อย  &ensp; {data.o_sub_cg} </div>
+                    </div>
+
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}>ชื่อรายการ  &ensp; {data.o_list_n} </div>
+                    </div>
+                    <div className='flex-containersub'>
+                      <div style={{flexGrow:'7' , textAlign:'start'}}> เงินอื่นๆโปรดระบุ (ตามที่แนบมาพร้อมนี้)  &ensp; {data.o_other_m} </div>
+                    </div>
+                    <div className='flex-containersub'>
+                    <div style={{flexGrow:'7' , textAlign:'end'}}>(ลงชื่อ).....................................ผู้ขอ</div>  
+            </div>
+            <div className='flex-containersub'>
+            <div style={{flexGrow:'7' , textAlign:'end' ,marginRight:'10px'}}>(.....................................) </div>
+            </div>
+            <div className='flex-containersub'>
+            <div style={{flexGrow:'7' , textAlign:'end'}}> เบอร์ติดต่อ..................................... </div>
+            </div>
                 </div>
               </div>
+              
             </div>
           </div>
         ))}

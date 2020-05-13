@@ -9,7 +9,7 @@ const StyledWrapper = styled.div``
 const FooterComponent = () => {
   return (
     <StyledWrapper>
-      <Footer style={{ textAlign: 'center' }}>
+      <Footer style={{ textAlign: 'center'}}>
         Copyright © 2020 CoE ระบบจัดซื้อ Purchasing system
       </Footer>
     </StyledWrapper>

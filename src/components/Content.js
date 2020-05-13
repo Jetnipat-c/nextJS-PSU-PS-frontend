@@ -1,7 +1,6 @@
 import React from 'react'
-import { Layout, Menu, Breadcrumb, Carousel } from 'antd'
+import { Layout, Breadcrumb, Carousel } from 'antd'
 
-const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
 import styled from 'styled-components'
@@ -83,6 +82,7 @@ const ContentComponent = () => {
           <div>- 6:06 PM 5/10/2020 แก้ฟังก์ชัน Signin ขณะใส่รหัสผิด</div>
           <div>- 9:39 PM 5/10/2020 เพิ่มฟังก์ชันลิงค์ไปยัง ProfilePage</div>
           <div>- 1:48 AM 5/13/2020 เพิ่มฟังก์ชัน View form001 , GenPDF </div>
+          <div>- 6:54 PM 5/13/2020 GenPDF sucessfuly </div>
         </div>
         <h2>Problem list</h2>
         <div className='text-content'>
