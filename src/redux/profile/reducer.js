@@ -1,5 +1,9 @@
+const defaultProfiles = [
+
+]
+
 const initialState = {
-  sid: []
+  userinfo: defaultProfiles
 }
 
 export const ProfileReducer = (state = initialState, action) => {
@@ -7,7 +11,7 @@ export const ProfileReducer = (state = initialState, action) => {
     case 'LOAD_PROFILE':
       return {
         ...state,
-        sid: [...state.sid, action.payload]
+        userinfo: [...state.userinfo, action.payload]
       }
     default:
       return state

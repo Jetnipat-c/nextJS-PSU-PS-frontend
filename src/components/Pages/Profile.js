@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
+import { connect } from 'react-redux'
 import { Layout, Menu, Breadcrumb, Divider, Descriptions, Radio } from 'antd'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
 import styled from 'styled-components'
+import { ProfilesAction } from '../../redux/profile/actions'
 const StyledWrapper = styled.div`
   #components-layout-demo-top-side-2 .logo {
     width: 120px;
@@ -22,7 +24,9 @@ const StyledWrapper = styled.div`
   }
 `
 
-const ProfileContent = () => {
+const ProfileContent = (props) => {
+  const { profiles , loadProfile } = props;
+  console.log(props)
   const [size, setSize] = useState('default')
   const [profile, setProfile] = useState({})
   const getprofiledatabase = async () => {
@@ -34,6 +38,8 @@ const ProfileContent = () => {
     )
     console.log('user', users)
     setProfile(users.data)
+    loadProfile(users.data)
+    //dispatch({type: 'LOAD_PROFILE', payload: users.data})
   }
   const cssonChange = e => {
     console.log('size checked', e.target.value)
@@ -111,4 +117,4 @@ const ProfileContent = () => {
   )
 }
 
-export default ProfileContent
+export default connect(state => state , ProfilesAction)(ProfileContent)
