@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import * as axios from 'axios'
 import Router from 'next/router'
 import { useForm } from 'react-hook-form'
+import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
 import {
   Layout,
   Menu,
@@ -77,6 +78,7 @@ const StyledWrapper = styled.div`
     border-color: #f1948a !important;
     transition: all 0.4s ease 0s;
   }
+
 `
 
 const Form001Content = () => {
@@ -129,6 +131,12 @@ const Form001Content = () => {
   }, [])
   return (
     <StyledWrapper>
+     <ScrollUpButton
+          EasingType="easeInQuad"
+          StopPosition={11}
+          ShowAtPosition={50}
+          AnimationDuration={50}
+        />
       <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>แบบฟอร์ม</Breadcrumb.Item>
@@ -414,6 +422,7 @@ const Form001Content = () => {
           ></Divider>
         </div>
       </Content>
+
     </StyledWrapper>
   )
 }
