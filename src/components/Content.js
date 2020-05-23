@@ -76,6 +76,7 @@ const ContentComponent = () => {
           <div>- 6:52 PM 5/4/2020 ปรับปรุงฟังก์ชันจากเวอร์ชั่นเก่า</div>
           <div>- 2:23 AM 5/4/2020 แก้ไข้ฟังก์ชันดึงข้อมูลส่วนตัว</div>
           <div>- 4:19 AM 5/6/2020 เพิ่มฟังก์ชัน Delete </div>
+          <div>- 4:19 AM 5/15/2020 เพิ่ม Redux</div>
           <div>
             - 6:05 AM 5/6/2020 เพิ่มฟังก์ชัน Patch 'Editform001' , Router.reload
           </div>

@@ -1,5 +1,4 @@
 const defaultProfiles = [
-
 ]
 
 const initialState = {

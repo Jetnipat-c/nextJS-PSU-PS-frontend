@@ -25,10 +25,10 @@ const StyledWrapper = styled.div`
 `
 
 const ProfileContent = (props) => {
-  const { profiles , loadProfile } = props;
+  const { userinfo , loadProfile } = props;
   console.log(props)
   const [size, setSize] = useState('default')
-  const [profile, setProfile] = useState({})
+  const [info, setinfo] = useState({})
   const getprofiledatabase = async () => {
     const users = await Axios.get(
       `http://localhost:3001/users/${sessionStorage.getItem('username')}`,
@@ -36,20 +36,25 @@ const ProfileContent = (props) => {
         headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
       }
     )
-    console.log('user', users)
-    setProfile(users.data)
+    //console.log('user', users)
+    //setinfo(users.data)
     loadProfile(users.data)
     //dispatch({type: 'LOAD_PROFILE', payload: users.data})
   }
   const cssonChange = e => {
-    console.log('size checked', e.target.value)
+    //console.log('size checked', e.target.value)
     setSize(e.target.value)
   }
   useEffect(() => {
     getprofiledatabase()
-  }, [])
+
+  },[] )
   return (
     <StyledWrapper>
+      {userinfo.map((data , index)=>{
+              return (
+                
+                <div key={index}>
       <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>แก้ไขข้อมูลประวัติส่วนตัว</Breadcrumb.Item>
@@ -67,7 +72,7 @@ const ProfileContent = (props) => {
             orientation='left'
             style={{ color: '#333', fontWeight: 'normal' }}
           >
-            ข้อมูลส่วนตัว
+            ข้อมูลส่วนตัว 
           </Divider>
           <div>
             <Radio.Group onChange={cssonChange} value={size}>
@@ -84,16 +89,16 @@ const ProfileContent = (props) => {
               column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
             >
               <Descriptions.Item label='รหัสนักศึกษา'>
-                {profile.sid}
+                {data.sid}
               </Descriptions.Item>
               <Descriptions.Item label='ชื่อ'>
-                {profile.firstname}
+                {data.firstname}
               </Descriptions.Item>
               <Descriptions.Item label='นามสกุล'>
-                {profile.lastname}
+                {data.lastname}
               </Descriptions.Item>
               <Descriptions.Item label='บัตรประจำตัวประชาชน'>
-                {profile.cid}
+                {data.cid}
               </Descriptions.Item>
               <Descriptions.Item label='ที่อยู่'>
                 99/99 หมู่ 4
@@ -106,6 +111,8 @@ const ProfileContent = (props) => {
             </Descriptions>
             <br />
             <br />
+            
+                
           </div>
           <Divider
             orientation='left'
@@ -113,8 +120,11 @@ const ProfileContent = (props) => {
           ></Divider>
         </div>
       </Content>
+      </div>
+              )
+            })}
     </StyledWrapper>
   )
 }
 
-export default connect(state => state , ProfilesAction)(ProfileContent)
+export default connect(state => state.Profile , ProfilesAction)(ProfileContent)
