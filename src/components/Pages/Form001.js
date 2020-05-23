@@ -91,10 +91,18 @@ const Form001Content = () => {
 
   const onSubmit = data => {
     console.log('data', data)
-    axios.post(`http://localhost:3001/form001/insert`, data).then(res => {
-      console.log('res.data', res.data)
+    axios.post(
+      `http://localhost:3001/form001/insert`
+      , data)
+    .then(res => {
+      //console.log('res.data', res.data)
+      openMessage()
     })
-    openMessage()
+    .catch(error=> {
+      //console.log('pls intert data')
+      openMessageError()
+    })
+    
   }
   const key = 'updatable'
   const openMessage = () => {
@@ -104,12 +112,16 @@ const Form001Content = () => {
       Router.push('/homepage')
     }, 1000)
   }
+
+  const openMessageError = () => {
+    message.loading({ content: 'Please complete all information.', key })
+    setTimeout(() => {
+      message.success({ content: 'Saved!', key, duration: 2 })
+    }, 1000)
+  }
   const cssonChange = e => {
     console.log('size checked', e.target.value)
     setSize(e.target.value)
-  }
-  const checkbox = e => {
-    console.log(`checked = ${e.target.checked}`)
   }
 
   useEffect(() => {

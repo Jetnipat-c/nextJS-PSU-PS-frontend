@@ -36,7 +36,7 @@ const ProfileContent = (props) => {
         headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
       }
     )
-    //console.log('user', users)
+    console.log('user', users)
     //setinfo(users.data)
     loadProfile(users.data)
     //dispatch({type: 'LOAD_PROFILE', payload: users.data})

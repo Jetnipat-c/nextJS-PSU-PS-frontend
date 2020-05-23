@@ -84,7 +84,7 @@ const HistoryContent = () => {
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>ประวัติการทำรายการ</Breadcrumb.Item>
       </Breadcrumb>
-
+    
       <Content
         className='site-layout-background'
         style={{
