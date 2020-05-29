@@ -4,7 +4,6 @@ import Router from 'next/router'
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux'
 import { Form001Action } from '../../redux/form001/action'
-import ScrollUpButton from "react-scroll-up-button";
 import {
   Layout,
   Menu,
@@ -12,7 +11,8 @@ import {
   message,
   Divider,
   Descriptions,
-  Radio
+  Radio,
+  BackTop
 } from 'antd'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
@@ -84,6 +84,16 @@ const StyledWrapper = styled.div`
     text-align:right;
   }
 `
+const style = {
+  height: 40,
+  width: 40,
+  lineHeight: '40px',
+  borderRadius: 4,
+  backgroundColor: '#1088e9',
+  color: '#fff',
+  textAlign: 'center',
+  fontSize: 14,
+};
 
 const Form001Content = (props) => {
   const { info_form001 , saveForm001 } = props;
@@ -139,12 +149,7 @@ const Form001Content = (props) => {
   }, [])
   return (
     <StyledWrapper>
-    <ScrollUpButton
-          EasingType="easeInQuad"
-          StopPosition={11}
-          ShowAtPosition={50}
-          AnimationDuration={50}
-        />
+
       <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>แบบฟอร์ม</Breadcrumb.Item>
@@ -439,7 +444,9 @@ const Form001Content = (props) => {
           ></Divider>
         </div>
       </Content>
-      
+      <BackTop>
+        <div style={style}>UP</div>
+      </BackTop>
     </StyledWrapper>
   )
 }

@@ -9,7 +9,8 @@ import {
   message,
   Divider,
   Descriptions,
-  Radio
+  Radio,
+  BackTop
 } from 'antd'
 
 const { SubMenu } = Menu
@@ -83,8 +84,18 @@ const StyledWrapper = styled.div`
     height: 60px;
     justify-content: space-around;
   }
+  
 `
-
+const style = {
+  height: 40,
+  width: 40,
+  lineHeight: '40px',
+  borderRadius: 4,
+  backgroundColor: '#1088e9',
+  color: '#fff',
+  textAlign: 'center',
+  fontSize: 14,
+};
 const EditForm001Content = props => {
   const [size, setSize] = useState('default')
   const [order_id, setOrder_id] = useState(props.order_id)
@@ -488,6 +499,9 @@ const EditForm001Content = props => {
           </div>
         )
       })}
+      <BackTop>
+        <div style={style}>UP</div>
+      </BackTop>
     </StyledWrapper>
   )
 }

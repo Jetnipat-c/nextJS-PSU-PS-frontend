@@ -8,7 +8,8 @@ import {
   Descriptions,
   PageHeader,
   Button,
-  Empty 
+  Empty,
+  BackTop
 } from 'antd'
 import {
   SearchOutlined,
@@ -37,6 +38,16 @@ const StyledWrapper = styled.div`
     color: white;
   }
 `
+const style = {
+  height: 40,
+  width: 40,
+  lineHeight: '40px',
+  borderRadius: 4,
+  backgroundColor: '#1088e9',
+  color: '#fff',
+  textAlign: 'center',
+  fontSize: 14,
+};
 
 const HistoryContent = () => {
   const [history, setHistoty] = useState([])
@@ -172,6 +183,9 @@ const HistoryContent = () => {
           </div>
         </div>
       </Content>
+      <BackTop>
+        <div style={style}>UP</div>
+      </BackTop>
     </StyledWrapper>
   )
 }
