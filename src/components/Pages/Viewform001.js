@@ -71,6 +71,9 @@ const StyledWrapper = styled.div`
     height: 60px;
     justify-content: space-around;
   }
+  .position_changesize {
+    text-align:right;
+  }
 `
 
 const Viewform001Component = props => {
@@ -126,11 +129,11 @@ const Viewform001Component = props => {
                       แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
                       กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
                     </Divider>
-                    <div>
+                    <div className="position_changesize">
                       <Radio.Group onChange={cssonChange} value={size}>
-                      <Radio value='default'>default</Radio>
-                      <Radio value='middle'>middle</Radio>
-                      <Radio value='small'>small</Radio>
+                      <Radio value='default'>L</Radio>
+                      <Radio value='middle'>M</Radio>
+                      <Radio value='small'>S</Radio>
                     </Radio.Group>
                     </div>
                     <br />
