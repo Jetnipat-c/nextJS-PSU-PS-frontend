@@ -29,8 +29,8 @@ const StyledWrapper = styled.div`
     background: #fff;
   }
   .text-input {
-    width: 250px;
-    border-bottom: 2px solid #d9dee3;
+    width: 100%;
+    border-bottom: 1px solid #d9dee3;
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
@@ -78,7 +78,9 @@ const StyledWrapper = styled.div`
     border-color: #f1948a !important;
     transition: all 0.4s ease 0s;
   }
-
+  .position_changesize {
+    text-align:right;
+  }
 `
 
 const Form001Content = () => {
@@ -159,11 +161,13 @@ const Form001Content = () => {
             กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
           </Divider>
           <div>
-            <Radio.Group onChange={cssonChange} value={size}>
-              <Radio value='default'>default</Radio>
-              <Radio value='middle'>middle</Radio>
-              <Radio value='small'>small</Radio>
-            </Radio.Group>
+          <div className="position_changesize">
+                      <Radio.Group onChange={cssonChange} value={size}>
+                      <Radio value='default'>L</Radio>
+                      <Radio value='middle'>M</Radio>
+                      <Radio value='small'>S</Radio>
+                    </Radio.Group>
+                    </div>
             <br />
             <br />
             {/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}

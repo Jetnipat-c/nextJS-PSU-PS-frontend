@@ -22,6 +22,9 @@ const StyledWrapper = styled.div`
     align-content: center;
     justify-content: center; */
   }
+  .position_changesize {
+    text-align:right;
+  }
 `
 
 const ProfileContent = (props) => {
@@ -75,11 +78,13 @@ const ProfileContent = (props) => {
             ข้อมูลส่วนตัว 
           </Divider>
           <div>
-            <Radio.Group onChange={cssonChange} value={size}>
-              <Radio value='default'>default</Radio>
-              <Radio value='middle'>middle</Radio>
-              <Radio value='small'>small</Radio>
-            </Radio.Group>
+          <div className="position_changesize">
+                      <Radio.Group onChange={cssonChange} value={size}>
+                      <Radio value='default'>L</Radio>
+                      <Radio value='middle'>M</Radio>
+                      <Radio value='small'>S</Radio>
+                    </Radio.Group>
+                    </div>
             <br />
             <br />
             <Descriptions
