@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import * as axios from 'axios'
 import Router from 'next/router'
 import { useForm } from 'react-hook-form'
-import {TinyButton as ScrollUpButton} from "react-scroll-up-button";
+import ScrollUpButton from "react-scroll-up-button";
 import {
   Layout,
   Menu,
@@ -131,7 +131,7 @@ const Form001Content = () => {
   }, [])
   return (
     <StyledWrapper>
-     <ScrollUpButton
+    <ScrollUpButton
           EasingType="easeInQuad"
           StopPosition={11}
           ShowAtPosition={50}
@@ -235,6 +235,7 @@ const Form001Content = () => {
                     type='number'
                     className='text-input'
                     name='o_specific'
+                    defaultValue='0'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -247,6 +248,7 @@ const Form001Content = () => {
                     type='number'
                     className='text-input'
                     name='o_appointment'
+                    defaultValue='0'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -258,6 +260,7 @@ const Form001Content = () => {
                     type='number'
                     className='text-input'
                     name='o_results'
+                    defaultValue='0'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -321,6 +324,7 @@ const Form001Content = () => {
                     type='number'
                     className='text-input'
                     name='o_gvm_sub'
+                    defaultValue='0'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -329,6 +333,7 @@ const Form001Content = () => {
                     type='number'
                     className='text-input'
                     name='o_income'
+                    defaultValue='0'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -337,6 +342,7 @@ const Form001Content = () => {
                     type='number'
                     className='text-input'
                     name='o_aml_income'
+                    defaultValue='0'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -398,6 +404,7 @@ const Form001Content = () => {
                     type='number'
                     className='text-input'
                     name='o_other_m'
+                    defaultValue='0'
                     ref={register}
                   ></input>
                 </Descriptions.Item>
@@ -422,7 +429,7 @@ const Form001Content = () => {
           ></Divider>
         </div>
       </Content>
-
+      
     </StyledWrapper>
   )
 }
