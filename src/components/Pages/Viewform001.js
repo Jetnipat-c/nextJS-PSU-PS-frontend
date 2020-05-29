@@ -17,8 +17,8 @@ const StyledWrapper = styled.div`
     background: #fff;
   }
   .text-input {
-    width: 250px;
-    border-bottom: 2px solid #d9dee3;
+    background-color: white;
+    border-bottom-style:hidden ;
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
@@ -126,12 +126,13 @@ const Viewform001Component = props => {
                       แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
                       กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
                     </Divider>
-
-                    <Radio.Group onChange={cssonChange} value={size}>
+                    <div>
+                      <Radio.Group onChange={cssonChange} value={size}>
                       <Radio value='default'>default</Radio>
                       <Radio value='middle'>middle</Radio>
                       <Radio value='small'>small</Radio>
                     </Radio.Group>
+                    </div>
                     <br />
                     <br />
                     {/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}
