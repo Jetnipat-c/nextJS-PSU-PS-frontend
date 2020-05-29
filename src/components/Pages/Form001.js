@@ -98,7 +98,9 @@ const Form001Content = (props) => {
   const { register, handleSubmit, errors } = useForm() // initialise the hook
 
   const onSubmit = data => {
-    console.log('data', data)
+    //console.log('data', data)
+    saveForm001(data)
+    console.log('info_form001 0 :',info_form001)
     axios.post(
       `http://localhost:3001/form001/insert`
       , data)
