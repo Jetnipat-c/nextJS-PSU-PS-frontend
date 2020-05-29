@@ -7,7 +7,8 @@ import {
   Breadcrumb,
   Descriptions,
   PageHeader,
-  Button
+  Button,
+  Empty 
 } from 'antd'
 import {
   SearchOutlined,
@@ -39,13 +40,18 @@ const StyledWrapper = styled.div`
 
 const HistoryContent = () => {
   const [history, setHistoty] = useState([])
+  const [checkEmpty,setcCheckEmpty] = useState(false)
   const getForm001Bysid = async () => {
     var found = await axios.get(
       `http://localhost:3001/form001/${sessionStorage.getItem('username')}`
     )
     console.log('found = ', found.data)
     setHistoty(JSON.parse(JSON.stringify(found.data)))
-    console.log('history', history)
+    console.log((found.data).length);
+    if((found.data).length === 0)
+    {
+      setcCheckEmpty(true)
+    }
   }
 
   const [size, setSize] = useState('default')
@@ -95,7 +101,7 @@ const HistoryContent = () => {
       >
         <div className='site-layout-content'>
           <div className='site-page-header-ghost-wrapper'>
-            {history.map((data, index) => {
+            {checkEmpty ? <Empty/> : <div>{history.map((data, index) => {
               return (
                 <div key={index}>
                   <div className='site-page-header-ghost-wrapper'>
@@ -160,7 +166,9 @@ const HistoryContent = () => {
                   </div>
                 </div>
               )
-            })}
+            })}</div>}
+
+            
           </div>
         </div>
       </Content>
