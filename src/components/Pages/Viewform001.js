@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Layout, Menu, Breadcrumb, Divider, Descriptions, Radio } from 'antd'
+import { Layout, Menu, Breadcrumb, Divider, Descriptions, Radio, BackTop  } from 'antd'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 import styled from 'styled-components'
@@ -74,9 +74,21 @@ const StyledWrapper = styled.div`
   .position_changesize {
     text-align:right;
   }
+  
 `
+const style = {
+  height: 40,
+  width: 40,
+  lineHeight: '40px',
+  borderRadius: 4,
+  backgroundColor: '#1088e9',
+  color: '#fff',
+  textAlign: 'center',
+  fontSize: 14,
+};
 
 const Viewform001Component = props => {
+  
   const [order_id, setOrder_id] = useState(props.order_id)
   //console.log('order_id  = ', order_id)
 
@@ -408,10 +420,15 @@ const Viewform001Component = props => {
                   style={{ color: '#333', fontWeight: 'normal' }}
                 ></Divider>
               </div>
+              
             </Content>
+         
           </div>
         )
       })}
+      <BackTop>
+            <div style={style}>UP</div>
+          </BackTop> 
     </StyledWrapper>
   )
 }
