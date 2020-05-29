@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import * as axios from 'axios'
 import Router from 'next/router'
 import { useForm } from 'react-hook-form'
+import { connect } from 'react-redux'
+import { Form001Action } from '../../redux/form001/action'
 import ScrollUpButton from "react-scroll-up-button";
 import {
   Layout,
@@ -83,7 +85,9 @@ const StyledWrapper = styled.div`
   }
 `
 
-const Form001Content = () => {
+const Form001Content = (props) => {
+  const { info_form001 , saveForm001 } = props;
+  console.log(props)
   const [size, setSize] = useState('default')
 
   const [username, setUsername] = useState('')
@@ -438,4 +442,4 @@ const Form001Content = () => {
   )
 }
 
-export default Form001Content
+export default connect(state => state.Form001 ,Form001Action )(Form001Content)
