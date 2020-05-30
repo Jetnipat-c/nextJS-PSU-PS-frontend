@@ -91,8 +91,11 @@ const StyledWrapper = styled.div`
   }
   td,
   th {
-    padding: 6px;
+    padding: 15px 6px 6px 6px;
     /* border: 1px solid #ccc;  */
+    text-align: center;
+  }
+  .ant-input{
     text-align: center;
   }
 `;
