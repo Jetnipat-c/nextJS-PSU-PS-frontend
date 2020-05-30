@@ -15,6 +15,7 @@ import {
   BackTop,
   Row,
   Col,
+  Input,
 } from "antd";
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
@@ -31,13 +32,6 @@ const StyledWrapper = styled.div`
 
   .site-layout-background {
     background: #fff;
-  }
-  .text-input {
-    width: 100%;
-    border-bottom: 1px solid #d9dee3;
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
   }
 
   .center {
@@ -82,19 +76,23 @@ const StyledWrapper = styled.div`
     border-color: #f1948a !important;
     transition: all 0.4s ease 0s;
   }
-  .flex-container {
-  display: flex;
-  align-items: stretch;
-  background-color: #f1f1f1;
+  table { 
+  width: 100%; 
+  border-collapse: collapse; 
 }
-
-.flex-container > div {
-  background-color: DodgerBlue;
-  color: white;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: center; 
 }
 `;
 const style = {
@@ -171,16 +169,33 @@ const Form001_page2Content = (props) => {
             แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
             กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
           </Divider>
-          <div>
-          <div className="flex-container">
-  <div style={{flexGrow: "1"}}>1</div>
-  <div style={{flexGrow: "4"}}>2</div>
-  <div style={{flexGrow: "2"}}>3</div>
-  <div style={{flexGrow: "1"}}>4</div>
-  <div style={{flexGrow: "2"}}>5</div>
-</div>
-
-          </div>
+          <table>
+	<thead>
+	<tr>
+		<th>ลำดับ</th>
+		<th>รายการ</th>
+		<th>จำนวน</th>
+    <th>หน่วย</th>
+    <th>ราคา/หน่วย</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td style={{width:"20px"}}><Input /></td>
+		<td style={{width:"300px"}}><Input /></td>
+		<td style={{width:"100px"}}><Input /></td>
+    <td style={{width:"100px"}}><Input /></td>
+    <td style={{width:"100px"}}><Input /></td>
+	</tr>
+	<tr>
+		<td><Input /></td>
+		<td><Input /></td>
+		<td><Input /></td>
+    <td><Input /></td>
+    <td><Input /></td>
+	</tr>
+	</tbody>
+</table>
           <Divider
             orientation="left"
             style={{ color: "#333", fontWeight: "normal" }}
