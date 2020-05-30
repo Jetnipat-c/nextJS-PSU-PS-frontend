@@ -40,6 +40,7 @@ const StyledWrapper = styled.div`
     align-content: center;
     width: 100%;
     justify-content: space-around;
+    margin-top:15px;
   }
   .example_c {
     text-align: center;
@@ -76,24 +77,24 @@ const StyledWrapper = styled.div`
     border-color: #f1948a !important;
     transition: all 0.4s ease 0s;
   }
-  table { 
-  width: 100%; 
-  border-collapse: collapse; 
-}
-/* Zebra striping */
-tr:nth-of-type(odd) { 
-  background: #eee; 
-}
-th { 
-  background: #333; 
-  color: white; 
-  font-weight: bold; 
-}
-td, th { 
-  padding: 6px; 
-  border: 1px solid #ccc; 
-  text-align: center; 
-}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) {
+  }
+  th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+  }
+  td,
+  th {
+    padding: 6px;
+    /* border: 1px solid #ccc;  */
+    text-align: center;
+  }
 `;
 const style = {
   height: 40,
@@ -170,32 +171,94 @@ const Form001_page2Content = (props) => {
             กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
           </Divider>
           <table>
-	<thead>
-	<tr>
-		<th>ลำดับ</th>
-		<th>รายการ</th>
-		<th>จำนวน</th>
-    <th>หน่วย</th>
-    <th>ราคา/หน่วย</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td style={{width:"20px"}}><Input /></td>
-		<td style={{width:"300px"}}><Input /></td>
-		<td style={{width:"100px"}}><Input /></td>
-    <td style={{width:"100px"}}><Input /></td>
-    <td style={{width:"100px"}}><Input /></td>
-	</tr>
-	<tr>
-		<td><Input /></td>
-		<td><Input /></td>
-		<td><Input /></td>
-    <td><Input /></td>
-    <td><Input /></td>
-	</tr>
-	</tbody>
-</table>
+            <thead>
+              <tr>
+                <th>ลำดับ</th>
+                <th>รายการ</th>
+                <th>จำนวน</th>
+                <th>หน่วย</th>
+                <th>ราคา/หน่วย</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={{ width: "20px" }}>
+                  <Input />
+                </td>
+                <td style={{ width: "300px" }}>
+                  <Input />
+                </td>
+                <td style={{ width: "100px" }}>
+                  <Input />
+                </td>
+                <td style={{ width: "100px" }}>
+                  <Input />
+                </td>
+                <td style={{ width: "100px" }}>
+                  <Input />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Input />
+                </td>
+                <td>
+                  <Input />
+                </td>
+                <td>
+                  <Input />
+                </td>
+                <td>
+                  <Input />
+                </td>
+                <td>
+                  <Input />
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td style={{ width: "20px" }}>
+                  <Input />
+                </td>
+                <td style={{ width: "300px" }}>
+                  <Input />
+                </td>
+                <td style={{ width: "100px" }}>
+                  <Input />
+                </td>
+                <td style={{ width: "100px" }}>
+                  <Input />
+                </td>
+                <td style={{ width: "100px" }}>
+                  <Input />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Input />
+                </td>
+                <td>
+                  <Input />
+                </td>
+                <td>
+                  <Input />
+                </td>
+                <td>
+                  <Input />
+                </td>
+                <td>
+                  <Input />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="center">
+            <button className="example_c" type="submit">
+              Submit
+            </button>
+            <button className="example_cancel">Cancel</button>
+          </div>
           <Divider
             orientation="left"
             style={{ color: "#333", fontWeight: "normal" }}
