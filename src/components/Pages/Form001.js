@@ -129,7 +129,7 @@ const Form001Content = (props) => {
     message.loading({ content: 'Save...', key })
     setTimeout(() => {
       message.success({ content: 'Saved!', key, duration: 2 })
-      Router.push('/homepage')
+      Router.push('/form001Page_2')
     }, 1000)
   }
 
