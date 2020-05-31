@@ -173,7 +173,8 @@ const Form001_page2Content = (props) => {
             แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
             กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
           </Divider>
-          <table>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <table>
             <thead>
               <tr>
                 <th>ลำดับ</th>
@@ -186,72 +187,72 @@ const Form001_page2Content = (props) => {
             <tbody>
               <tr>
                 <td style={{ width: "20px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td style={{ width: "300px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
               </tr>
             </tbody>
             <tbody>
               <tr>
                 <td style={{ width: "20px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td style={{ width: "300px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
                 <td>
-                  <Input />
+                  <Input ref={register}/>
                 </td>
               </tr>
             </tbody>
@@ -262,6 +263,7 @@ const Form001_page2Content = (props) => {
             </button>
             <button className="example_cancel">Cancel</button>
           </div>
+          </form>
           <Divider
             orientation="left"
             style={{ color: "#333", fontWeight: "normal" }}
