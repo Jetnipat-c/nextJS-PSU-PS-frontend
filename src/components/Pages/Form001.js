@@ -199,6 +199,13 @@ const Form001Content = (props) => {
                     type="hidden"
                     ref={register}
                   ></input>
+                  <input
+                    className='text-input'
+                    name='status'
+                    value='0'
+                    type="hidden"
+                    ref={register}
+                  ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='เอกสารที่ มอ. 696 /'>
                   <input
