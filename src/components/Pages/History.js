@@ -49,7 +49,7 @@ const style = {
   fontSize: 14,
 };
 
-const HistoryContent = () => {
+const HistoryContent = (props) => {
   const [history, setHistoty] = useState([])
   const [checkEmpty,setcCheckEmpty] = useState(false)
   const getForm001Bysid = async () => {
@@ -58,7 +58,7 @@ const HistoryContent = () => {
     )
     console.log('found = ', found.data)
     setHistoty(JSON.parse(JSON.stringify(found.data)))
-    console.log((found.data).length);
+    console.log('found length',(found.data).length);
     if((found.data).length === 0)
     {
       setcCheckEmpty(true)
@@ -94,7 +94,15 @@ const HistoryContent = () => {
       pathname: '/viewform001page',
       query: { order_id: order_id }
     })
+ 
   }
+  const [o_typedoc_name,setO_typedoc_name] = useState('')
+  const checkTypedoc = async o_typedoc => {
+    var result = await axios.get(`http://localhost:3001/typeform/${o_typedoc}`)
+    console.log('result = ',result.data)
+    setO_typedoc_name(result)
+  }
+
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -133,7 +141,10 @@ const HistoryContent = () => {
                         <Descriptions.Item label='ชื่อโครงการ'>
                           {data.o_projectname}
                         </Descriptions.Item>
-                        <Descriptions.Item label='สถานะ'>...</Descriptions.Item>
+                        <Descriptions.Item label='สถานะ'>{data.status}</Descriptions.Item>
+                        <Descriptions.Item label='ประเภทใบรายการ'>
+                          {data.o_typedoc}
+                        </Descriptions.Item>
                       </Descriptions>
 
                       <Button

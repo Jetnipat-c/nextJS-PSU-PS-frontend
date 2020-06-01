@@ -192,6 +192,13 @@ const Form001Content = (props) => {
                     disabled={true}
                     ref={register}
                   ></input>
+                  <input
+                    className='text-input'
+                    name='o_typedoc'
+                    value='1'
+                    type="hidden"
+                    ref={register}
+                  ></input>
                 </Descriptions.Item>
                 <Descriptions.Item label='เอกสารที่ มอ. 696 /'>
                   <input
