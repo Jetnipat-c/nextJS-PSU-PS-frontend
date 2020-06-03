@@ -3,7 +3,7 @@ const defaultForm001_2 = [
 ]
 
 const initialState = {
-    info_form001_2: defaultProfiles
+    info_form001_2: defaultForm001_2
 }
 
 export const Form001_2Reducer = (state = initialState, action) => {

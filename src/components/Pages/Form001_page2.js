@@ -3,7 +3,7 @@ import * as axios from "axios";
 import Router from "next/router";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
-import { Form001Action } from "../../redux/form001/action";
+import { Form001_2Action } from "../../redux/form001_2/action";
 import {
   Layout,
   Menu,
@@ -278,6 +278,6 @@ const Form001_page2Content = (props) => {
 };
 
 export default connect(
-  (state) => state.Form001,
-  Form001Action
+  (state) => state.Form001_2,
+  Form001_2Action
 )(Form001_page2Content);
