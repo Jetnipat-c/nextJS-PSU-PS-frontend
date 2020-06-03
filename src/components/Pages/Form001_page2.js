@@ -111,7 +111,7 @@ const style = {
 };
 
 const Form001_page2Content = (props) => {
-  const { info_form001, saveForm001 } = props;
+  const { info_form001_2, saveForm001_2 } = props;
   console.log(props);
   const [username, setUsername] = useState("");
   const getuser = () => {
@@ -119,19 +119,19 @@ const Form001_page2Content = (props) => {
   };
   const { register, handleSubmit, errors } = useForm(); // initialise the hook
   const onSubmit = (data) => {
-    //console.log('data', data)
-    saveForm001(data);
-    console.log("info_form001 0 :", info_form001);
-    axios
-      .post(`http://localhost:3001/form001/insert`, data)
-      .then((res) => {
-        //console.log('res.data', res.data)
-        openMessage();
-      })
-      .catch((error) => {
-        //console.log('pls intert data')
-        openMessageError();
-      });
+    console.log('data', data)
+    //saveForm001_2(data);
+    //console.log("info_form001_2  :", info_form001_2);
+    // axios
+    //   .post(`http://localhost:3001/form001/insert`, data)
+    //   .then((res) => {
+    //     console.log('res.data', res.data)
+    //     openMessage();
+    //   })
+    //   .catch((error) => {
+    //     console.log('pls intert data')
+    //     openMessageError();
+    //   });
   };
   const key = "updatable";
   const openMessage = () => {
@@ -187,72 +187,72 @@ const Form001_page2Content = (props) => {
             <tbody>
               <tr>
                 <td style={{ width: "20px" }}>
-                  <Input ref={register} disabled={true} value='1'/>
+                  <input ref={register} name= 'opt1' disabled={true} value='1'/>
                 </td>
                 <td style={{ width: "300px" }}>
-                  <Input ref={register} />
+                  <input ref={register} name='detial_1'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input ref={register}/>
+                  <input ref={register} name='amount_1'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input ref={register}/>
+                  <input ref={register} name='unit_1'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input ref={register}/>
+                  <input ref={register} name='price_unit_1'/>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <Input ref={register} disabled={true} value='2'/>
+                  <input ref={register} name= 'opt2' disabled={true} value='2'/>
                 </td>
                 <td>
-                  <Input ref={register}/>
+                  <input ref={register} name='detial_2'/>
                 </td>
                 <td>
-                  <Input ref={register}/>
+                  <input ref={register} name='amount_2'/>
                 </td>
                 <td>
-                  <Input ref={register}/>
+                  <input ref={register} name='unit_2'/>
                 </td>
                 <td>
-                  <Input ref={register}/>
+                  <input ref={register} name='price_unit_2'/>
                 </td>
               </tr>
             </tbody>
             <tbody>
               <tr>
                 <td style={{ width: "20px" }}>
-                  <Input ref={register} disabled={true} value='3'/>
+                  <input ref={register} name= 'opt3' disabled={true} value='3'/>
                 </td>
                 <td style={{ width: "300px" }}>
-                  <Input ref={register}/>
+                  <input ref={register} name='detial_3'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input ref={register}/>
+                  <input ref={register} name='amount_3'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input ref={register}/>
+                  <input ref={register} name='unit_3'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <Input ref={register}/>
+                  <input ref={register} name='price_unit_3'/>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <Input ref={register} disabled={true} value='4'/>
+                  <input ref={register} name= 'opt4' disabled={true} value='4'/>
                 </td>
                 <td>
-                  <Input ref={register}/>
+                  <input ref={register} name='detial_4'/>
                 </td>
                 <td>
-                  <Input ref={register}/>
+                  <input ref={register} name='amount_4'/>
                 </td>
                 <td>
-                  <Input ref={register}/>
+                  <input ref={register} name='unit_4'/>
                 </td>
                 <td>
-                  <Input ref={register}/>
+                  <input ref={register} name='price_unit_4'/>
                 </td>
               </tr>
             </tbody>
