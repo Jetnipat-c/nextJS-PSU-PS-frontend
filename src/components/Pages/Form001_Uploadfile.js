@@ -27,22 +27,31 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const props_Uploadfile = {
-  action: "//jsonplaceholder.typicode.com/posts/",
-  listType: "picture",
-  previewFile(file) {
-    console.log("Your upload file:", file);
-    // Your process logic. Here we just mock to the same file
-    return fetch("https://next.json-generator.com/api/json/get/4ytyBoLK8", {
-      method: "POST",
-      body: file,
-    })
-      .then((res) => res.json())
-      .then(({ thumbnail }) => thumbnail);
+const propsupload = {
+  name: 'image',
+  action: 'http://localhost:3001/uploadfile001/multiple',
+  
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+  progress: {
+    strokeColor: {
+      '0%': '#108ee9',
+      '100%': '#87d068',
+    },
+    strokeWidth: 3,
+    format: percent => `${parseFloat(percent.toFixed(2))}%`,
   },
 };
-
 const Form001_UploadfileContent = (props) => {
+  const [originalname , setOriginalname] = useState('')
   return (
     <StyledWrapper>
       <Content
@@ -65,11 +74,11 @@ const Form001_UploadfileContent = (props) => {
         <Tag color="orange">ใบเสนอราคา</Tag>
         
         
-        <Upload {...props_Uploadfile}>
-          <Button>
-            <UploadOutlined /> Upload
-          </Button>
-        </Upload>
+        <Upload {...propsupload}>
+    <Button>
+      <UploadOutlined /> Click to Upload
+    </Button>
+  </Upload>
       </Content>
     </StyledWrapper>
   );
