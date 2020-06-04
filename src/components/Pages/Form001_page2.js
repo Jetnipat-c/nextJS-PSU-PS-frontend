@@ -98,6 +98,9 @@ const StyledWrapper = styled.div`
   .ant-input{
     text-align: center;
   }
+  input {
+    text-align: center;
+  }
 `;
 const style = {
   height: 40,
@@ -119,9 +122,8 @@ const Form001_page2Content = (props) => {
   };
   const { register, handleSubmit, errors } = useForm(); // initialise the hook
   const onSubmit = (data) => {
-    console.log('data', data)
-    //saveForm001_2(data);
-    //console.log("info_form001_2  :", info_form001_2);
+    //console.log('data', data)
+    saveForm001_2(data);
     // axios
     //   .post(`http://localhost:3001/form001/insert`, data)
     //   .then((res) => {
@@ -190,16 +192,16 @@ const Form001_page2Content = (props) => {
                   <input ref={register} name= 'opt1' disabled={true} value='1'/>
                 </td>
                 <td style={{ width: "300px" }}>
-                  <input ref={register} name='detial_1'/>
+                  <input ref={register} name='l_detail_1'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <input ref={register} name='amount_1'/>
+                  <input ref={register} name='l_amount_1'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <input ref={register} name='unit_1'/>
+                  <input ref={register} name='l_unit_1'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <input ref={register} name='price_unit_1'/>
+                  <input ref={register} name='l_priceunit_1'/>
                 </td>
               </tr>
               <tr>
@@ -207,16 +209,16 @@ const Form001_page2Content = (props) => {
                   <input ref={register} name= 'opt2' disabled={true} value='2'/>
                 </td>
                 <td>
-                  <input ref={register} name='detial_2'/>
+                  <input ref={register} name='l_detail_2'/>
                 </td>
                 <td>
-                  <input ref={register} name='amount_2'/>
+                  <input ref={register} name='l_amount_2'/>
                 </td>
                 <td>
-                  <input ref={register} name='unit_2'/>
+                  <input ref={register} name='l_unit_2'/>
                 </td>
                 <td>
-                  <input ref={register} name='price_unit_2'/>
+                  <input ref={register} name='l_priceunit_2'/>
                 </td>
               </tr>
             </tbody>
@@ -226,16 +228,16 @@ const Form001_page2Content = (props) => {
                   <input ref={register} name= 'opt3' disabled={true} value='3'/>
                 </td>
                 <td style={{ width: "300px" }}>
-                  <input ref={register} name='detial_3'/>
+                  <input ref={register} name='l_detail_3'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <input ref={register} name='amount_3'/>
+                  <input ref={register} name='l_amount_3'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <input ref={register} name='unit_3'/>
+                  <input ref={register} name='l_unit_3'/>
                 </td>
                 <td style={{ width: "100px" }}>
-                  <input ref={register} name='price_unit_3'/>
+                  <input ref={register} name='l_priceunit_3'/>
                 </td>
               </tr>
               <tr>
@@ -243,16 +245,16 @@ const Form001_page2Content = (props) => {
                   <input ref={register} name= 'opt4' disabled={true} value='4'/>
                 </td>
                 <td>
-                  <input ref={register} name='detial_4'/>
+                  <input ref={register} name='l_detail_4'/>
                 </td>
                 <td>
-                  <input ref={register} name='amount_4'/>
+                  <input ref={register} name='l_amount_4'/>
                 </td>
                 <td>
-                  <input ref={register} name='unit_4'/>
+                  <input ref={register} name='l_unit_4'/>
                 </td>
                 <td>
-                  <input ref={register} name='price_unit_4'/>
+                  <input ref={register} name='l_priceunit_4'/>
                 </td>
               </tr>
             </tbody>
