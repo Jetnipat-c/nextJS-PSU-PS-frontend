@@ -136,9 +136,8 @@ const Form001_page2Content = (props) => {
       });
   };
   const [history, setHistoty] = useState([])
-  const [numlenght , setNumlenght] = useState()
-  const [order_id , setOrder_id] = useState()
-  console.log('num length : ',numlenght)
+  const [order_id , setOrder_id] = useState("")
+  console.log('order_id = ',order_id)
   console.log('history = ',history)
   const getForm001Bysid = async () => {
     var found = await axios.get(
@@ -147,8 +146,8 @@ const Form001_page2Content = (props) => {
     console.log('found = ', found.data)
     setHistoty(JSON.parse(JSON.stringify(found.data)))
     console.log('found length',(found.data).length-1);
-    setNumlenght((found.data).length-1)
     console.log('order id last = ',(found.data[(found.data).length-1].order_id))
+    setOrder_id((found.data[(found.data).length-1].order_id))
     if((found.data).length === 0)
     {
       setcCheckEmpty(true)
@@ -212,9 +211,15 @@ const Form001_page2Content = (props) => {
               <tr>
                 <td style={{ width: "20px" }}>
                 <input
-                    className='text-input'
                     name='sid'
                     value={username}
+                    disabled={true}
+                    type="hidden"
+                    ref={register}
+                  ></input>
+                   <input
+                    name='order_id'
+                    value={order_id}
                     disabled={true}
                     type="hidden"
                     ref={register}
