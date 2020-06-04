@@ -158,7 +158,7 @@ const Form001_page2Content = (props) => {
     message.loading({ content: "Save...", key });
     setTimeout(() => {
       message.success({ content: "Saved!", key, duration: 2 });
-      Router.push("/homepage");
+      Router.push("/Form001page_uploadfile");
     }, 1000);
   };
   const openMessageError = () => {
