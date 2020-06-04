@@ -53,10 +53,17 @@ const Form001_UploadfileContent = (props) => {
           minHeight: 280,
         }}
       >
-        <Divider orientation="left">อัพโหลดเอกสารที่เกี่ยวข้อง :
+           <Divider
+            orientation='left'
+            style={{ color: '#333', fontWeight: 'normal' }}
+          >
+            แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
+            กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
+          </Divider>
+        อัพโหลดเอกสารที่เกี่ยวข้อง :
         <Tag color="magenta" style={{marginLeft:'15px'}}>ไฟล์ภายในโครงการ</Tag>
         <Tag color="orange">ใบเสนอราคา</Tag>
-        </Divider>
+        
         
         <Upload {...props_Uploadfile}>
           <Button>
