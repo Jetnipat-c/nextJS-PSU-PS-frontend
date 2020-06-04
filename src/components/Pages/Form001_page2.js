@@ -189,7 +189,7 @@ const Form001_page2Content = (props) => {
             <tbody>
               <tr>
                 <td style={{ width: "20px" }}>
-                  <input ref={register} name= 'opt1' disabled={true} value='1'/>
+                  <input ref={register}  disabled={true} value='1'/>
                 </td>
                 <td style={{ width: "300px" }}>
                   <input ref={register} name='l_detail_1'/>
@@ -206,7 +206,7 @@ const Form001_page2Content = (props) => {
               </tr>
               <tr>
                 <td>
-                  <input ref={register} name= 'opt2' disabled={true} value='2'/>
+                  <input ref={register} disabled={true} value='2'/>
                 </td>
                 <td>
                   <input ref={register} name='l_detail_2'/>
@@ -225,7 +225,7 @@ const Form001_page2Content = (props) => {
             <tbody>
               <tr>
                 <td style={{ width: "20px" }}>
-                  <input ref={register} name= 'opt3' disabled={true} value='3'/>
+                  <input ref={register} disabled={true} value='3'/>
                 </td>
                 <td style={{ width: "300px" }}>
                   <input ref={register} name='l_detail_3'/>
@@ -242,7 +242,7 @@ const Form001_page2Content = (props) => {
               </tr>
               <tr>
                 <td>
-                  <input ref={register} name= 'opt4' disabled={true} value='4'/>
+                  <input ref={register} disabled={true} value='4'/>
                 </td>
                 <td>
                   <input ref={register} name='l_detail_4'/>
