@@ -124,17 +124,36 @@ const Form001_page2Content = (props) => {
   const onSubmit = (data) => {
     //console.log('data', data)
     saveForm001_2(data);
-    // axios
-    //   .post(`http://localhost:3001/form001/insert`, data)
-    //   .then((res) => {
-    //     console.log('res.data', res.data)
-    //     openMessage();
-    //   })
-    //   .catch((error) => {
-    //     console.log('pls intert data')
-    //     openMessageError();
-    //   });
+    axios
+      .post(`http://localhost:3001/form001-list/insert`, data)
+      .then((res) => {
+        console.log('res.data', res.data)
+        openMessage();
+      })
+      .catch((error) => {
+        console.log('pls intert data')
+        openMessageError();
+      });
   };
+  const [history, setHistoty] = useState([])
+  const [numlenght , setNumlenght] = useState()
+  const [order_id , setOrder_id] = useState()
+  console.log('num length : ',numlenght)
+  console.log('history = ',history)
+  const getForm001Bysid = async () => {
+    var found = await axios.get(
+      `http://localhost:3001/form001/${sessionStorage.getItem('username')}`
+    )
+    console.log('found = ', found.data)
+    setHistoty(JSON.parse(JSON.stringify(found.data)))
+    console.log('found length',(found.data).length-1);
+    setNumlenght((found.data).length-1)
+    console.log('order id last = ',(found.data[(found.data).length-1].order_id))
+    if((found.data).length === 0)
+    {
+      setcCheckEmpty(true)
+    }
+  }
   const key = "updatable";
   const openMessage = () => {
     message.loading({ content: "Save...", key });
@@ -149,8 +168,11 @@ const Form001_page2Content = (props) => {
       message.success({ content: "Saved!", key, duration: 2 });
     }, 1000);
   };
+
+
   useEffect(() => {
     getuser();
+    getForm001Bysid();
   }, []);
   return (
     <StyledWrapper>
@@ -189,6 +211,14 @@ const Form001_page2Content = (props) => {
             <tbody>
               <tr>
                 <td style={{ width: "20px" }}>
+                <input
+                    className='text-input'
+                    name='sid'
+                    value={username}
+                    disabled={true}
+                    type="hidden"
+                    ref={register}
+                  ></input>
                   <input ref={register}  disabled={true} value='1'/>
                 </td>
                 <td style={{ width: "300px" }}>
