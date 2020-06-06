@@ -88,11 +88,30 @@ const Form001_Uploadfile_2Content = (props) => {
     })
     return console.log('ส่งไป'),openMessage()
   }
+  Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+  function beforeUpload(info) {
+    console.log('file num = ',Object.size(info.file))
+  // const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+  // if (!isJpgOrPng) {
+  //   message.error('You can only upload JPG/PNG file!');
+  // }
+  // const isLt2M = file.size / 1024 / 1024 < 2;
+  // if (!isLt2M) {
+  //   message.error('Image must smaller than 2MB!');
+  // }
+  return console.log('before')
+}
   const [originalfilename , setOriginalfilename] = useState('')
   console.log('originalfilename : ' ,originalfilename)
   const propsupload = {
     name: 'image',
-    multiple: true,
+    multiple: false,
     action: 'http://localhost:3001/uploadfile001/multiple', 
     onChange(info) {
       const { status } = info.file;
@@ -100,6 +119,7 @@ const Form001_Uploadfile_2Content = (props) => {
         console.log(info.file, info.fileList);
         //console.log('original name',info.file.name );
         setOriginalfilename(info.file.name);
+        beforeUpload(info)
       }
       if (status === 'done') {
         message.success(`${info.file.name} file uploaded successfully.`);

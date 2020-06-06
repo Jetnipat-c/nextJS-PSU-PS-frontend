@@ -92,7 +92,7 @@ const Form001_UploadfileContent = (props) => {
   console.log('originalfilename : ' ,originalfilename)
   const propsupload = {
     name: 'image',
-    multiple: true,
+    multiple: false,
     action: 'http://localhost:3001/uploadfile001/multiple', 
     onChange(info) {
       const { status } = info.file;
