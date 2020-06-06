@@ -71,14 +71,14 @@ const StyledWrapper = styled.div`
 `;
 const { Dragger } = Upload;
 
-const Form001_UploadfileContent = (props) => {
+const Form001_Uploadfile_2Content = (props) => {
   const key = 'updatable'
   const openMessage = async () => {
     message.loading({ content: 'Save...', key })
     setTimeout( async ()  => {
       message.success({ content: 'Saved!', key, duration: 2 })
       
-      Router.push('/Form001page_uploadfile_2')
+      Router.push('/homepage')
     }, 1000)
   }
 
@@ -152,9 +152,7 @@ const Form001_UploadfileContent = (props) => {
           กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
         </Divider>
         อัพโหลดเอกสารที่เกี่ยวข้อง :
-        <Tag color="magenta" style={{ marginLeft: "15px" }}>
-          ไฟล์ภายในโครงการ
-        </Tag>
+        <Tag color="orange" style={{ marginLeft: "15px" }}>ใบเสนอราคา</Tag>
       
 
         <Dragger {...propsupload} style={{marginTop:"15px"}}>
@@ -177,4 +175,4 @@ const Form001_UploadfileContent = (props) => {
     </StyledWrapper>
   );
 };
-export default Form001_UploadfileContent;
+export default Form001_Uploadfile_2Content;
