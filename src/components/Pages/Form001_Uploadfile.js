@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import * as axios from "axios";
 import Router from 'next/router'
 import {
   Layout,
@@ -69,31 +70,70 @@ const StyledWrapper = styled.div`
   }
 `;
 const { Dragger } = Upload;
-const propsupload = {
-  name: 'image',
-  multiple: true,
-  action: 'http://localhost:3001/uploadfile001/multiple',
-  onChange(info) {
-    const { status } = info.file;
-    if (status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (status === 'done') {
-      message.success(`${info.file.name} file uploaded successfully.`);
-    } else if (status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-};
+
 const Form001_UploadfileContent = (props) => {
   const key = 'updatable'
-  const openMessage = () => {
+  const openMessage = async () => {
     message.loading({ content: 'Save...', key })
-    setTimeout(() => {
+    setTimeout( async ()  => {
       message.success({ content: 'Saved!', key, duration: 2 })
+      
       Router.push('/homepage')
     }, 1000)
   }
+
+  const submit = async () =>{
+    var found = await axios.patch(`http://localhost:3001/uploadfile001/find/${originalfilename}`,order_id).then(res => {
+      console.log('res.data', res.data)
+    })
+    return console.log('ส่งไป'),openMessage()
+  }
+  const [originalfilename , setOriginalfilename] = useState('')
+  console.log('originalfilename : ' ,originalfilename)
+  const propsupload = {
+    name: 'image',
+    multiple: true,
+    action: 'http://localhost:3001/uploadfile001/multiple', 
+    onChange(info) {
+      const { status } = info.file;
+      if (status !== 'uploading') {
+        console.log(info.file, info.fileList);
+        //console.log('original name',info.file.name );
+        setOriginalfilename(info.file.name);
+      }
+      if (status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully.`);
+      } else if (status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);   
+      }
+    },
+  };
+  const [history, setHistoty] = useState([])
+  const [order_ids , setOrder_ids] = useState('')
+  const order_id = {
+    order_id : order_ids
+  }
+  console.log('order_id = ',(order_id))
+  console.log('history = ',history)
+  const getForm001Bysid = async () => {
+    var found = await axios.get(
+      `http://localhost:3001/form001/${sessionStorage.getItem('username')}`
+    )
+    console.log('found = ', found.data)
+    setHistoty(JSON.parse(JSON.stringify(found.data)))
+    console.log('found length',(found.data).length-1);
+    console.log('order id last = ',(found.data[(found.data).length-1].order_id))
+    setOrder_ids((found.data[(found.data).length-1].order_id))
+
+  }
+  const [username, setUsername] = useState("");
+  const getuser = () => {
+    setUsername(sessionStorage.getItem("username"));
+  };
+  useEffect(() => {
+    getuser();
+    getForm001Bysid();
+  }, []);
   return (
     <StyledWrapper>
       <Content
@@ -129,7 +169,7 @@ const Form001_UploadfileContent = (props) => {
     </p>
   </Dragger >
         <div className="center">
-          <button className="example_c" onClick={()=> openMessage()} >
+          <button className="example_c" onClick={()=>submit()} >
             Submit
           </button>
           <button className="example_cancel">Cancel</button>
