@@ -394,7 +394,7 @@ const Example = (props) => {
   return (
     <div>
       <ReactToPrint
-        trigger={() => <button>Print this out!</button>}
+        trigger={() => <button style={{marginLeft:'47%',marginTop:'15px' }}>Print this out!</button>}
         content={() => componentRef.current}
       />
       <ComponentToPrint order_id={order_id} ref={componentRef} />
