@@ -49,7 +49,7 @@ const ContentComponent = () => {
         </div>
       </Carousel>
       <Content>
-        <div>
+        {/* <div>
           <h2>Patch Frontend</h2>
           <div className='text-content'>
             <div>- 6:52 PM 5/4/2020 ออกแบบหน้าเว็ปใหม่</div>
@@ -101,7 +101,7 @@ const ContentComponent = () => {
             - 9:55 PM 5/10/2020 หน้า Homepage Carousel ไม่ตรงกลาง * Fixed ,
             จัดหน้า GenPDF
           </div>
-        </div>
+        </div> */}
       </Content>
     </StyledWrapper>
   )

@@ -77,7 +77,8 @@ class ComponentToPrint extends React.Component {
 
     this.state = {
       order_id: props.order_id,
-      info: []
+      info: [],
+      info_list: [],
     }
   }
   componentDidMount () {
@@ -86,7 +87,15 @@ class ComponentToPrint extends React.Component {
       .then(response => response.data)
       .then(data => {
         this.setState({ info: data })
-        console.log(this.state.info)
+        console.log('info :',this.state.info)
+      })
+
+      axios
+      .get(`http://localhost:3001/form001-list/byorder_id/${this.state.order_id}`) 
+      .then(response => response.data)
+      .then(data => {
+        this.setState({ info_list: data })
+        console.log('info_list :',this.state.info_list)
       })
   }
 
