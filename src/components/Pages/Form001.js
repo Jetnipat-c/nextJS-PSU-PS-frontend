@@ -201,13 +201,13 @@ const Form001Content = (props) => {
                   ></input>
                   <input
                     className='text-input'
-                    name='status'
+                    name='s_id'
                     value='0'
                     type="hidden"
                     ref={register}
                   ></input>
                 </Descriptions.Item>
-                <Descriptions.Item label='เอกสารที่ มอ. 696 /'>
+                <Descriptions.Item label='เอกสารที่ มอ.696/'>
                   <input
                     className='text-input'
                     name='o_location'
