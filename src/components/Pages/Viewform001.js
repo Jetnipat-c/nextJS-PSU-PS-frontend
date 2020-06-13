@@ -137,9 +137,8 @@ const Viewform001Component = props => {
                       orientation='left'
                       style={{ color: '#333', fontWeight: 'normal' }}
                     >
-                      <h1>คำสั่งซื้อพัสดุแบบปกติ ใบรายการที่ {order_id}</h1>
-                      แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
-                      กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
+                      <h1>คำสั่งซื้อพัสดุ ใบรายการที่ {order_id}</h1>
+                      แบบ {data.typeform.o_typedoc_name}
                     </Divider>
                     <div className="position_changesize">
                       <Radio.Group onChange={cssonChange} value={size}>
