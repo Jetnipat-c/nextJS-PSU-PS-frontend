@@ -143,7 +143,7 @@ const HistoryContent = (props) => {
                         </Descriptions.Item>
                         <Descriptions.Item label='สถานะ'>{data.s_id}</Descriptions.Item>
                         <Descriptions.Item label='ประเภทใบรายการ'>
-                          {data.o_typedoc}
+                          {data.typeform.o_typedoc_name}
                         </Descriptions.Item>
                       </Descriptions>
 
