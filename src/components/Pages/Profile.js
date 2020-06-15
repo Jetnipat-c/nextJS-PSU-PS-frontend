@@ -27,7 +27,12 @@ const StyledWrapper = styled.div`
   }
   .ant-descriptions-bordered .ant-descriptions-item-label:last-child, .ant-descriptions-bordered .ant-descriptions-item-content:last-child {
     border-right: none;
-    background-color: #EAEDED;
+    background-color: #F4F6F6 ;
+}
+.ant-descriptions-item-content {
+    padding: 16px 24px;
+    border-right: 1px solid #f0f0f0;
+    background-color: #F4F6F6 ;
 }
   @media screen and (max-width: 320px){
     .ant-descriptions-bordered .ant-descriptions-item-label, .ant-descriptions-bordered .ant-descriptions-item-content {
@@ -79,7 +84,7 @@ const ProfileContent = (props) => {
                 >
                   ข้อมูลส่วนตัว
                 </Divider>
-                <div>
+                <div className='container'>
 
                   <br />
                   <br />
