@@ -9,6 +9,7 @@ import WithAuth from '../src/hoc/withAuth'
 import styled from 'styled-components'
 const StyledWrapper = styled.div`
 
+
 `
 const HomePage = () => {
   return (

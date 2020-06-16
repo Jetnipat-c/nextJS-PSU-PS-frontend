@@ -12,13 +12,58 @@ import {
   Divider,
   Descriptions,
   Radio,
-  BackTop
+  BackTop,
+  Tag
 } from 'antd'
 const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 
 import styled from 'styled-components'
 const StyledWrapper = styled.div`
+/* ของใหม่ */
+  max-width: 960px;
+  margin: 0 auto;
+  background-color:#f0f2f5;
+  .title h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #212529;
+    padding-top: 20px;
+  }
+  .sub-title {
+    font-size: 30px;
+    padding-bottom: 5px;
+    padding-top: 20px;
+  }
+  input {
+    border: none;
+    border-bottom: 1.5px solid #D5D8DC ;
+    padding: 10px;
+    width: 100%;
+    background-color:#f0f2f5;
+  }
+
+  input:focus {
+    outline: none;
+  }
+  .menu {
+    font-size: 18px;
+    padding-top: 20px;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+/* ของเก่า */
   #components-layout-demo-top-side-2 .logo {
     width: 120px;
     height: 31px;
@@ -149,315 +194,279 @@ const Form001Content = (props) => {
   }, [])
   return (
     <StyledWrapper>
+    <div className="title">
+        <h1>
+          แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต <br></br>{" "}
+          กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
+        </h1>
+      </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* ############################################## Header 1 ##############################################*/}
+      {/* -------------------------------- หัวข้อ --------------------------------*/}
+      <div className="sub-title">1.รายละเอียด</div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">เอกสารของ</div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <input
+        className="text-input"
+        name="sid"
+        value={username}
+        disabled={true}
+        ref={register}
+      ></input>
+      <input
+        className="text-input"
+        name="o_typedoc"
+        value="1"
+        type="hidden"
+        ref={register}
+      ></input>
+      <input
+        className="text-input"
+        name="s_id"
+        value="0"
+        type="hidden"
+        ref={register}
+      ></input>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">เอกสารที่ มอ.696/</div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="o_location" ref={register} />
+      </div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">ลงวันที่</div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name="o_date" ref={register} />
+      </div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        ด้วยมหาวิทยาลัยการคอมพิวเตอร์มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text"  name='o_purpose'
+                    ref={register}/>
+      </div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">ชื่อโครงการ (ถ้ามี)</div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name='o_projectname'
+                    ref={register}/>
+      </div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu" >วันที่ต้องใช้พัสดุ</div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name='o_require'
+                    ref={register} />
+      </div>
+      {/* ############################################## Header 2 ##############################################*/}
 
-      <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>แบบฟอร์ม</Breadcrumb.Item>
-        <Breadcrumb.Item>เพิ่มคำสั่งซื้อพัสดุแบบปกติ 001</Breadcrumb.Item>
-      </Breadcrumb>
-      <Content
-        className='site-layout-background'
-        style={{
-          padding: 24,
-          margin: 0,
-          minHeight: 280
-        }}
-      >
-        <div className='site-layout-content'>
-          <Divider
-            orientation='left'
-            style={{ color: '#333', fontWeight: 'normal' }}
-          >
-            แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
-            กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
-          </Divider>
-          <div>
-          <div className="position_changesize">
-                      <Radio.Group onChange={cssonChange} value={size}>
-                      <Radio value='default'>L</Radio>
-                      <Radio value='middle'>M</Radio>
-                      <Radio value='small'>S</Radio>
-                    </Radio.Group>
-                    </div>
-            <br />
-            <br />
-            {/* ---------------------------------------------------- Ch 1 ---------------------------------------------------- */}
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Descriptions bordered title='1. รายละเอียด' size={size}>
-                <Descriptions.Item label='เอกสารของ'>
-                  <input
-                    className='text-input'
-                    name='sid'
-                    value={username}
-                    disabled={true}
-                    ref={register}
-                  ></input>
-                  <input
-                    className='text-input'
-                    name='o_typedoc'
-                    value='1'
-                    type="hidden"
-                    ref={register}
-                  ></input>
-                  <input
-                    className='text-input'
-                    name='s_id'
-                    value='0'
-                    type="hidden"
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='เอกสารที่ มอ.696/'>
-                  <input
-                    className='text-input'
-                    name='o_location'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='ลงวันที่'>
-                  <input
-                    className='text-input'
-                    name='o_date'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item
-                  span={3}
-                  label='ด้วยมหาวิทยาลัยการคอมพิวเตอร์
-                มีความประสงค์ที่จะใช้พัสดุด้านล่างนี้เพื่อ'
-                >
-                  <input
-                    className='text-input'
-                    name='o_purpose'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='ชื่อโครงการ (ถ้ามี)'>
-                  <input
-                    className='text-input'
-                    name='o_projectname'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='วันที่ต้องใช้พัสดุ'>
-                  <input
-                    className='text-input'
-                    name='o_require'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-              </Descriptions>
-              {/* -------------------------------------------------------------------------------------------------------------- */}
-              <br></br>
-              {/* ---------------------------------------------------- Ch 2 ---------------------------------------------------- */}
-              <Descriptions
-                bordered
-                title='2. รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน'
-                size={size}
-              >
-                <Descriptions.Item
-                  span={3}
-                  label='2.1 รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน
-                (ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม)  (จำนวนแผ่น)'
-                >
-                  <input
-                    type='number'
-                    className='text-input'
-                    name='o_specific'
+      {/* -------------------------------- หัวข้อ --------------------------------*/}
+      <div className="sub-title">2.รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน</div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        รายละเอียดคุณลักษณะเฉพาะ/ขอบเขตงาน
+        (ประทับตรามหาวิทยาลัยพร้อมผู้มีอำนาจลงนาม) (จำนวนแผ่น)
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type='number'  name='o_specific'
                     defaultValue='0'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item
-                  span={3}
-                  label='2.2
-                บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
-                >
-                  <input
-                    type='number'
-                    className='text-input'
-                    name='o_appointment'
+                    ref={register}/>
+      </div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        บันทึกการแต่งตั้งคณะกรรมการกำหนดคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง
+        (จำนวนแผ่น)
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type='number' name='o_appointment'
                     defaultValue='0'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item
-                  span={3}
-                  label='2.3 บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง  (จำนวนแผ่น)'
-                >
-                  <input
-                    type='number'
-                    className='text-input'
-                    name='o_results'
+                    ref={register}/>
+      </div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        บันทึกรายงานผลการจัดทำคุณลักษณะเฉพาะ/ขอบเขตงานและราคากลาง (จำนวนแผ่น)
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type='number' name='o_results'
                     defaultValue='0'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-              </Descriptions>
-              {/* -------------------------------------------------------------------------------------------------------------- */}
-              <br />
-              {/* ---------------------------------------------------- Ch 3 ---------------------------------------------------- */}
-              <Descriptions bordered title='3. คณะกรรมการ' size={size}>
-                <div span={3}>คณะกรรมการพิจารณาผล</div>
-                <Descriptions.Item label='ประธานกรรมการ'>
-                  <input
-                    className='text-input'
-                    name='o_committee1'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='คณะกรรมการ'>
-                  <input
-                    className='text-input'
-                    name='o_committee2'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='คณะกรรมการ'>
-                  <input
-                    className='text-input'
-                    name='o_committee3'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <div span={3}>คณะกรรมการตรวจรับพัสดุ</div>
-                <Descriptions.Item label='ประธานกรรมการ'>
-                  <input
-                    className='text-input'
-                    name='o_committee4'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='คณะกรรมการ'>
-                  <input
-                    className='text-input'
-                    name='o_committee5'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='คณะกรรมการ'>
-                  <input
-                    className='text-input'
-                    name='o_committee6'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-              </Descriptions>
-              {/* -------------------------------------------------------------------------------------------------------------- */}
-              <br />
-              {/* ---------------------------------------------------- Ch 4 ---------------------------------------------------- */}
-              <Descriptions bordered title='4. แหล่งเงิน' size={size}>
-                <div span={3}>* ข้อมูลที่มีให้ใส่ 0</div>
-                <Descriptions.Item label='เงินอุดหนุนจากรัฐบาล ปี'>
-                  <input
-                    type='number'
-                    className='text-input'
-                    name='o_gvm_sub'
-                    defaultValue='0'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='เงินรายได้ ปี'>
-                  <input
-                    type='number'
-                    className='text-input'
-                    name='o_income'
-                    defaultValue='0'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='เงินรายได้สะสม ปี'>
-                  <input
-                    type='number'
-                    className='text-input'
-                    name='o_aml_income'
-                    defaultValue='0'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
+                    ref={register}/>
+      </div>
+      {/* ############################################## Header 3 ##############################################*/}
 
-                <Descriptions.Item label='ทิศทาง'>
-                  <input
-                    className='text-input'
-                    name='o_direction'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item span={2} label='นโยบาย'>
-                  <input
-                    className='text-input'
-                    name='o_policy'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='ผลงาน'>
-                  <input
-                    className='text-input'
-                    name='o_works'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item span={2} label='งาน'>
-                  <input
-                    className='text-input'
-                    name='o_task'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item label='หมวดรายจ่าย'>
-                  <input
-                    className='text-input'
-                    name='o_expense_cg'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item span={2} label='หมวดย่อย'>
-                  <input
-                    className='text-input'
-                    name='o_sub_cg'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item span={3} label='ชื่อรายการ'>
-                  <input
-                    className='text-input'
-                    name='o_list_n'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-                <Descriptions.Item
-                  span={3}
-                  label='เงินอื่นๆโปรดระบุ (ตามที่แนบมาพร้อมนี้) '
-                >
-                  <input
-                    type='number'
-                    className='text-input'
-                    name='o_other_m'
+      {/* -------------------------------- หัวข้อ --------------------------------*/}
+      <div className="sub-title">3.คณะกรรมการ</div>
+      {/* ---------------------------------------------------------------------------*/}
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="red">คณะกรรมการพิจารณาผล</Tag>ประธานกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name='o_committee1'
+                    ref={register}/>
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="red">คณะกรรมการพิจารณาผล</Tag>คณะกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name='o_committee2'
+                    ref={register}/>
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="red">คณะกรรมการพิจารณาผล</Tag>คณะกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name='o_committee3'
+                    ref={register}/>
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="purple">คณะกรรมการตรวจรับพัสดุ</Tag>ประธานกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name='o_committee4'
+                    ref={register}/>
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="purple">คณะกรรมการตรวจรับพัสดุ</Tag>คณะกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name='o_committee5'
+                    ref={register}/>
+      </div>
+      {/* -------------------------------- หัวข้อ ย่อย --------------------------------*/}
+      <div className="menu">
+        <Tag color="purple">คณะกรรมการตรวจรับพัสดุ</Tag>คณะกรรมการ
+      </div>
+      {/* -------------------------------- ช่อง Input -------------------------------*/}
+      <div className="sub-menu">
+        <input type="text" name='o_committee6'
+                    ref={register}/>
+      </div>
+      {/* ############################################## Header 4 ##############################################*/}
+
+      {/* -------------------------------- หัวข้อ --------------------------------*/}
+      <div className="sub-title">4.แหล่งเงิน</div>
+
+      <div style={{ overflowX: "auto" }}>
+        <table>
+        <tbody>
+          <tr >
+            <td>เงินอุดหนุนจากรัฐบาล ปี</td>
+            <td>
+              <input type='number' name='o_gvm_sub'
                     defaultValue='0'
-                    ref={register}
-                  ></input>
-                </Descriptions.Item>
-              </Descriptions>
-              <br />
-              {/* -------------------------------------------------------------------------------------------------------------- */}
-              {/* ---------------------------------------------------- button ---------------------------------------------------- */}
-              <div className='center'>
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>เงินรายได้ ปี</td>
+            <td>
+              <input type='number'  name='o_income'
+                    defaultValue='0'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>เงินรายได้สะสม ปี</td>
+            <td>
+              <input type='number'  name='o_aml_income'
+                    defaultValue='0'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>ทิศทาง</td>
+            <td>
+              <input type="text" name='o_direction'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>นโยบาย</td>
+            <td>
+              <input type="text" name='o_policy'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>ผลงาน</td>
+            <td>
+              <input type="text"  name='o_works'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>งาน</td>
+            <td>
+              <input type="text" name='o_task'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>หมวดรายจ่าย</td>
+            <td>
+              <input type="text"  name='o_expense_cg'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>หมวดย่อย</td>
+            <td>
+              <input type="text" name='o_sub_cg'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>ชื่อรายการ</td>
+            <td>
+              <input type="text" name='o_list_n'
+                    ref={register}/>
+            </td>
+          </tr>
+          <tr >
+            <td>เงินอื่นๆโปรดระบุ (ตามที่แนบมาพร้อมนี้)</td>
+            <td>
+              <input type='number'  name='o_other_m'
+                    defaultValue='0'
+                    ref={register}/>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        
+      </div>
+      <div className='center'>
                 <button className='example_c' type='submit'>
                   Submit
                 </button>
                 <button className='example_cancel'>Cancel</button>
               </div>
-            </form>
-            {/* -------------------------------------------------------------------------------------------------------------- */}
-            <br />
-            <br />
-          </div>
-          <Divider
-            orientation='left'
-            style={{ color: '#333', fontWeight: 'normal' }}
-          ></Divider>
-        </div>
-      </Content>
+      </form>
       <BackTop>
         <div style={style}>UP</div>
       </BackTop>
