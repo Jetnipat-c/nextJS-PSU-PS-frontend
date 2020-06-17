@@ -180,6 +180,7 @@ const Form001_page2Content = (props) => {
           <form onSubmit={handleSubmit(onSubmit)}>
           <div style={{ overflowX: "auto" }}>
         <table>
+        <tbody>
           <tr>
             <th>ลำดับ</th>
             <th>รายการ</th>
@@ -263,21 +264,8 @@ const Form001_page2Content = (props) => {
               <input ref={register} type="text" name="l_priceunit_1"></input>
             </td>
           </tr>
-          <tr>
-            <td>5</td>
-            <td>
-              <input ref={register} type="text" name="l_detail_5"></input>
-            </td>
-            <td>
-              <input ref={register} type="text" name="l_amount_5"></input>
-            </td>
-            <td>
-              <input ref={register} type="text" name="l_unit_5"></input>
-            </td>
-            <td>
-              <input ref={register} type="text" name="l_priceunit_1"></input>
-            </td>
-          </tr>
+
+          </tbody>
         </table>
       </div>
       <div className="center">
