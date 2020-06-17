@@ -89,6 +89,7 @@ const StyledWrapper = styled.div`
     align-content: center;
     width: 100%;
     justify-content: space-around;
+    margin-top: 15px;
   }
   .example_c {
     text-align: center;

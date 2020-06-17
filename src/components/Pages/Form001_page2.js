@@ -22,17 +22,6 @@ const { Header, Content, Sider, Footer } = Layout;
 
 import styled from "styled-components";
 const StyledWrapper = styled.div`
-  #components-layout-demo-top-side-2 .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 28px 16px 0;
-    float: left;
-  }
-
-  .site-layout-background {
-    background: #fff;
-  }
 
   .center {
     display: flex;
@@ -77,29 +66,35 @@ const StyledWrapper = styled.div`
     border-color: #f1948a !important;
     transition: all 0.4s ease 0s;
   }
+  @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&display=swap");
+  font-family: "Baloo Bhaina 2", cursive;
+  max-width: 960px;
+  margin: 0 auto;
   table {
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
   }
-  /* Zebra striping */
-  tr:nth-of-type(odd) {
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+    font-size: 15px;
   }
-  th {
-    background: #333;
-    color: white;
-    font-weight: bold;
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
   }
-  td,
-  th {
-    padding: 15px 6px 6px 6px;
-    /* border: 1px solid #ccc;  */
-    text-align: center;
-  }
-  .ant-input{
-    text-align: center;
-  }
+
   input {
-    text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+    width: 100%;
+    /*background-color:#f0f2f5;*/
+  }
+
+  input:focus {
+    outline: none;
   }
 `;
 const style = {
@@ -180,133 +175,118 @@ const Form001_page2Content = (props) => {
         <Breadcrumb.Item>แบบฟอร์ม</Breadcrumb.Item>
         <Breadcrumb.Item>เพิ่มคำสั่งซื้อพัสดุแบบปกติ 001</Breadcrumb.Item>
       </Breadcrumb>
-      <Content
-        className="site-layout-background"
-        style={{
-          padding: 24,
-          margin: 0,
-          minHeight: 280,
-        }}
-      >
-        <div className="site-layout-content">
-          <Divider
-            orientation="left"
-            style={{ color: "#333", fontWeight: "normal" }}
-          >
-            แบบขอจัดหาพัสดุของสำนักงานอธิการบดีวิทยาเขตภูเก็ต
-            กรณีวงเงินครั้งหนึ่งไม่เกิน 5 แสนบาท ที่มิใช่ก่อสร้าง
-          </Divider>
+
+
           <form onSubmit={handleSubmit(onSubmit)}>
-            <table>
-            <thead>
-              <tr>
-                <th>ลำดับ</th>
-                <th>รายการ</th>
-                <th>จำนวน</th>
-                <th>หน่วย</th>
-                <th>ราคา/หน่วย</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style={{ width: "20px" }}>
-                <input
-                    name='sid'
-                    value={username}
-                    disabled={true}
-                    type="hidden"
-                    ref={register}
-                  ></input>
-                   <input
-                    name='order_id'
-                    value={order_id}
-                    disabled={true}
-                    type="hidden"
-                    ref={register}
-                  ></input>
-                  <input ref={register}  disabled={true} value='1'/>
-                </td>
-                <td style={{ width: "300px" }}>
-                  <input ref={register} name='l_detail_1'/>
-                </td>
-                <td style={{ width: "100px" }}>
-                  <input ref={register} name='l_amount_1'/>
-                </td>
-                <td style={{ width: "100px" }}>
-                  <input ref={register} name='l_unit_1'/>
-                </td>
-                <td style={{ width: "100px" }}>
-                  <input ref={register} name='l_priceunit_1'/>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input ref={register} disabled={true} value='2'/>
-                </td>
-                <td>
-                  <input ref={register} name='l_detail_2'/>
-                </td>
-                <td>
-                  <input ref={register} name='l_amount_2'/>
-                </td>
-                <td>
-                  <input ref={register} name='l_unit_2'/>
-                </td>
-                <td>
-                  <input ref={register} name='l_priceunit_2'/>
-                </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td style={{ width: "20px" }}>
-                  <input ref={register} disabled={true} value='3'/>
-                </td>
-                <td style={{ width: "300px" }}>
-                  <input ref={register} name='l_detail_3'/>
-                </td>
-                <td style={{ width: "100px" }}>
-                  <input ref={register} name='l_amount_3'/>
-                </td>
-                <td style={{ width: "100px" }}>
-                  <input ref={register} name='l_unit_3'/>
-                </td>
-                <td style={{ width: "100px" }}>
-                  <input ref={register} name='l_priceunit_3'/>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input ref={register} disabled={true} value='4'/>
-                </td>
-                <td>
-                  <input ref={register} name='l_detail_4'/>
-                </td>
-                <td>
-                  <input ref={register} name='l_amount_4'/>
-                </td>
-                <td>
-                  <input ref={register} name='l_unit_4'/>
-                </td>
-                <td>
-                  <input ref={register} name='l_priceunit_4'/>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="center">
+          <div style={{ overflowX: "auto" }}>
+        <table>
+          <tr>
+            <th>ลำดับ</th>
+            <th>รายการ</th>
+            <th>จำนวน</th>
+            <th>หน่วย</th>
+            <th>ราคา/หน่วย</th>
+          </tr>
+          <tr>
+            <td>
+              1
+              <input
+                name="sid"
+                value={username}
+                disabled={true}
+                type="hidden"
+                ref={register}
+              ></input>
+              <input
+                name="order_id"
+                value={order_id}
+                disabled={true}
+                type="hidden"
+                ref={register}
+              ></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_detail_1"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_amount_1"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_unit_1"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_priceunit_1"></input>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              <input ref={register} type="text" name="l_detail_2"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_amount_2"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_unit_2"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_priceunit_1"></input>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              <input ref={register} type="text" name="l_detail_3"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_amount_3"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_unit_3"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_priceunit_1"></input>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              <input ref={register} type="text" name="l_detail_4"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_amount_4"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_unit_4"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_priceunit_1"></input>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>
+              <input ref={register} type="text" name="l_detail_5"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_amount_5"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_unit_5"></input>
+            </td>
+            <td>
+              <input ref={register} type="text" name="l_priceunit_1"></input>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div className="center">
             <button className="example_c" type="submit">
               Submit
             </button>
             <button className="example_cancel">Cancel</button>
           </div>
           </form>
-          <Divider
-            orientation="left"
-            style={{ color: "#333", fontWeight: "normal" }}
-          ></Divider>
-        </div>
-      </Content>
       <BackTop>
         <div style={style}>UP</div>
       </BackTop>
