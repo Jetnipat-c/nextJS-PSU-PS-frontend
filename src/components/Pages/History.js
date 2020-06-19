@@ -21,6 +21,10 @@ const { SubMenu } = Menu
 const { Header, Content, Sider, Footer } = Layout
 import styled from 'styled-components'
 const StyledWrapper = styled.div`
+
+max-width: 960px;
+  margin: 0 auto;
+  background-color:#f0f2f5;
   .site-page-header-ghost-wrapper {
     background-color: #f5f5f5;
     padding: 10px;

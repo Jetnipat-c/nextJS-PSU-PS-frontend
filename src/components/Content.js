@@ -5,6 +5,9 @@ const { Header, Content, Sider, Footer } = Layout
 
 import styled from 'styled-components'
 const StyledWrapper = styled.div`
+max-width: 960px;
+  margin: 0 auto;
+  background-color:#f0f2f5;
   .text-content {
     margin-left: 15px;
   }

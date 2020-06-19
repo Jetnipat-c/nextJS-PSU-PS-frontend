@@ -8,6 +8,9 @@ const { Header, Content, Sider, Footer } = Layout;
 import styled from "styled-components";
 import { ProfilesAction } from "../../redux/profile/actions";
 const StyledWrapper = styled.div`
+max-width: 960px;
+  margin: 0 auto;
+  background-color:#f0f2f5;
   #components-layout-demo-top-side-2 .logo {
     width: 120px;
     height: 31px;
@@ -78,12 +81,7 @@ const ProfileContent = (props) => {
             </Breadcrumb>
 
               <div className="site-layout-content">
-                <Divider
-                  orientation="left"
-                  style={{ color: "#333", fontWeight: "normal" }}
-                >
-                  ข้อมูลส่วนตัว
-                </Divider>
+              
                 <div className='container'>
 
                   <br />
