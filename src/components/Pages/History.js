@@ -27,17 +27,10 @@ const StyledWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   background-color: #f0f2f5;
-  .ant-btn-three {
-    background-color: #58d68d;
-    color: white;
-  }
-  .ant-btn-sec {
-    background-color: #ffa500;
-    color: white;
-  }
-  .ant-btn-one {
-    background-color: #d8bfd8;
-    color: white;
+  @media only screen and (max-width: 320px){
+    .ant-table-cell{
+      background-color: red;
+    }
   }
 `;
 const style = {
@@ -53,23 +46,12 @@ const style = {
 
 const HistoryContent = (props) => {
   const [history, setHistoty] = useState([]);
-  const [checkEmpty, setcCheckEmpty] = useState(false);
   const getForm001Bysid = async () => {
     var found = await axios.get(
       `http://localhost:3001/form001/${sessionStorage.getItem("username")}`
     );
-    console.log("found = ", found.data);
-    setHistoty(JSON.parse(JSON.stringify(found.data)));
-    console.log("found length", found.data.length);
-    if (found.data.length === 0) {
-      setcCheckEmpty(true);
-    }
-  };
-
-  const [size, setSize] = useState("default");
-  const cssonChange = (e) => {
-    console.log("size checked", e.target.value);
-    setSize(e.target.value);
+    //console.log("found = ", found.data);
+    setHistoty(found.data);
   };
   useEffect(() => {
     getForm001Bysid();
@@ -78,34 +60,10 @@ const HistoryContent = (props) => {
     var found = await axios.delete(`http://localhost:3001/form001/${order_id}`);
     Router.reload();
   };
-  const edithistory = async (order_id) => {
-    Router.push({
-      pathname: "/editform001page",
-      query: { order_id: order_id },
-    });
-  };
-  const genpdf = async (order_id) => {
-    Router.push({
-      pathname: "/genpdfpage",
-      query: { order_id: order_id },
-    });
-  };
-  const view = async (order_id) => {
-    Router.push({
-      pathname: "/viewform001page",
-      query: { order_id: order_id },
-    });
-  };
-  const [o_typedoc_name, setO_typedoc_name] = useState("");
-  const checkTypedoc = async (o_typedoc) => {
-    var result = await axios.get(`http://localhost:3001/typeform/${o_typedoc}`);
-    console.log("result = ", result.data);
-    setO_typedoc_name(result);
-  };
   const handleMenuClick = (e,order_id) => {
     message.info('Click on menu item.');
-    console.log('click', typeof(e.key));
-    console.log('click order_id', (order_id));
+    //console.log('click', typeof(e.key));
+    //console.log('click order_id', (order_id));
     if (e.key === '1'){
       return Router.push({
         pathname: "/viewform001page",
@@ -120,7 +78,7 @@ const HistoryContent = (props) => {
     }
     
     else if (e.key === '3'){
-      return deletehistory()
+      ()=>deletehistory(order_id)
     }
 
     else {
@@ -134,7 +92,7 @@ const HistoryContent = (props) => {
     return (<div>
       <Menu onClick={(e)=>{handleMenuClick(e,order_id)}}>
         <Menu.Item key="1" defaultValue={order_id} icon={<UserOutlined />}>
-          View {order_id}
+          View
         </Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />}>
           Edit
@@ -158,6 +116,7 @@ const HistoryContent = (props) => {
           {text}</span>
         </>),
         align: "center",
+        responsive: ["md"],
       },
       {
         title: "ผู้บันทึกรายการ",
@@ -211,6 +170,7 @@ const HistoryContent = (props) => {
         align: "center",
       },
     ];
+
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: "16px 0" }}>
