@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Router from "next/router";
+import { Breakpoint } from 'antd/lib/_util/responsiveObserve';
 import {
   Layout,
   Menu,
@@ -25,13 +26,7 @@ const StyledWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   background-color: #f0f2f5;
-  /* @media only screen and (max-width: 320px) {
-    .ant-table-container table > thead > tr:nth-child(2) th:nth-child(2) {
-      border-top-left-radius: 2px;
-      background-color: orange;
-      width: 200px;
-    }
-  } */
+
   .ant-table {
   display: block;
 

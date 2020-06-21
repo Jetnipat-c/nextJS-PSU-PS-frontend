@@ -49,7 +49,6 @@ max-width: 960px;
 const ProfileContent = (props) => {
   const { userinfo, loadProfile } = props;
   console.log(props);
-  const [size, setSize] = useState("default");
   const [info, setinfo] = useState({});
   const getprofiledatabase = async () => {
     const users = await Axios.get(
@@ -63,10 +62,7 @@ const ProfileContent = (props) => {
     loadProfile(users.data);
     //dispatch({type: 'LOAD_PROFILE', payload: users.data})
   };
-  const cssonChange = (e) => {
-    //console.log('size checked', e.target.value)
-    setSize(e.target.value);
-  };
+
   useEffect(() => {
     getprofiledatabase();
   }, []);
@@ -90,20 +86,21 @@ const ProfileContent = (props) => {
                     title=""
                     bordered
                     column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+                   
                   >
-                    <Descriptions.Item label="รหัสนักศึกษา">
+                    <Descriptions.Item label="รหัสนักศึกษา"  span={1}>
                       {data.sid}
                     </Descriptions.Item>
-                    <Descriptions.Item label="ชื่อ">
+                    <Descriptions.Item label="ชื่อ" >
                       {data.firstname}
                     </Descriptions.Item>
-                    <Descriptions.Item label="นามสกุล">
+                    <Descriptions.Item label="นามสกุล" span={2}>
                       {data.lastname}
                     </Descriptions.Item>
-                    <Descriptions.Item label="บัตรประจำตัวประชาชน">
+                    <Descriptions.Item  label="บัตรประจำตัวประชาชน" >
                       {data.cid}
                     </Descriptions.Item>
-                    <Descriptions.Item label="ที่อยู่">
+                    <Descriptions.Item label="ที่อยู่" >
                       99/99 หมู่ 4
                       <br />
                       อำเภอ กะทู้ ตำบล กะทู้
