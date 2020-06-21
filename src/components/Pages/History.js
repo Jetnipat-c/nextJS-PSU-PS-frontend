@@ -108,27 +108,24 @@ const HistoryContent = (props) => {
     console.log('click order_id', (order_id));
     if (e.key === '1'){
       return Router.push({
-        pathname: "/pageview",
+        pathname: "/viewform001page",
         query: { order_id: order_id },
       });}
 
     else if (e.key === '2'){
       return Router.push({
-      pathname: "/pageedit",
+      pathname: "/editform001page",
       query: { order_id: order_id },
     });
     }
     
     else if (e.key === '3'){
-      return Router.push({
-      pathname: "/pageedit",
-      query: { order_id: order_id },
-    });
+      return deletehistory()
     }
 
     else {
       return Router.push({
-        pathname: "/pageedit",
+        pathname: "/genpdfpage",
         query: { order_id: order_id },
       });
     }
