@@ -12,13 +12,13 @@ import {
   BackTop,
   Table,
   Space,
-  Tag,
+  Tag,Dropdown ,message
 } from "antd";
 import {
   SearchOutlined,
   DeleteOutlined,
   EditOutlined,
-  PrinterOutlined,
+  PrinterOutlined,DownOutlined, UserOutlined 
 } from "@ant-design/icons";
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
@@ -102,95 +102,118 @@ const HistoryContent = (props) => {
     console.log("result = ", result.data);
     setO_typedoc_name(result);
   };
-  const columns = [
-    {
-      title: "ใบรายการที่",
-      dataIndex: "order_id",
-      key: "order_id",
-      render: (text) => <a>{text}</a>,
-      align: "center",
-    },
-    {
-      title: "ผู้บันทึกรายการ",
-      dataIndex: "sid",
-      key: "sid",
-      responsive: ["md"],
-      align: "center",
-    },
-    {
-      title: "วันที่บันทึกใบรายการ",
-      dataIndex: "o_date",
-      key: "o_date",
-      responsive: ["lg"],
-      align: "center",
-    },
-    {
-      title: "ชื่อโครงการ",
-      dataIndex: "o_projectname",
-      key: "o_projectname",
-      responsive: ["lg"],
-    },
-    {
-      title: "สถานะ",
-      render: (record) => record.status_id.s_detail_en,
-      responsive: ["lg"],
-      align: "center",
-    },
-    {
-      title: "ประเภทใบรายการ",
-      render: (record) => record.typeform.o_typedoc_name,
-      responsive: ["lg"],
-      align: "center",
-    },
-    {
-      title: "ดำเนินการ",
-      render: (record) => (
-        <Space size="small">
-          <div>
-            <Button
-              key="6"
-              type="sec"
-              style={{ marginLeft: "15px" }}
-              onClick={() => view(record.order_id)}
-              icon={<SearchOutlined />}
-            >
-              View
-            </Button>
-            <Button
-              key="5"
-              type="three"
-              style={{ marginLeft: "15px" }}
-              onClick={() => genpdf(record.order_id)}
-              icon={<PrinterOutlined />}
-            >
-              PDF
-            </Button>
+  const handleMenuClick = (e,order_id) => {
+    message.info('Click on menu item.');
+    console.log('click', typeof(e.key));
+    console.log('click order_id', (order_id));
+    if (e.key === '1'){
+      return Router.push({
+        pathname: "/pageview",
+        query: { order_id: order_id },
+      });}
 
-            <Button
-              key="2"
-              type="danger"
-              style={{ marginLeft: "15px" }}
-              onClick={() => deletehistory(record.order_id)}
-              icon={<DeleteOutlined />}
-            >
-              Delete
-            </Button>
-            <Button
-              key="1"
-              type="primary"
-              style={{ marginLeft: "15px" }}
-              onClick={() => edithistory(record.order_id)}
-              icon={<EditOutlined />}
-            >
-              Edit
-            </Button>
-          </div>
-        </Space>
-      ),
-      responsive: ["md"],
-      align: "center",
-    },
-  ];
+    else if (e.key === '2'){
+      return Router.push({
+      pathname: "/pageedit",
+      query: { order_id: order_id },
+    });
+    }
+    
+    else if (e.key === '3'){
+      return Router.push({
+      pathname: "/pageedit",
+      query: { order_id: order_id },
+    });
+    }
+
+    else {
+      return Router.push({
+        pathname: "/pageedit",
+        query: { order_id: order_id },
+      });
+    }
+  }
+  const menu = (order_id) =>{
+    return (<div>
+      <Menu onClick={(e)=>{handleMenuClick(e,order_id)}}>
+        <Menu.Item key="1" defaultValue={order_id} icon={<UserOutlined />}>
+          View {order_id}
+        </Menu.Item>
+        <Menu.Item key="2" icon={<UserOutlined />}>
+          Edit
+        </Menu.Item>
+        <Menu.Item key="3" icon={<UserOutlined />}>
+          Delete
+        </Menu.Item>
+        <Menu.Item key="4" icon={<UserOutlined />}>
+          PDF
+        </Menu.Item>
+      </Menu>
+    </div>)
+  }
+    const columns = [
+      {
+        title: "ใบรายการที่",
+        dataIndex: "order_id",
+        key: "order_id",
+        render: (text,record) => (<>
+        <span style={{marginRight:"5px"}}>
+          {text}</span>
+        </>),
+        align: "center",
+      },
+      {
+        title: "ผู้บันทึกรายการ",
+        dataIndex: "sid",
+        key: "sid",
+        responsive: ["md"],
+        align: "center",
+      },
+      {
+        title: "วันที่บันทึกใบรายการ",
+        dataIndex: "o_date",
+        key: "o_date",
+        responsive: ["lg"],
+        align: "center",
+      },
+      {
+        title: "ชื่อโครงการ",
+        dataIndex: "o_projectname",
+        key: "o_projectname",
+        responsive: ["lg"],
+      },
+      {
+        title: "สถานะ",
+        render: (record) => {
+          if(record.status_id.s_detail_en === 'Wait'){
+            return <Tag color="#f50">รอการตรวจสอบ</Tag>
+          }
+          else if (record.status_id.s_detail_en === 'Pass'){
+            return <Tag color="#87d068">ผ่าน</Tag>
+          }
+        },
+        responsive: ["lg"],
+        align: "center",
+      },
+      {
+        title: "ประเภทใบรายการ",
+        render: (record) => record.typeform.o_typedoc_name,
+        responsive: ["lg"],
+        align: "center",
+      },
+      {
+        title: "ดำเนินการ",
+        render: (record) => (
+          <Dropdown overlay={menu(record.order_id)}>
+        <Button>
+          Button <DownOutlined />
+        </Button>
+      </Dropdown>
+        ),
+        responsive: ["md"],
+        align: "center",
+      },
+    ];
   return (
     <StyledWrapper>
       <Breadcrumb style={{ margin: "16px 0" }}>
