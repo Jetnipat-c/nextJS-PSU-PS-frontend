@@ -5,33 +5,70 @@ import {
   Layout,
   Menu,
   Breadcrumb,
-  Descriptions,
-  PageHeader,
   Button,
-  Empty,
   BackTop,
   Table,
-  Space,
-  Tag,Dropdown ,message
+  Tag,
+  Dropdown,
+  message,
 } from "antd";
 import {
   SearchOutlined,
   DeleteOutlined,
   EditOutlined,
-  PrinterOutlined,DownOutlined, UserOutlined 
+  PrinterOutlined,
+  DownOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
-const { SubMenu } = Menu;
-const { Header, Content, Sider, Footer } = Layout;
 import styled from "styled-components";
 const StyledWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   background-color: #f0f2f5;
-  @media only screen and (max-width: 320px){
-    .ant-table-cell{
-      background-color: red;
+  /* @media only screen and (max-width: 320px) {
+    .ant-table-container table > thead > tr:nth-child(2) th:nth-child(2) {
+      border-top-left-radius: 2px;
+      background-color: orange;
+      width: 200px;
+    }
+  } */
+  .ant-table {
+  display: block;
+
+  @media screen and (max-width: 600px) {
+    &-thead {
+      /* display: none; */
+    }
+
+    &-thead>tr,
+    &-tbody>tr {
+
+      th,
+      td {
+        &:first-of-type {
+          padding-top: 1rem;
+        }
+
+        &:last-of-type {
+          padding-bottom: 1rem;
+        }
+      }
+
+      >th,
+      >td {
+        display: block;
+        width: auto !important;
+        border: none;
+        padding: 0 1rem;
+        font-size: 1.1rem;
+        text-align: center;
+        &:last-child {
+          border-bottom: 1px solid #eee;
+        }
+      }
     }
   }
+}
 `;
 const style = {
   height: 40,
@@ -60,117 +97,118 @@ const HistoryContent = (props) => {
     var found = await axios.delete(`http://localhost:3001/form001/${order_id}`);
     Router.reload();
   };
-  const handleMenuClick = async (e,order_id) => {
-    message.info('Click on menu item.');
+  const handleMenuClick = async (e, order_id) => {
+    message.info("Click on menu item.");
     //console.log('click', typeof(e.key));
     //console.log('click order_id', (order_id));
-    if (e.key === '1'){
+    if (e.key === "1") {
       return Router.push({
         pathname: "/viewform001page",
         query: { order_id: order_id },
-      });}
-
-    else if (e.key === '2'){
+      });
+    } else if (e.key === "2") {
       return Router.push({
-      pathname: "/editform001page",
-      query: { order_id: order_id },
-    });
-    }
-    
-    else if (e.key === '3'){
-      const result = await deletehistory(order_id)
+        pathname: "/editform001page",
+        query: { order_id: order_id },
+      });
+    } else if (e.key === "3") {
+      const result = await deletehistory(order_id);
       return result;
-    }
-
-    else {
+    } else {
       return Router.push({
         pathname: "/genpdfpage",
         query: { order_id: order_id },
       });
     }
-  }
-  const menu = (order_id) =>{
-    return (<div>
-      <Menu onClick={(e)=>{handleMenuClick(e,order_id)}}>
-        <Menu.Item key="1" defaultValue={order_id} icon={<UserOutlined />}>
-          View
-        </Menu.Item>
-        <Menu.Item key="2" icon={<UserOutlined />}>
-          Edit
-        </Menu.Item>
-        <Menu.Item key="3" icon={<UserOutlined />}>
-          Delete
-        </Menu.Item>
-        <Menu.Item key="4" icon={<UserOutlined />}>
-          PDF
-        </Menu.Item>
-      </Menu>
-    </div>)
-  }
-    const columns = [
-      {
-        title: "ใบรายการที่",
-        dataIndex: "order_id",
-        key: "order_id",
-        render: (text,record) => (<>
-        <span style={{marginRight:"5px"}}>
-          {text}</span>
-        </>),
-        align: "center",
-        responsive: ["md"],
+  };
+  const menu = (order_id) => {
+    return (
+      <div>
+        <Menu
+          onClick={(e) => {
+            handleMenuClick(e, order_id);
+          }}
+        >
+          <Menu.Item key="1" defaultValue={order_id} icon={<UserOutlined />}>
+            View
+          </Menu.Item>
+          <Menu.Item key="2" icon={<UserOutlined />}>
+            Edit
+          </Menu.Item>
+          <Menu.Item key="3" icon={<UserOutlined />}>
+            Delete
+          </Menu.Item>
+          <Menu.Item key="4" icon={<UserOutlined />}>
+            PDF
+          </Menu.Item>
+        </Menu>
+      </div>
+    );
+  };
+  const columns = [
+    {
+      title: "ใบรายการที่",
+      dataIndex: "order_id",
+      key: "order_id",
+      render: (text, record) => (
+        <>
+          <span style={{ marginRight: "5px" }}>{text}</span>
+        </>
+      ),
+      align: "center",
+      responsive: ["md"],
+    },
+    {
+      title: "ผู้บันทึกรายการ",
+      dataIndex: "sid",
+      key: "sid",
+      responsive: ["md"],
+      align: "center",
+    },
+    {
+      title: "วันที่บันทึกใบรายการ",
+      dataIndex: "o_date",
+      key: "o_date",
+      responsive: ["lg"],
+      align: "center",
+    },
+    {
+      title: "ชื่อโครงการ",
+      dataIndex: "o_projectname",
+      key: "o_projectname",
+      responsive: ["lg"],
+    },
+    {
+      title: "สถานะ",
+      render: (record) => {
+        if (record.status_id.s_detail_en === "Wait") {
+          return <Tag color="#f50">รอการตรวจสอบ</Tag>;
+        } else if (record.status_id.s_detail_en === "Pass") {
+          return <Tag color="#87d068">ผ่าน</Tag>;
+        }
       },
-      {
-        title: "ผู้บันทึกรายการ",
-        dataIndex: "sid",
-        key: "sid",
-        responsive: ["md"],
-        align: "center",
-      },
-      {
-        title: "วันที่บันทึกใบรายการ",
-        dataIndex: "o_date",
-        key: "o_date",
-        responsive: ["lg"],
-        align: "center",
-      },
-      {
-        title: "ชื่อโครงการ",
-        dataIndex: "o_projectname",
-        key: "o_projectname",
-        responsive: ["lg"],
-      },
-      {
-        title: "สถานะ",
-        render: (record) => {
-          if(record.status_id.s_detail_en === 'Wait'){
-            return <Tag color="#f50">รอการตรวจสอบ</Tag>
-          }
-          else if (record.status_id.s_detail_en === 'Pass'){
-            return <Tag color="#87d068">ผ่าน</Tag>
-          }
-        },
-        responsive: ["lg"],
-        align: "center",
-      },
-      {
-        title: "ประเภทใบรายการ",
-        render: (record) => record.typeform.o_typedoc_name,
-        responsive: ["lg"],
-        align: "center",
-      },
-      {
-        title: "ดำเนินการ",
-        render: (record) => (
-          <Dropdown overlay={menu(record.order_id)}>
-        <Button>
-          Button <DownOutlined />
-        </Button>
-      </Dropdown>
-        ),
-        responsive: ["md"],
-        align: "center",
-      },
-    ];
+      responsive: ["lg"],
+      align: "center",
+    },
+    {
+      title: "ประเภทใบรายการ",
+      render: (record) => record.typeform.o_typedoc_name,
+      responsive: ["lg"],
+      align: "center",
+    },
+    {
+      title: "ดำเนินการ",
+      render: (record) => (
+        <Dropdown overlay={menu(record.order_id)}>
+          <Button>
+            Button <DownOutlined />
+          </Button>
+        </Dropdown>
+      ),
+      responsive: ["md"],
+      align: "center",
+    },
+  ];
 
   return (
     <StyledWrapper>
