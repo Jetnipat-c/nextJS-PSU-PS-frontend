@@ -60,7 +60,7 @@ const HistoryContent = (props) => {
     var found = await axios.delete(`http://localhost:3001/form001/${order_id}`);
     Router.reload();
   };
-  const handleMenuClick = (e,order_id) => {
+  const handleMenuClick = async (e,order_id) => {
     message.info('Click on menu item.');
     //console.log('click', typeof(e.key));
     //console.log('click order_id', (order_id));
@@ -78,7 +78,8 @@ const HistoryContent = (props) => {
     }
     
     else if (e.key === '3'){
-      ()=>deletehistory(order_id)
+      const result = await deletehistory(order_id)
+      return result;
     }
 
     else {
