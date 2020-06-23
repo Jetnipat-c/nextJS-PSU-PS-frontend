@@ -29,6 +29,9 @@ const SiderComponent = props => {
   const gotoPageForm001 = e => {
     Router.push('/Form001page')
   }
+  const gotoPageForm002 = e => {
+    Router.push('/Form002page')
+  }
   const gotoPageProfile = e => {
     Router.push('/formprofilepage')
   }
@@ -53,9 +56,12 @@ const SiderComponent = props => {
         <Menu mode='inline' style={{ height: '100%', borderRight: 0 }}>
           <SubMenu key='sub1' icon={<EditOutlined />} title='แบบฟอร์ม'>
             <Menu.Item key='1'>
-              <a onClick={gotoPageForm001}>เพิ่มคำสั่งซื้อพัสดุแบบปกติ 001</a>
+              <a onClick={gotoPageForm001}>คำสั่งซื้อพัสดุแบบปกติ 001</a>
             </Menu.Item>
-            <Menu.Item key='2'>เพิ่มคำสั่งซื้อพัสดุแบบเร่งด่วน 002</Menu.Item>
+            <Menu.Item key='2'>เพิ่มคำสั่งซื้อพัสดุแบบเร่งด่วน 002
+            <a onClick={gotoPageForm002}>คำสั่งซื้อพัสดุแบบเร่งด่วน 002</a>
+            </Menu.Item>
+            
           </SubMenu>
           <SubMenu
             key='sub2'
