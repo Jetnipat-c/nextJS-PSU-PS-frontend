@@ -6,9 +6,12 @@ const WithAuth = (props) => {
     const WithAuthComponent = props.component;
 
     const [token, setToken] = useState(null);
-
+    const [sid, setSid] = useState('')
+    //console.log('sid ',sid)
     const checktoken = async => {
          setToken(sessionStorage.getItem('token'))
+         setSid(sessionStorage.getItem('username'))
+         
     }
      useEffect( () => {
         checktoken()
